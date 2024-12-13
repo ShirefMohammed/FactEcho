@@ -1,0 +1,41 @@
+## **Finished**
+
+Review and upgrade SWOT, Business Model
+
+Use https://www.ajnet.me/ and https://www.bbc.com/arabic As Example to collect requirements
+
+Choose my project technologies
+
+Choose Deployment
+
+Collect my project futures
+
+Make UI.Snapshots
+
+Make my project Use Case
+
+Make Initial ERD
+
+Make Initial DB Tables
+
+Make Initial APIs
+
+Review ERD.md
+
+Make Initial Activity Diagram
+
+Make a plan of required topics to study while building the app with predicted time
+
+Review JS, TS, Node, Mongodb, PostgreSQL with Node, Jest, CLI, Git and GitHub
+
+Start building server
+
+Remember:
+  - Functions documents
+  - Functions Tests
+  - Use OOP approach for entities
+
+Complete system analysis and design by Dr.Mohamed El Desouki playlist
+
+## **In Progress**
+

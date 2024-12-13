@@ -1,0 +1,64 @@
+Table users {
+  user_id UUID [pk]
+  name TEXT
+  email TEXT [unique]
+  password TEXT [not null]
+  is_verified BOOLEAN [not null, default: false]
+  role INTEGER [not null, default: 2001]
+  created_at TIMESTAMP [not null]
+  updated_at TIMESTAMP [not null]
+}
+
+Table users_oauth {
+  user_id UUID [pk, ref: > users.user_id]
+  provider TEXT [not null]
+  provider_user_id TEXT [not null]
+}
+
+Table users_verification_tokens {
+  user_id UUID [pk, ref: > users.user_id]
+  verification_token TEXT [not null]
+}
+
+Table users_reset_password_tokens {
+  user_id UUID [pk, ref: > users.user_id]
+  reset_password_token TEXT [not null]
+}
+
+Table users_avatars {
+  user_id UUID [pk, ref: > users.user_id]
+  avatar TEXT [not null, default: 'defaultAvatar.png']
+}
+
+Table categories {
+  category_id UUID [pk]
+  title TEXT [unique, not null]
+  created_at TIMESTAMP [not null]
+  updated_at TIMESTAMP [not null]
+  creator_id UUID [not null, ref: > users.user_id]
+}
+
+Table articles {
+  article_id UUID [pk]
+  title TEXT [unique, not null]
+  content TEXT [not null]
+  image TEXT [default: 'defaultArticleImage.png']
+  views integer [not null, default: 0]
+  created_at TIMESTAMP [not null]
+  updated_at TIMESTAMP [not null]
+  category_id UUID [not null, ref: > categories.category_id]
+  creator_id UUID [not null, ref: > users.user_id]
+}
+
+Table users_saved_articles {
+  user_id UUID [ref: > users.user_id]
+  article_id UUID [ref: > articles.article_id]
+  primary key (user_id, article_id)
+}
+
+Table author_permission {
+  user_id UUID [pk, not null, ref: > users.user_id]
+  create BOOLEAN [not null, default: true]
+  update BOOLEAN [not null, default: true]
+  delete BOOLEAN [not null, default: true]
+}

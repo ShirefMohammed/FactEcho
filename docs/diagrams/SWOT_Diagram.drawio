@@ -1,0 +1,46 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36" version="24.8.3">
+  <diagram name="Page-1" id="dcd51bef-b1ea-ef12-32ad-38762bd93e04">
+    <mxGraphModel dx="1120" dy="460" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="1900" background="none" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="74ca0161bbc57d0f-21" value="T" style="html=1;shadow=0;dashed=0;align=center;verticalAlign=middle;shape=mxgraph.arrows2.arrow;dy=0.44;dx=70.43;direction=south;notch=0;rounded=0;comic=0;strokeColor=#b85450;fillColor=#f8cecc;fontFamily=Verdana;fontSize=68;fontColor=#FFFFFF;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="410" y="1402" width="180" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="74ca0161bbc57d0f-22" value="" style="whiteSpace=wrap;html=1;rounded=0;shadow=1;dashed=0;comic=0;strokeColor=#b85450;fillColor=#f8cecc;fontFamily=Verdana;fontSize=15;fontColor=#000000;align=left;" parent="1" vertex="1">
+          <mxGeometry x="40" y="1582" width="920" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="74ca0161bbc57d0f-23" value="&lt;div&gt;&lt;ul style=&quot;line-height: 150%;&quot;&gt;&lt;li&gt;Strict regulations and laws in Egypt may limit what we can do.&lt;/li&gt;&lt;li&gt;Potential taxes could impact our finances.&lt;/li&gt;&lt;li&gt;High competition and limited resources increase the risk of failure.&lt;/li&gt;&lt;li&gt;People may prefer social media news over web platforms.&lt;/li&gt;&lt;li&gt;Economic instability could impact ad revenues and sponsorships, which we’ll need for growth.&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;rounded=0;shadow=1;dashed=0;comic=0;strokeColor=#CCCCCC;fillColor=#ffffff;fontFamily=cascadia code;fontSize=15;fontColor=#000000;align=left;spacing=10;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="40" y="1592" width="920" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="74ca0161bbc57d0f-18" value="O" style="html=1;shadow=0;dashed=0;align=center;verticalAlign=middle;shape=mxgraph.arrows2.arrow;dy=0.44;dx=70.43;direction=south;notch=0;rounded=0;comic=0;strokeColor=#82b366;fillColor=#d5e8d4;fontFamily=Verdana;fontSize=68;fontColor=#FFFFFF;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="415" y="962" width="180" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="74ca0161bbc57d0f-19" value="" style="whiteSpace=wrap;html=1;rounded=0;shadow=1;dashed=0;comic=0;strokeColor=#82b366;fillColor=#d5e8d4;fontFamily=Verdana;fontSize=15;fontColor=#000000;align=left;" parent="1" vertex="1">
+          <mxGeometry x="40" y="1142" width="920" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="74ca0161bbc57d0f-20" value="&lt;div&gt;&lt;ul style=&quot;line-height: 150%;&quot;&gt;&lt;li&gt;We have a good team of writers and marketers to help us grow and produce great content.&lt;/li&gt;&lt;li&gt;More people are reading news on digital devices.&lt;/li&gt;&lt;li&gt;Social media is a low-cost way to market and share our news.&lt;/li&gt;&lt;li&gt;We could partner with other media outlets or influencers to boost our credibility.&lt;/li&gt;&lt;li&gt;We can expand into multimedia, like videos or podcasts, to attract more users.&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;rounded=0;shadow=1;dashed=0;comic=0;strokeColor=#CCCCCC;fillColor=#ffffff;fontFamily=cascadia code;fontSize=15;fontColor=#000000;align=left;spacing=10;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="40" y="1152" width="920" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="74ca0161bbc57d0f-15" value="W" style="html=1;shadow=0;dashed=0;align=center;verticalAlign=middle;shape=mxgraph.arrows2.arrow;dy=0.44;dx=70.43;direction=south;notch=0;rounded=0;comic=0;strokeColor=#6c8ebf;fillColor=#dae8fc;fontFamily=Verdana;fontSize=68;fontColor=#FFFFFF;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="410" y="522" width="180" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="74ca0161bbc57d0f-16" value="" style="whiteSpace=wrap;html=1;rounded=0;shadow=1;dashed=0;comic=0;strokeColor=#6c8ebf;fillColor=#dae8fc;fontFamily=Verdana;fontSize=15;fontColor=#000000;align=left;" parent="1" vertex="1">
+          <mxGeometry x="40" y="702" width="920" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="74ca0161bbc57d0f-1" value="S" style="html=1;shadow=0;dashed=0;align=center;verticalAlign=middle;shape=mxgraph.arrows2.arrow;dy=0.44;dx=70.43;direction=south;notch=0;rounded=0;comic=0;strokeColor=#d6b656;fillColor=#fff2cc;fontFamily=Verdana;fontSize=68;fontColor=#FFFFFF;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="410" y="84" width="180" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="74ca0161bbc57d0f-4" value="" style="whiteSpace=wrap;html=1;rounded=0;shadow=1;dashed=0;comic=0;strokeColor=#d6b656;fillColor=#fff2cc;fontFamily=Verdana;fontSize=15;fontColor=#000000;align=left;" parent="1" vertex="1">
+          <mxGeometry x="40" y="256" width="920" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="74ca0161bbc57d0f-5" value="&lt;ul style=&quot;line-height: 150%;&quot;&gt;&lt;li&gt;&lt;font&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;People want easy-to-access, diverse news in many fields.&lt;/span&gt;&lt;/font&gt;&lt;/li&gt;&lt;li&gt;&lt;font&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;There’s plenty of free news from daily events, saving us money on content creation.&lt;/span&gt;&lt;/font&gt;&lt;/li&gt;&lt;li&gt;&lt;font&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;We have skilled authors to provide high-quality, interesting news.&lt;/span&gt;&lt;/font&gt;&lt;/li&gt;&lt;li&gt;&lt;font&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;Digital marketing can help us reach and engage more people.&lt;br&gt;&lt;/span&gt;&lt;/font&gt;&lt;/li&gt;&lt;/ul&gt;" style="html=1;rounded=0;shadow=1;dashed=0;comic=0;strokeColor=#CCCCCC;fillColor=#ffffff;fontFamily=cascadia code;fontSize=15;fontColor=#000000;align=left;whiteSpace=wrap;spacing=10;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="40" y="266" width="920" height="174" as="geometry" />
+        </mxCell>
+        <mxCell id="74ca0161bbc57d0f-17" value="&lt;ul style=&quot;line-height: 150%;&quot;&gt;&lt;li&gt;&lt;font&gt;As a startup, we have limited resources, which might slow our growth.&lt;/font&gt;&lt;/li&gt;&lt;li&gt;&lt;font&gt;We don’t have a strong brand name yet, which might reduce user trust.&lt;/font&gt;&lt;/li&gt;&lt;li&gt;&lt;font&gt;We face tough competition from established news platforms.&lt;/font&gt;&lt;/li&gt;&lt;li&gt;&lt;font&gt;Financial limits may restrict hiring top writers or tech talent.&lt;/font&gt;&lt;/li&gt;&lt;/ul&gt;" style="whiteSpace=wrap;html=1;rounded=0;shadow=1;dashed=0;comic=0;strokeColor=#CCCCCC;fillColor=#ffffff;fontFamily=cascadia code;fontSize=15;fontColor=#000000;align=left;spacing=10;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="40" y="712" width="920" height="170" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
