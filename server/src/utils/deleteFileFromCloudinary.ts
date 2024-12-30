@@ -9,11 +9,11 @@ export const deleteFileFromCloudinary = async (
   fileUrl: string,
 ): Promise<void> => {
   try {
-    const publicIdWithExtension = extractPublicIdWithExtension(fileUrl);
-    if (!publicIdWithExtension) throw new Error("Invalid file URL");
+    const publicId = extractPublicId(fileUrl);
+    if (!publicId) throw new Error("Invalid file URL");
 
-    const publicIdWithoutExtension = publicIdWithExtension.split(".")[0];
-    await cloudinary.uploader.destroy(publicIdWithoutExtension);
+    // Delete the file from Cloudinary using the extracted public ID
+    await cloudinary.uploader.destroy(publicId);
     console.log("File deleted successfully from Cloudinary");
   } catch (error) {
     console.error("Error deleting file from Cloudinary:", error);
@@ -21,12 +21,12 @@ export const deleteFileFromCloudinary = async (
 };
 
 /**
- * Extracts the public ID (with file extension) from a Cloudinary file URL.
+ * Extracts the public ID from a Cloudinary file URL, including folder structure.
  * @param fileUrl - The full URL of the file in Cloudinary.
- * @returns string | null - The extracted public ID with extension or `null` if not found.
+ * @returns string | null - The extracted public ID with folder structure or `null` if invalid.
  */
-const extractPublicIdWithExtension = (fileUrl: string): string | null => {
-  const regex = /\/([^/]+\.[a-zA-Z0-9]+)$/; // Matches the last part of the URL
+const extractPublicId = (fileUrl: string): string | null => {
+  const regex = /\/v\d+\/(.*)\.[a-zA-Z0-9]+$/; // Matches the part after `/v<version>/` and before the file extension
   const match = fileUrl.match(regex);
   return match ? match[1] : null;
 };

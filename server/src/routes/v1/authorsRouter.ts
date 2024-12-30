@@ -391,7 +391,7 @@ router
  * /authors/{authorId}/articles:
  *   get:
  *     summary: Retrieve articles by a specific author.
- *     description: Fetches articles by a specific author. Accessible for all.
+ *     description: Fetches a paginated list of articles by a specific author. Accessible for all.
  *     tags: [Authors_V1]
  *     parameters:
  *       - name: authorId
@@ -410,18 +410,18 @@ router
  *           example: "new"
  *       - name: limit
  *         in: query
- *         description: Number of articles per page.
+ *         description: Number of articles to retrieve per page.
  *         required: false
  *         schema:
  *           type: integer
  *           example: 10
- *       - name: skip
+ *       - name: page
  *         in: query
- *         description: Number of articles to skip for pagination.
+ *         description: Page number for pagination.
  *         required: false
  *         schema:
  *           type: integer
- *           example: 0
+ *           example: 1
  *     responses:
  *       200:
  *         description: Articles retrieved successfully.
@@ -456,7 +456,7 @@ router
  *                   example: "FAIL"
  *                 message:
  *                   type: string
- *                   example: "Invalid query parameters. Limit must be positive and skip must be non-negative."
+ *                   example: "Invalid pagination parameters. Limit and page must be positive integers."
  *       500:
  *         description: Internal server error.
  *         content:

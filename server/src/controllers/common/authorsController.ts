@@ -5,14 +5,14 @@ import {
   GetAuthorResponse,
   GetAuthorsRequest,
   GetAuthorsResponse,
-  GetTotalAuthorsRequest,
-  GetTotalAuthorsResponse,
+  GetTotalAuthorsCountRequest,
+  GetTotalAuthorsCountResponse,
   SearchAuthorsRequest,
   SearchAuthorsResponse,
   UpdateAuthorPermissionsRequest,
   UpdateAuthorPermissionsResponse,
 } from "@shared/types/apiTypes";
-import { IAuthor } from "@shared/types/entitiesTypes";
+import { IArticle, IAuthor } from "@shared/types/entitiesTypes";
 
 import { getServiceLogger } from "../../config/logger";
 import { articlesModel, authorsModel } from "../../database";
@@ -129,8 +129,8 @@ export const searchAuthors: ExtendedRequestHandler<
  * @param next - Express next function to handle errors.
  */
 export const getTotalAuthorsCount: ExtendedRequestHandler<
-  GetTotalAuthorsRequest,
-  GetTotalAuthorsResponse
+  GetTotalAuthorsCountRequest,
+  GetTotalAuthorsCountResponse
 > = async (_req, res, next) => {
   try {
     const totalAuthorsCount: number = await authorsModel.getAuthorsCount();
@@ -233,11 +233,11 @@ export const updateAuthorPermissions: ExtendedRequestHandler<
 };
 
 /**
- * Retrieves articles by a specific author.
- * Accepts optional query parameters for sorting, limit, and skip.
+ * Retrieves a paginated list of articles for a specific author.
+ * Accepts optional query parameters for sorting, pagination (limit and page).
  * Responds with the list of articles or an appropriate error message.
  *
- * @param req - Express request object containing `authorId` in route parameters and optional `order`, `limit`, and `skip` query parameters.
+ * @param req - Express request object containing `authorId` in params and optional `order`, `limit`, and `page` query parameters.
  * @param res - Express response object used to send statusText, message, and data.
  * @param next - Express next function to handle errors.
  */
@@ -246,32 +246,31 @@ export const getAuthorArticles: ExtendedRequestHandler<
   GetAuthorArticlesResponse
 > = async (req, res, next) => {
   try {
-    // Extract authorId from request parameters
-    const { authorId } = req.params;
-
-    // Parse sorting, limit, and skip parameters with defaults
+    // Parse sorting and pagination parameters with defaults
     const order = req.query.order === "old" ? 1 : -1;
     const limit: number = req.query?.limit ? Number(req.query.limit) : 10;
-    const skip: number = req.query?.skip ? Number(req.query.skip) : 0;
+    const page: number = req.query?.page ? Number(req.query.page) : 1;
 
-    // Ensure valid limit and skip values
-    if (limit <= 0 || skip < 0) {
+    // Ensure valid pagination values
+    if (limit <= 0 || page <= 0) {
       return res.status(400).send({
         statusText: httpStatusText.FAIL,
         message:
-          "Invalid query parameters. Limit must be positive and skip must be non-negative.",
+          "Invalid pagination parameters. Limit and page must be positive integers.",
       });
     }
 
-    // Fetch articles by the author
-    const articles = await articlesModel.getCreatedArticles(
-      authorId,
+    const skip: number = (page - 1) * limit;
+
+    // Fetch paginated articles for the author
+    const articles: IArticle[] = await articlesModel.getCreatedArticles(
+      req.params.authorId,
       order,
       limit,
       skip,
     );
 
-    // Send response with the list of articles
+    // Send response with articles
     res.status(200).send({
       statusText: httpStatusText.SUCCESS,
       message: "Author's articles retrieved successfully.",

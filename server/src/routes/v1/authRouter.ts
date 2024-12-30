@@ -742,43 +742,14 @@ router.route("/login/google").get(loginWithGoogle);
  *     description: Handles the response after user completes Google OAuth, checks if user exists, creates a new user if needed, and generates JWT tokens.
  *     tags: [Auth_V1]
  *     responses:
- *       200:
- *         description: Successfully logged in with Google.
- *         content:
- *           application/json:
+ *       302:
+ *         description: Server redirects after successful Google login.
+ *         headers:
+ *           Location:
+ *             description: The URL to redirect the client after successful login.
  *             schema:
- *               type: object
- *               properties:
- *                 statusText:
- *                   type: string
- *                   example: "SUCCESS"
- *                 message:
- *                   type: string
- *                   example: "Google login succeeded."
- *                 data:
- *                   type: object
- *                   properties:
- *                     user:
- *                       type: object
- *                       properties:
- *                         user_id:
- *                           type: string
- *                           example: "123e4567-e89b-12d3-a456-426614174000"
- *                         name:
- *                           type: string
- *                           example: "Shiref_Mohammed"
- *                         email:
- *                           type: string
- *                           example: "shirefmo012345@gmail.com"
- *                         role:
- *                           type: number
- *                           example: 2001
- *                         avatar:
- *                           type: string
- *                           example: "https://example.com/avatar.jpg"
- *                     accessToken:
- *                       type: string
- *                       example: "eyJhbGciOiJIUzI1NiIsInR5cCI6Ikp..."
+ *               type: string
+ *               example: "https://your-client-url.com/auth/oauth-success"
  *       400:
  *         description: Missing required fields (name, email, provider, provider_user_id).
  *         content:
@@ -879,43 +850,14 @@ router.route("/login/facebook").get(loginWithFacebook);
  *     description: Handles the response after user completes Facebook OAuth, checks if user exists, creates a new user if needed, and generates JWT tokens.
  *     tags: [Auth_V1]
  *     responses:
- *       200:
- *         description: Successfully logged in with Facebook.
- *         content:
- *           application/json:
+ *       302:
+ *         description: Server redirects after successful Google login.
+ *         headers:
+ *           Location:
+ *             description: The URL to redirect the client after successful login.
  *             schema:
- *               type: object
- *               properties:
- *                 statusText:
- *                   type: string
- *                   example: "SUCCESS"
- *                 message:
- *                   type: string
- *                   example: "Facebook login succeeded."
- *                 data:
- *                   type: object
- *                   properties:
- *                     user:
- *                       type: object
- *                       properties:
- *                         user_id:
- *                           type: string
- *                           example: "123e4567-e89b-12d3-a456-426614174000"
- *                         name:
- *                           type: string
- *                           example: "Shiref_Mohammed"
- *                         email:
- *                           type: string
- *                           example: "shirefmo012345@gmail.com"
- *                         role:
- *                           type: number
- *                           example: 2001
- *                         avatar:
- *                           type: string
- *                           example: "https://example.com/avatar.jpg"
- *                     accessToken:
- *                       type: string
- *                       example: "eyJhbGciOiJIUzI1NiIsInR5cCI6Ikp..."
+ *               type: string
+ *               example: "https://your-client-url.com/auth/oauth-success"
  *       400:
  *         description: Missing required fields (name, provider, provider_user_id).
  *         content:

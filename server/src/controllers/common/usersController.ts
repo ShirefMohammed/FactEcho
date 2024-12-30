@@ -6,8 +6,8 @@ import {
   CleanupUnverifiedUsersResponse,
   DeleteUserRequest,
   DeleteUserResponse,
-  GetTotalUsersRequest,
-  GetTotalUsersResponse,
+  GetTotalUsersCountRequest,
+  GetTotalUsersCountResponse,
   GetUserRequest,
   GetUserResponse,
   GetUsersRequest,
@@ -145,8 +145,8 @@ export const searchUsers: ExtendedRequestHandler<
  * @param next - Express next function to handle errors.
  */
 export const getTotalUsersCount: ExtendedRequestHandler<
-  GetTotalUsersRequest,
-  GetTotalUsersResponse
+  GetTotalUsersCountRequest,
+  GetTotalUsersCountResponse
 > = async (_req, res, next) => {
   try {
     const totalUsersCount: number = await usersModel.getUsersCount();

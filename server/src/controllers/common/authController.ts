@@ -76,7 +76,7 @@ export const register: ExtendedRequestHandler<
     if (!RgxList.NAME_REGEX.test(name)) {
       return res.status(400).send({
         statusText: httpStatusText.FAIL,
-        message: "Invalid name format.",
+        message: "Invalid name format",
       });
     }
 
@@ -84,7 +84,7 @@ export const register: ExtendedRequestHandler<
     if (!RgxList.EMAIL_REGEX.test(email)) {
       return res.status(400).send({
         statusText: httpStatusText.FAIL,
-        message: "Enter a valid email.",
+        message: "Enter a valid email",
       });
     }
 
@@ -92,7 +92,7 @@ export const register: ExtendedRequestHandler<
     if (!RgxList.PASS_REGEX.test(password)) {
       return res.status(400).send({
         statusText: httpStatusText.FAIL,
-        message: "Invalid password format.",
+        message: "Invalid password format",
       });
     }
 
@@ -104,7 +104,7 @@ export const register: ExtendedRequestHandler<
       );
       return res.status(409).send({
         statusText: httpStatusText.FAIL,
-        message: "User with the same email already exists.",
+        message: "User with the same email already exists",
       });
     }
 
@@ -121,7 +121,7 @@ export const register: ExtendedRequestHandler<
     if (!newUser || !newUser.user_id) {
       return res.status(500).send({
         statusText: httpStatusText.ERROR,
-        message: "Failed to retrieve the new user after creation.",
+        message: "Failed to retrieve the new user after creation",
       });
     }
 
@@ -134,7 +134,7 @@ export const register: ExtendedRequestHandler<
     // Success response
     res.status(201).send({
       statusText: httpStatusText.SUCCESS,
-      message: "Registration succeeded. Check email for verification link.",
+      message: "Registration succeeded. Check email for verification link",
     });
   } catch (err) {
     next(err);
@@ -161,17 +161,17 @@ export const login: ExtendedRequestHandler<
     if (!email || !password) {
       return res.status(400).send({
         statusText: httpStatusText.FAIL,
-        message: "All fields are required.",
+        message: "All fields are required",
       });
     }
 
-    // Check if the user exists
+    // Check if the user not found or user registered via OAuth
     const user = await usersModel.findUserByEmail(email);
-    if (!user) {
-      authLogger.warn(`Login: User with email {${email}} not found`);
+    if (!user || (user.provider && user.provider_user_id)) {
+      authLogger.warn(`Login: User account with email {${email}} not found`);
       return res.status(404).send({
         statusText: httpStatusText.FAIL,
-        message: "User not found.",
+        message: "User not found",
       });
     }
 
@@ -181,7 +181,7 @@ export const login: ExtendedRequestHandler<
       authLogger.warn(`Login: Wrong password attempt by {${email}}`);
       return res.status(401).send({
         statusText: httpStatusText.FAIL,
-        message: "Wrong password.",
+        message: "Wrong password",
       });
     }
 
@@ -190,7 +190,7 @@ export const login: ExtendedRequestHandler<
       authLogger.warn(`Login: Unverified account login attempt by {${email}}`);
       return res.status(403).send({
         statusText: httpStatusText.FAIL,
-        message: "Your account is not verified.",
+        message: "Your account is not verified",
       });
     }
 
@@ -223,7 +223,7 @@ export const login: ExtendedRequestHandler<
     // Respond with user data and access token
     res.status(200).send({
       statusText: httpStatusText.SUCCESS,
-      message: "Login succeeded.",
+      message: "Login succeeded",
       data: {
         user: {
           user_id: user.user_id,
@@ -259,7 +259,7 @@ export const refresh: ExtendedRequestHandler<
     if (!refreshTokenCookie) {
       return res.status(401).send({
         statusText: httpStatusText.FAIL,
-        message: "Refresh token jwt is required.",
+        message: "Refresh token jwt is required",
       });
     }
 
@@ -278,7 +278,7 @@ export const refresh: ExtendedRequestHandler<
         if (err) {
           return res.status(401).send({
             statusText: httpStatusText.RefreshTokenExpiredError,
-            message: "Refresh token is forbidden.",
+            message: "Refresh token is forbidden",
           });
         }
 
@@ -288,7 +288,7 @@ export const refresh: ExtendedRequestHandler<
         if (!user) {
           return res.status(404).send({
             statusText: httpStatusText.FAIL,
-            message: "Account is not found.",
+            message: "Account is not found",
           });
         }
 
@@ -318,7 +318,7 @@ export const refresh: ExtendedRequestHandler<
         // Respond with user data and access token
         res.status(200).send({
           statusText: httpStatusText.SUCCESS,
-          message: "Refresh succeeded.",
+          message: "Refresh succeeded",
           data: {
             user: {
               user_id: user.user_id,
@@ -442,7 +442,7 @@ export const verifyAccount: RequestHandler<
       return res
         .status(401)
         .send(
-          "Verification token has been expired. Go to forget password page to generate a new verification token.",
+          "Verification token has been expired. Go to forget password page to generate a new verification token",
         );
     }
   } catch (err) {
@@ -468,13 +468,14 @@ export const forgetPassword: ExtendedRequestHandler<
     if (!email) {
       return res.status(400).send({
         statusText: httpStatusText.FAIL,
-        message: "Email is required.",
+        message: "Email is required",
       });
     }
 
     // Retrieve the user by their email
     const user = await usersModel.findUserByEmail(email, [
       "user_id",
+      "provider",
       "provider_user_id",
     ]);
 
@@ -485,19 +486,19 @@ export const forgetPassword: ExtendedRequestHandler<
       );
       return res.status(404).send({
         statusText: httpStatusText.FAIL,
-        message: "User not found.",
+        message: "User not found",
       });
     }
 
-    // Return 403 if no user from Google OAuth
-    if (user.provider_user_id) {
+    // Return 403 if user registered via OAuth
+    if (user.provider && user.provider_user_id) {
       authLogger.warn(
         `forgetPassword: User with email {${email}} from OAuth forbidden`,
       );
       return res.status(403).send({
         statusText: httpStatusText.FAIL,
         message:
-          "This action is not available for user who registered with OAuth.",
+          "This action is not available for user who registered with OAuth",
       });
     }
 
@@ -514,7 +515,7 @@ export const forgetPassword: ExtendedRequestHandler<
     );
     res.status(200).send({
       statusText: httpStatusText.SUCCESS,
-      message: "Check your email for the reset password link.",
+      message: "Check your email for the reset password link",
     });
   } catch (err) {
     next(err);
@@ -586,7 +587,7 @@ export const sendResetPasswordForm: RequestHandler<
       return res
         .status(401)
         .send(
-          "Reset password token has been expired. Go to forget password page to generate a new reset password token.",
+          "Reset password token has been expired. Go to forget password page to generate a new reset password token",
         );
     }
   } catch (err) {
@@ -651,7 +652,7 @@ export const resetPassword: RequestHandler<
     authLogger.info(
       `resetPassword: Password reset successfully for user {${user.user_id}}`,
     );
-    res.status(200).send("Reset password succeeded, You can login now.");
+    res.status(200).send("Reset password succeeded, You can login now");
   } catch (err) {
     next(err);
   }
@@ -673,7 +674,7 @@ export const loginWithGoogle: ExtendedRequestHandler<
  *
  * This function is triggered after the user completes the OAuth 2.0 login process with Google.
  * It processes the Google response, checks if the user exists, creates a new user if needed,
- * and generates authentication tokens (access and refresh) for the user.
+ * and generates authentication tokens (refresh) for the user.
  *
  * @param req - Express request object that contains the authentication response from Google.
  * @param res - Express response object used to send the response to the client.
@@ -694,7 +695,7 @@ export const loginWithGoogleCallback: ExtendedRequestHandler<
       // If the profile is missing, send a 401 Unauthorized response
       return res.status(401).send({
         statusText: httpStatusText.FAIL,
-        message: "Authentication failed.",
+        message: "Authentication failed",
       });
     }
 
@@ -710,7 +711,7 @@ export const loginWithGoogleCallback: ExtendedRequestHandler<
         return res.status(400).send({
           statusText: httpStatusText.FAIL,
           message:
-            "Missing required fields (name, email, provider, provider_user_id).",
+            "Missing required fields (name, email, provider, provider_user_id)",
         });
       }
 
@@ -732,24 +733,18 @@ export const loginWithGoogleCallback: ExtendedRequestHandler<
         );
 
         // Retrieve the newly created user
-        user = await usersModel.findUserByOAuth(provider, provider_user_id);
+        user = await usersModel.findUserByOAuth(provider, provider_user_id, [
+          "user_id",
+        ]);
         if (!user || !user.user_id) {
           return res.status(500).send({
             statusText: httpStatusText.ERROR,
-            message: "Failed to retrieve the new user after creation.",
+            message: "Failed to retrieve the new user after creation",
           });
         }
       }
 
-      // If the user is an Admin or Author, fetch their avatar
-      const userAvatar = [ROLES_LIST.Admin, ROLES_LIST.Author].includes(
-        user.role,
-      )
-        ? await usersModel.findUserAvatar(user.user_id)
-        : null;
-
-      // Generate JWT access and refresh tokens for the authenticated user
-      const accessToken = generateAccessToken(user.user_id, user.role);
+      // Generate JWT refresh token for the authenticated user
       const refreshToken = generateRefreshToken(user.user_id);
 
       // Clear the existing JWT cookie and set the new refresh token
@@ -766,23 +761,12 @@ export const loginWithGoogleCallback: ExtendedRequestHandler<
         maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
       });
 
-      authLogger.info(`loginWithGoogleCallback: User with email {${email}} logged in via Google.`);
+      authLogger.info(
+        `loginWithGoogleCallback: User with email {${email}} logged in via Google`,
+      );
 
-      // Send a success response with user data and access token
-      res.status(200).send({
-        statusText: httpStatusText.SUCCESS,
-        message: "Google login succeeded.",
-        data: {
-          user: {
-            user_id: user.user_id,
-            name: user.name,
-            email: user.email,
-            role: user.role,
-            avatar: userAvatar,
-          },
-          accessToken,
-        },
-      });
+      // Server redirects after successful login
+      res.redirect(`${process.env.CLIENT_URL}/auth/oauth-success`);
     } catch (error) {
       next(error);
     }
@@ -805,7 +789,7 @@ export const loginWithFacebook: ExtendedRequestHandler<
  *
  * This function is triggered after the user completes the OAuth 2.0 login process with Facebook.
  * It processes the Facebook response, checks if the user exists, creates a new user if needed,
- * and generates authentication tokens (access and refresh) for the user.
+ * and generates authentication tokens (refresh) for the user.
  *
  * @param req - Express request object that contains the authentication response from Facebook.
  * @param res - Express response object used to send the response to the client.
@@ -826,7 +810,7 @@ export const loginWithFacebookCallback: ExtendedRequestHandler<
       // If the public_profile is missing, send a 401 Unauthorized response
       return res.status(401).send({
         statusText: httpStatusText.FAIL,
-        message: "Authentication failed.",
+        message: "Authentication failed",
       });
     }
 
@@ -840,8 +824,7 @@ export const loginWithFacebookCallback: ExtendedRequestHandler<
       if (!name || !provider || !provider_user_id) {
         return res.status(400).send({
           statusText: httpStatusText.FAIL,
-          message:
-            "Missing required fields (name, provider, provider_user_id).",
+          message: "Missing required fields (name, provider, provider_user_id)",
         });
       }
 
@@ -862,24 +845,18 @@ export const loginWithFacebookCallback: ExtendedRequestHandler<
         );
 
         // Retrieve the newly created user
-        user = await usersModel.findUserByOAuth(provider, provider_user_id);
+        user = await usersModel.findUserByOAuth(provider, provider_user_id, [
+          "user_id",
+        ]);
         if (!user || !user.user_id) {
           return res.status(500).send({
             statusText: httpStatusText.ERROR,
-            message: "Failed to retrieve the new user after creation.",
+            message: "Failed to retrieve the new user after creation",
           });
         }
       }
 
-      // If the user is an Admin or Author, fetch their avatar
-      const userAvatar = [ROLES_LIST.Admin, ROLES_LIST.Author].includes(
-        user.role,
-      )
-        ? await usersModel.findUserAvatar(user.user_id)
-        : null;
-
       // Generate JWT access and refresh tokens for the authenticated user
-      const accessToken = generateAccessToken(user.user_id, user.role);
       const refreshToken = generateRefreshToken(user.user_id);
 
       // Clear the existing JWT cookie and set the new refresh token
@@ -897,24 +874,11 @@ export const loginWithFacebookCallback: ExtendedRequestHandler<
       });
 
       authLogger.info(
-        `loginWithFacebookCallback: User with provider_user_id {${provider_user_id}} logged in via Facebook.`,
+        `loginWithFacebookCallback: User with provider_user_id {${provider_user_id}} logged in via Facebook`,
       );
 
-      // Send a success response with user data and access token
-      res.status(200).send({
-        statusText: httpStatusText.SUCCESS,
-        message: "Facebook login succeeded.",
-        data: {
-          user: {
-            user_id: user.user_id,
-            name: user.name,
-            email: user.email,
-            role: user.role,
-            avatar: userAvatar,
-          },
-          accessToken,
-        },
-      });
+      // Server redirects after successful login
+      res.redirect(`${process.env.CLIENT_URL}/auth/oauth-success`);
     } catch (error) {
       next(error);
     }

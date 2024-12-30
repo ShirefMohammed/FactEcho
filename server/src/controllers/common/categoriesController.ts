@@ -10,8 +10,8 @@ import {
   GetCategoryArticlesResponse,
   GetCategoryRequest,
   GetCategoryResponse,
-  GetTotalCategoriesRequest,
-  GetTotalCategoriesResponse,
+  GetTotalCategoriesCountRequest,
+  GetTotalCategoriesCountResponse,
   SearchCategoriesRequest,
   SearchCategoriesResponse,
   UpdateCategoryRequest,
@@ -134,8 +134,8 @@ export const searchCategories: ExtendedRequestHandler<
  * @param next - Express next function to handle errors.
  */
 export const getTotalCategoriesCount: ExtendedRequestHandler<
-  GetTotalCategoriesRequest,
-  GetTotalCategoriesResponse
+  GetTotalCategoriesCountRequest,
+  GetTotalCategoriesCountResponse
 > = async (_req, res, next) => {
   try {
     const totalCategoriesCount: number =

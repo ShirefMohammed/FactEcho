@@ -9,11 +9,14 @@ export const isFileExistsInCloudinary = async (
   fileUrl: string,
 ): Promise<boolean> => {
   try {
-    const publicIdWithExtension = extractPublicIdWithExtension(fileUrl);
-    if (!publicIdWithExtension) return false;
+    const publicId = extractPublicId(fileUrl);
+    if (!publicId) {
+      console.warn(`Invalid or malformed file URL: ${fileUrl}`);
+      return false;
+    }
 
-    const publicIdWithoutExtension = publicIdWithExtension.split(".")[0];
-    await cloudinary.api.resource(publicIdWithoutExtension);
+    // Query Cloudinary for the resource
+    await cloudinary.api.resource(publicId);
 
     return true; // File exists
   } catch (error: any) {
@@ -22,19 +25,22 @@ export const isFileExistsInCloudinary = async (
       return false; // File doesn't exist
     }
 
-    // Log and rethrow other errors to handle unexpected cases
-    console.error("Error checking file existence in Cloudinary:", error);
-    throw error;
+    // Log unexpected errors and rethrow them
+    console.error(
+      "Unexpected error checking file existence in Cloudinary:",
+      JSON.stringify(error, null, 2),
+    );
+    throw new Error("Error from server: " + JSON.stringify(error.error));
   }
 };
 
 /**
- * Extracts the public ID (with file extension) from a Cloudinary file URL.
+ * Extracts the public ID from a Cloudinary file URL, including folder structure.
  * @param fileUrl - The full URL of the file in Cloudinary.
- * @returns string | null - The extracted public ID with extension or `null` if not found.
+ * @returns string | null - The extracted public ID with folder structure or `null` if invalid.
  */
-const extractPublicIdWithExtension = (fileUrl: string): string | null => {
-  const regex = /\/([^/]+\.[a-zA-Z0-9]+)$/; // Matches the last part of the URL
+const extractPublicId = (fileUrl: string): string | null => {
+  const regex = /\/v\d+\/(.*)\.[a-zA-Z0-9]+$/; // Matches the part after `/v<version>/` and before the file extension
   const match = fileUrl.match(regex);
   return match ? match[1] : null;
 };

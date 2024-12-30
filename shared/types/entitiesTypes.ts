@@ -6,11 +6,11 @@ export interface IUser extends IUserOAuth {
   password: string;
   is_verified: boolean;
   role: number; // 2001 or other roles
-  created_at: number; // Timestamp as number (Unix epoch)
-  updated_at: number; // Timestamp as number (Unix epoch)
+  created_at: string;
+  updated_at: string;
 }
 
-export interface IUserOAuth { 
+export interface IUserOAuth {
   user_id: string; // UUID
   provider: string;
   provider_user_id: string;
@@ -39,8 +39,8 @@ export interface IUserAvatar {
 export interface ICategory {
   category_id: string; // UUID
   title: string;
-  created_at: number; // Timestamp as number (Unix epoch)
-  updated_at: number; // Timestamp as number (Unix epoch)
+  created_at: string;
+  updated_at: string;
   creator_id: string | null; // UUID or null if the user is deleted
 }
 
@@ -50,8 +50,8 @@ export interface IArticle {
   content: string;
   image: string; // e.g., "defaultArticleImage.png" or a file path
   views: number; // Default to 0
-  created_at: number; // Timestamp as number (Unix epoch)
-  updated_at: number; // Timestamp as number (Unix epoch)
+  created_at: string;
+  updated_at: string;
   category_id: string | null; // UUID or null if the category is deleted
   creator_id: string | null; // UUID or null if the user is deleted
 }

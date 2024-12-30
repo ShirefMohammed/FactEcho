@@ -14,8 +14,8 @@ import {
   GetLatestArticlesResponse,
   GetSavedArticlesRequest,
   GetSavedArticlesResponse,
-  GetTotalArticlesRequest,
-  GetTotalArticlesResponse,
+  GetTotalArticlesCountRequest,
+  GetTotalArticlesCountResponse,
   GetTrendArticlesRequest,
   GetTrendArticlesResponse,
   IsArticleSavedRequest,
@@ -149,8 +149,8 @@ export const searchArticles: ExtendedRequestHandler<
  * @param next - Express next function to handle errors.
  */
 export const getTotalArticlesCount: ExtendedRequestHandler<
-  GetTotalArticlesRequest,
-  GetTotalArticlesResponse
+  GetTotalArticlesCountRequest,
+  GetTotalArticlesCountResponse
 > = async (_req, res, next) => {
   try {
     const totalArticlesCount: number = await articlesModel.getArticlesCount();
@@ -388,7 +388,7 @@ export const createArticle: ExtendedRequestHandler<
     }
 
     // Verify that the image exists in Cloudinary storage
-    if (!await isFileExistsInCloudinary(image)) {
+    if (!(await isFileExistsInCloudinary(image))) {
       return res.status(400).send({
         statusText: httpStatusText.FAIL,
         message: "Image is not uploaded to the storage.",
@@ -557,7 +557,7 @@ export const updateArticle: ExtendedRequestHandler<
 
     // Validate the image if provided
     if (image) {
-      if (!await isFileExistsInCloudinary(image)) {
+      if (!(await isFileExistsInCloudinary(image))) {
         message +=
           " Image is not updated as it is not uploaded to the storage.";
       } else {
@@ -704,11 +704,11 @@ export const deleteArticle: ExtendedRequestHandler<
 };
 
 /**
- * Retrieves a list of saved articles for a user.
- * Accepts optional query parameters for sorting, limit, and skip.
+ * Retrieves a paginated list of saved articles for a user.
+ * Accepts optional query parameters for sorting, pagination (limit and page).
  * Responds with the list of saved articles or an appropriate error message.
  *
- * @param req - Express request object containing `userId` in params and optional `order`, `limit`, and `skip` query parameters.
+ * @param req - Express request object containing optional `order`, `limit`, and `page` query parameters.
  * @param res - Express response object used to send statusText, message, and data.
  * @param next - Express next function to handle errors.
  */
@@ -717,24 +717,26 @@ export const getSavedArticles: ExtendedRequestHandler<
   GetSavedArticlesResponse
 > = async (req, res, next) => {
   try {
-    // Extract userId from request parameters
+    // Extract userId from res.locals
     const userId = (res.locals.userInfo as AccessTokenUserInfo).user_id;
 
-    // Parse sorting, limit, and skip parameters with defaults
+    // Parse sorting and pagination parameters with defaults
     const order = req.query.order === "old" ? 1 : -1;
     const limit: number = req.query?.limit ? Number(req.query.limit) : 10;
-    const skip: number = req.query?.skip ? Number(req.query.skip) : 0;
+    const page: number = req.query?.page ? Number(req.query.page) : 1;
 
-    // Ensure valid limit and skip values
-    if (limit <= 0 || skip < 0) {
+    // Ensure valid pagination values
+    if (limit <= 0 || page <= 0) {
       return res.status(400).send({
         statusText: httpStatusText.FAIL,
         message:
-          "Invalid query parameters. Limit must be positive and skip must be non-negative.",
+          "Invalid pagination parameters. Limit and page must be positive integers.",
       });
     }
 
-    // Fetch saved articles for the user
+    const skip: number = (page - 1) * limit;
+
+    // Fetch paginated saved articles for the user
     const savedArticles: IArticle[] = await articlesModel.getSavedArticles(
       userId,
       order,
@@ -742,7 +744,7 @@ export const getSavedArticles: ExtendedRequestHandler<
       skip,
     );
 
-    // Send response with the list of saved articles
+    // Send response with saved articles
     res.status(200).send({
       statusText: httpStatusText.SUCCESS,
       message: "Saved articles retrieved successfully.",

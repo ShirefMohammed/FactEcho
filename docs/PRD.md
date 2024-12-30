@@ -94,7 +94,7 @@ FactEcho is a news application that provides users with up-to-date news across v
 - **Analysis and design**: draw.io, docs
 - **Frontend**: HTML, CSS, TypeScript, React.js, Tailwind CSS
 - **Backend**: Node.js, TypeScript, Express.js
-- **Testing**: Jest
+- **Testing**: Jest, Swagger
 - **Database**: PostgreSQL
 - **Media Storage**: Cloudinary
 - **Authentication**: JWT (JSON Web Tokens)
@@ -104,6 +104,8 @@ FactEcho is a news application that provides users with up-to-date news across v
 we'll start with a single web client..
 
 The web client will be implemented in React.js.
+
+I should upgrade React.js client to Next.js to satisfy SEO.
 
 The App will take design like https://www.ajnet.me/ and https://www.bbc.com/arabic.
 

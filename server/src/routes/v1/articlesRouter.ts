@@ -552,7 +552,7 @@ router.route("/latest").get(getLatestArticles);
  * /articles/saved:
  *   get:
  *     summary: Retrieve a user's saved articles.
- *     description: Fetches a list of saved articles for the authenticated user with optional sorting, limit, and skip parameters for pagination.
+ *     description: Fetches a paginated list of saved articles for the authenticated user with optional sorting, limit, and page parameters.
  *     tags: [Articles_V1]
  *     security:
  *       - BearerAuth: []
@@ -567,18 +567,18 @@ router.route("/latest").get(getLatestArticles);
  *           example: "new"
  *       - name: limit
  *         in: query
- *         description: Number of articles to retrieve.
+ *         description: Number of articles to retrieve per page.
  *         required: false
  *         schema:
  *           type: integer
  *           example: 10
- *       - name: skip
+ *       - name: page
  *         in: query
- *         description: Number of articles to skip.
+ *         description: Page number to retrieve.
  *         required: false
  *         schema:
  *           type: integer
- *           example: 0
+ *           example: 1
  *     responses:
  *       200:
  *         description: Saved articles retrieved successfully.
@@ -613,7 +613,7 @@ router.route("/latest").get(getLatestArticles);
  *                   example: "FAIL"
  *                 message:
  *                   type: string
- *                   example: "Invalid query parameters. Limit must be positive and skip must be non-negative."
+ *                   example: "Invalid pagination parameters. Limit and page must be positive integers."
  *       500:
  *         description: Internal server error.
  *         content:

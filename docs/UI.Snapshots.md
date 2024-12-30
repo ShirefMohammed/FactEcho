@@ -15,11 +15,12 @@
   - [Settings](#settings)
 - [Author Profile](#author-profile)
   - [Public Profile](#public-profile)
-  - [Create Article](#create-article)
 - [Articles](#articles)
+  - [Article](#article)
+  - [Create Article](#create-article)
+  - [Update Article](#update-article)
   - [Categories](#categories)
   - [Search](#search)
-  - [Article](#article)
 - [Main](#main)
   - [Home](#home)
   - [Suggested Articles](#suggested-articles)
@@ -75,19 +76,22 @@
 ### Public Profile
 ![Public Profile](./snapshots/Author.Profile.jpg)
 
+## **Articles**
+
+### Article
+![Article](./snapshots/Articles.Article.jpg)
+
 ### Create Article
 ![Create Article](./snapshots/Author.CreateArticle.jpg)
 
-## **Articles**
+### Update Article
+![Update Article](./snapshots/Author.CreateArticle.jpg)
 
 ### Categories
 ![Categories](./snapshots/Articles.Categories.jpg)
 
 ### Search
 ![Search](./snapshots/Articles.Search.jpg)
-
-### Article
-![Article](./snapshots/Articles.Article.jpg)
 
 ## **Main**
 

@@ -3,7 +3,6 @@ import {
   ICategory,
   IArticle,
   IUserAvatar,
-  IPagination,
   IUserResetPasswordToken,
   IAuthor,
   IAuthorPermissions,
@@ -67,12 +66,7 @@ export type LoginWithGoogleResponse = null;
 
 
 export interface LoginWithGoogleCallbackRequest {}
-export interface LoginWithGoogleCallbackResponse {
-  user: Pick<IUser, "user_id" | "name" | "email" | "role"> & {
-    avatar: IUserAvatar["avatar"] | null;
-  };
-  accessToken: string;
-}
+export interface LoginWithGoogleCallbackResponse {}
 
 export type LoginWithFacebookRequest = null;
 export type LoginWithFacebookResponse = null;
@@ -96,8 +90,8 @@ export interface SearchUsersResponse {
   users: IUser[];
 }
 
-export type GetTotalUsersRequest = null;
-export interface GetTotalUsersResponse {
+export type GetTotalUsersCountRequest = null;
+export interface GetTotalUsersCountResponse {
   totalUsersCount: number;
 }
 
@@ -141,8 +135,8 @@ export interface SearchAuthorsResponse {
   authors: IAuthor[];
 }
 
-export type GetTotalAuthorsRequest = null;
-export interface GetTotalAuthorsResponse {
+export type GetTotalAuthorsCountRequest = null;
+export interface GetTotalAuthorsCountResponse {
   totalAuthorsCount: number;
 }
 
@@ -172,8 +166,8 @@ export interface SearchCategoriesResponse {
   categories: ICategory[];
 }
 
-export type GetTotalCategoriesRequest = null;
-export interface GetTotalCategoriesResponse {
+export type GetTotalCategoriesCountRequest = null;
+export interface GetTotalCategoriesCountResponse {
   totalCategoriesCount: number;
 }
 
@@ -211,8 +205,8 @@ export interface SearchArticlesResponse {
   articles: IArticle[];
 }
 
-export type GetTotalArticlesRequest = null;
-export interface GetTotalArticlesResponse {
+export type GetTotalArticlesCountRequest = null;
+export interface GetTotalArticlesCountResponse {
   totalArticlesCount: number;
 }
 

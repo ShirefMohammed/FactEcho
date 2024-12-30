@@ -1,0 +1,16 @@
+.no_server_response {
+  width: 100%;
+  padding: 100px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.no_server_response h2 {
+  font-weight: 700;
+}
+
+.no_server_response p {
+  font-size: 14px;
+}

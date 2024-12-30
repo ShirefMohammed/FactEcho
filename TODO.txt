@@ -6,6 +6,8 @@ Features to be added in coming versions:
 
 3) Secure my APIs
 
+4) Centralize roles access operations.
+
 /**
  * Would you like to dive deeper into alerting or analyzing these logs using tools like ELK stack or Pino’s ecosystem? 😊
  */
