@@ -1,12 +1,10 @@
 Features to be added in coming versions:
 
-1) Add tests by jest.
+1) Add tests by jest. -> OK
 
 2) Add OAuth. -> OK
 
-3) Secure my APIs
-
-4) Centralize roles access operations.
+3) Secure my APIs form Dos
 
 /**
  * Would you like to dive deeper into alerting or analyzing these logs using tools like ELK stack or Pino’s ecosystem? 😊

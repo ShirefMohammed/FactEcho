@@ -102,7 +102,7 @@ const router = express.Router();
  *     description: Adds a new category. Accessible only by Admin.
  *     tags: [Categories_V1]
  *     security:
- *       - BearerAuth: []  # Use Bearer token authentication
+ *       - BearerAuth: [] # Use Bearer token authentication
  *     requestBody:
  *       required: true
  *       content:
@@ -379,7 +379,7 @@ router.route("/count").get(getTotalCategoriesCount);
  *     description: Updates the details of a specific category by its ID. Only accessible by Admin.
  *     tags: [Categories_V1]
  *     security:
- *       - BearerAuth: []  # Use Bearer token authentication
+ *       - BearerAuth: [] # Use Bearer token authentication
  *     parameters:
  *       - name: categoryId
  *         in: path
@@ -454,7 +454,7 @@ router.route("/count").get(getTotalCategoriesCount);
  *     description: Deletes a specific category by its ID. Only accessible by Admin.
  *     tags: [Categories_V1]
  *     security:
- *       - BearerAuth: []  # Use Bearer token authentication
+ *       - BearerAuth: [] # Use Bearer token authentication
  *     parameters:
  *       - name: categoryId
  *         in: path

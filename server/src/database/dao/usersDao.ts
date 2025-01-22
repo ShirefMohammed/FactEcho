@@ -1,63 +1,55 @@
-import { IUser, IUserAvatar, UserFields } from "@shared/types/entitiesTypes";
+import {
+  IUser,
+  IUserAvatar,
+  IUserOAuth,
+  IUserResetPasswordToken,
+  IUserVerificationToken,
+  UserFields,
+} from "@shared/types/entitiesTypes";
 
 export interface UsersDao {
+  /* ===== Create Operations ===== */
+
+  // Creates a new user
+  createUser(user: Partial<IUser>): Promise<Partial<IUser>>;
+
+  /* ===== Read Operations ===== */
+
   // Finds a user by ID, with specific fields to select
   findUserById(
-    userId: string,
+    userId: IUser["user_id"],
     selectedFields?: UserFields[],
   ): Promise<IUser | null>;
 
   // Finds a user by email, with specific fields to select
   findUserByEmail(
-    email: string,
+    email: IUser["email"],
     selectedFields?: UserFields[],
   ): Promise<IUser | null>;
 
   // Finds a user by OAuth, with specific fields to select
   findUserByOAuth(
-    provider: string,
-    provider_user_id: string,
+    provider: IUserOAuth["provider"],
+    provider_user_id: IUserOAuth["provider_user_id"],
     selectedFields?: UserFields[],
   ): Promise<IUser | null>;
 
-  // Finds user avatar
-  findUserAvatar(userId: string): Promise<IUserAvatar["avatar"] | null>;
-
   // Finds a user by verification token, with specific fields to select
   findUserByVerificationToken(
-    verificationToken: string,
+    verificationToken: IUserVerificationToken["verification_token"],
     selectedFields?: UserFields[],
   ): Promise<IUser | null>;
 
   // Finds a user by reset password token, with specific fields to select
   findUserByResetPasswordToken(
-    resetPasswordToken: string,
+    resetPasswordToken: IUserResetPasswordToken["reset_password_token"],
     selectedFields?: UserFields[],
   ): Promise<IUser | null>;
 
-  // Creates a new user
-  createUser(user: Partial<IUser>): Promise<void>;
-
-  // Updates an existing user by ID
-  updateUser(userId: string, user: Partial<IUser>): Promise<void>;
-
-  // Sets a verification token for a user
-  setVerificationToken(
-    userId: string,
-    verificationToken: string,
-  ): Promise<void>;
-
-  // Sets a reset password token for a user
-  setResetPasswordToken(
-    userId: string,
-    resetPasswordToken: string,
-  ): Promise<void>;
-
-  // Sets an avatar for a user
-  setAvatar(userId: string, avatar: string): Promise<void>;
-
-  // Deletes a user by ID
-  deleteUser(userId: string): Promise<void>;
+  // Finds user avatar
+  findUserAvatar(
+    userId: IUser["user_id"],
+  ): Promise<IUserAvatar["avatar"] | null>;
 
   // Retrieves multiple users with optional order, limit, skip, and selected fields
   getUsers(
@@ -79,6 +71,37 @@ export interface UsersDao {
     selectedFields?: UserFields[],
   ): Promise<IUser[]>;
 
+  /* ===== Update Operations ===== */
+
+  // Updates an existing user by ID
+  updateUser(
+    userId: IUser["user_id"],
+    user: Partial<IUser>,
+  ): Promise<Partial<IUser>>;
+
+  // Sets a verification token for a user
+  setVerificationToken(
+    userId: IUser["user_id"],
+    verificationToken: IUserVerificationToken["verification_token"],
+  ): Promise<void>;
+
+  // Sets a reset password token for a user
+  setResetPasswordToken(
+    userId: IUser["user_id"],
+    resetPasswordToken: IUserResetPasswordToken["reset_password_token"],
+  ): Promise<void>;
+
+  // Sets an avatar for a user
+  setAvatar(
+    userId: IUser["user_id"],
+    avatar: IUserAvatar["avatar"],
+  ): Promise<void>;
+
+  /* ===== Delete Operations ===== */
+
+  // Deletes a user by ID
+  deleteUser(userId: IUser["user_id"]): Promise<void>;
+
   // Deletes unverified users that have been stale for the specified interval
-  deleteStaleUnverifiedUsers(interval: string): Promise<void>;
+  deleteStaleUnverifiedUsers(interval: string): Promise<number>;
 }

@@ -44,3 +44,7 @@ const extractPublicId = (fileUrl: string): string | null => {
   const match = fileUrl.match(regex);
   return match ? match[1] : null;
 };
+
+// Example usage:
+// const fileUrl = "https://res.cloudinary.com/democloud/v1617958472/my_folder/my_image.jpg";
+// const publicId = extractPublicId(fileUrl); // Output: "my_folder/my_image"

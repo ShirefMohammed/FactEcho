@@ -176,6 +176,8 @@ const Register = () => {
           {nameFocus && name && !validName ? (
             <p id="nameNote" className={style.instructions}>
               <FontAwesomeIcon icon={faInfoCircle} />
+              Must be in english.
+              <br />
               4 to 24 characters.
               <br />
               Must begin with a letter.

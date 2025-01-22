@@ -1,6 +1,8 @@
 import cloudinary from "../config/cloudinaryConfig";
 import { deleteFileFromCloudinary } from "./deleteFileFromCloudinary";
 
+// Not completed
+
 /**
  * Handles unused files in Cloudinary by deleting them if they are not referenced in the database.
  * @returns Promise<void> - Resolves when unused files are handled.

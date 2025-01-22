@@ -22,7 +22,7 @@ const router = express.Router();
  *     description: Fetches authors with optional pagination. Accessible only by Admin.
  *     tags: [Authors_V1]
  *     security:
- *       - BearerAuth: []  # Use Bearer token authentication
+ *       - BearerAuth: [] # Use Bearer token authentication
  *     parameters:
  *       - name: limit
  *         in: query
@@ -89,7 +89,7 @@ const router = express.Router();
  */
 router.route("/").get(verifyJWT, verifyRole(ROLES_LIST.Admin), getAuthors);
 
-/**
+  /**
  * @swagger
  * /authors/search:
  *   get:
@@ -97,7 +97,7 @@ router.route("/").get(verifyJWT, verifyRole(ROLES_LIST.Admin), getAuthors);
  *     description: Searches for authors using a search key with optional pagination. Accessible only by Admin.
  *     tags: [Authors_V1]
  *     security:
- *       - BearerAuth: []  # Use Bearer token authentication
+ *       - BearerAuth: [] # Use Bearer token authentication
  *     parameters:
  *       - name: searchKey
  *         in: query
@@ -181,7 +181,7 @@ router
  *     description: Fetches the total number of authors in the system. Accessible only by Admin.
  *     tags: [Authors_V1]
  *     security:
- *       - BearerAuth: []  # Use Bearer token authentication
+ *       - BearerAuth: [] # Use Bearer token authentication
  *     responses:
  *       200:
  *         description: Total authors count successfully retrieved.

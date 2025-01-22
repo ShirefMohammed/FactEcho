@@ -26,7 +26,7 @@ const router = express.Router();
  *     description: Fetches users with optional pagination. Accessible only by Admin.
  *     tags: [Users_V1]
  *     security:
- *       - BearerAuth: []  # Use Bearer token authentication
+ *       - BearerAuth: [] # Use Bearer token authentication
  *     parameters:
  *       - name: limit
  *         in: query
@@ -101,7 +101,7 @@ router.route("/").get(verifyJWT, verifyRole(ROLES_LIST.Admin), getUsers);
  *     description: Searches for users using a search key with optional pagination. Accessible only by Admin.
  *     tags: [Users_V1]
  *     security:
- *       - BearerAuth: []  # Use Bearer token authentication
+ *       - BearerAuth: [] # Use Bearer token authentication
  *     parameters:
  *       - name: searchKey
  *         in: query
@@ -185,7 +185,7 @@ router
  *     description: Fetches the total number of users in the system. Accessible only by Admin.
  *     tags: [Users_V1]
  *     security:
- *       - BearerAuth: []  # Use Bearer token authentication
+ *       - BearerAuth: [] # Use Bearer token authentication
  *     responses:
  *       200:
  *         description: Total users count successfully retrieved.
@@ -273,7 +273,7 @@ router
  *     description: Fetches a user's details by ID. Only Admins or the account owner can perform this action.
  *     tags: [Users_V1]
  *     security:
- *       - BearerAuth: []  # Use Bearer token authentication
+ *       - BearerAuth: [] # Use Bearer token authentication
  *     parameters:
  *       - name: userId
  *         in: path
@@ -374,7 +374,7 @@ router
  *       204:
  *         description: User deleted successfully.
  *       400:
- *         description: Password required for non-Admin users.
+ *         description: Password required for non-Admin and non-oauth users.
  *         content:
  *           application/json:
  *             schema:
@@ -520,7 +520,7 @@ router.route("/:userId/details").patch(verifyJWT, updateUserDetails);
  *     description: Allows Admin users to update the role of a specific user.
  *     tags: [Users_V1]
  *     security:
- *       - BearerAuth: []  # Bearer token authentication
+ *       - BearerAuth: [] # Bearer token authentication
  *     parameters:
  *       - name: userId
  *         in: path
@@ -622,7 +622,7 @@ router
  *       has provided the correct old password and a new password.
  *     tags: [Users_V1]
  *     security:
- *       - BearerAuth: []  # Bearer token authentication
+ *       - BearerAuth: [] # Bearer token authentication
  *     parameters:
  *       - name: userId
  *         in: path
@@ -724,7 +724,7 @@ router.route("/:userId/password").patch(verifyJWT, updateUserPassword);
  *       The previous avatar, if not the default, will be deleted from Cloudinary.
  *     tags: [Users_V1]
  *     security:
- *       - BearerAuth: []  # Bearer token authentication
+ *       - BearerAuth: [] # Bearer token authentication
  *     parameters:
  *       - name: userId
  *         in: path

@@ -376,19 +376,6 @@ router.route("/logout").get(logout);
  *                 message:
  *                   type: string
  *                   example: "Verification token is missing or invalid."
- *       404:
- *         description: No user found with the provided token.
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 statusText:
- *                   type: string
- *                   example: "FAIL"
- *                 message:
- *                   type: string
- *                   example: "Invalid verification token."
  *       401:
  *         description: Token expired or invalid.
  *         content:
@@ -402,6 +389,19 @@ router.route("/logout").get(logout);
  *                 message:
  *                   type: string
  *                   example: "Verification token has expired. Please request a new one."
+ *       404:
+ *         description: No user found with the provided token.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 statusText:
+ *                   type: string
+ *                   example: "FAIL"
+ *                 message:
+ *                   type: string
+ *                   example: "Invalid verification token."
  *       409:
  *         description: Token mismatch.
  *         content:

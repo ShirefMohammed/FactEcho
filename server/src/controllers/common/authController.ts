@@ -112,22 +112,15 @@ export const register: ExtendedRequestHandler<
     const hashedPassword: string = await bcrypt.hash(password, 10);
 
     // Create user
-    await usersModel.createUser({ name, email, password: hashedPassword });
-
-    // Retrieve the new user
-    const newUser: IUser | null = await usersModel.findUserByEmail(email, [
-      "user_id",
-    ]);
-    if (!newUser || !newUser.user_id) {
-      return res.status(500).send({
-        statusText: httpStatusText.ERROR,
-        message: "Failed to retrieve the new user after creation",
-      });
-    }
+    const newUser = await usersModel.createUser({
+      name,
+      email,
+      password: hashedPassword,
+    });
 
     // Generate and send verification token
-    const verificationToken = generateVerificationToken(newUser.user_id);
-    await usersModel.setVerificationToken(newUser.user_id, verificationToken);
+    const verificationToken = generateVerificationToken(newUser.user_id!);
+    await usersModel.setVerificationToken(newUser.user_id!, verificationToken);
     await sendVerificationEmail(email, verificationToken);
     authLogger.info(`Register: Verification email sent to {${email}}`);
 
@@ -636,7 +629,7 @@ export const resetPassword: RequestHandler<
       return res
         .status(400)
         .send(
-          "Password must be 8 to 24 characters, Must include uppercase and lowercase letters, a number and a special character. Allowed special characters: !, @, #, $, %",
+          "Password must be in english, 8 to 24 characters, Must include uppercase and lowercase letters, a number and a special character. Allowed special characters: !, @, #, $, %",
         );
     }
 
@@ -720,7 +713,7 @@ export const loginWithGoogleCallback: ExtendedRequestHandler<
 
       if (!user) {
         // If the user doesn't exist, create a new user record in the database
-        await usersModel.createUser({
+        const newUser = await usersModel.createUser({
           name,
           email,
           is_verified: true, // Automatically verify the user since it's Google login
@@ -728,20 +721,11 @@ export const loginWithGoogleCallback: ExtendedRequestHandler<
           provider_user_id,
         });
 
+        user = newUser as IUser;
+
         authLogger.info(
           `loginWithGoogleCallback: New user with email {${email}} created successfully`,
         );
-
-        // Retrieve the newly created user
-        user = await usersModel.findUserByOAuth(provider, provider_user_id, [
-          "user_id",
-        ]);
-        if (!user || !user.user_id) {
-          return res.status(500).send({
-            statusText: httpStatusText.ERROR,
-            message: "Failed to retrieve the new user after creation",
-          });
-        }
       }
 
       // Generate JWT refresh token for the authenticated user
@@ -833,27 +817,18 @@ export const loginWithFacebookCallback: ExtendedRequestHandler<
 
       if (!user) {
         // If the user doesn't exist, create a new user record in the database
-        await usersModel.createUser({
+        const newUser = await usersModel.createUser({
           name,
           is_verified: true, // Automatically verify the user since it's Facebook login
           provider,
           provider_user_id,
         });
 
+        user = newUser as IUser;
+
         authLogger.info(
           `loginWithFacebookCallback: New user with provider_user_id {${provider_user_id}} created successfully`,
         );
-
-        // Retrieve the newly created user
-        user = await usersModel.findUserByOAuth(provider, provider_user_id, [
-          "user_id",
-        ]);
-        if (!user || !user.user_id) {
-          return res.status(500).send({
-            statusText: httpStatusText.ERROR,
-            message: "Failed to retrieve the new user after creation",
-          });
-        }
       }
 
       // Generate JWT access and refresh tokens for the authenticated user

@@ -9,13 +9,13 @@ import { httpStatusText } from "../utils/httpStatusText";
 const generalLogger = getServiceLogger("general");
 
 export const handleErrors = (
-  err: any,
+  error: any,
   _req: Request,
   res: Response,
   _next: NextFunction,
 ) => {
-  console.error(`Error from server: ${err}`);
-  generalLogger.error({ data: { error: err } }, "Internal server error");
+  console.error(`Error from server: ${error}`);
+  generalLogger.error({ data: { error } }, "Internal server error");
 
   res.status(500).json({
     statusText: httpStatusText.ERROR,

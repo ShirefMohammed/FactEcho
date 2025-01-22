@@ -5,26 +5,21 @@ import {
 } from "@shared/types/entitiesTypes";
 
 export interface AuthorsDao {
-  // Finds a author by ID, with specific fields to select
-  findAuthorById(
-    authorId: string,
-    selectedFields?: UserFields[],
-  ): Promise<IAuthor | null>;
+  /* ===== Create Operations ===== */
 
   // Creates an existing author's permissions by ID
   createAuthorPermissions(
-    authorId: string,
+    authorId: IAuthor["user_id"],
     authorPermissions: IAuthorPermissions,
-  ): Promise<void>;
+  ): Promise<IAuthorPermissions>;
 
-  // Updates an existing author's permissions by ID
-  updateAuthorPermissions(
-    authorId: string,
-    authorPermissions: IAuthorPermissions,
-  ): Promise<void>;
+  /* ===== Read Operations ===== */
 
-  // Deletes an existing author's permissions by ID
-  deleteAuthorPermissions(authorId: string): Promise<void>;
+  // Finds a author by ID, with specific fields to select
+  findAuthorById(
+    authorId: IAuthor["user_id"],
+    selectedFields?: UserFields[],
+  ): Promise<IAuthor | null>;
 
   // Retrieves multiple authors with optional order, limit, skip, and selected fields
   getAuthors(
@@ -45,4 +40,17 @@ export interface AuthorsDao {
     skip?: number,
     selectedFields?: UserFields[],
   ): Promise<IAuthor[]>;
+
+  /* ===== Update Operations ===== */
+
+  // Updates an existing author's permissions by ID
+  updateAuthorPermissions(
+    authorId: IAuthor["user_id"],
+    authorPermissions: IAuthorPermissions,
+  ): Promise<IAuthorPermissions>;
+
+  /* ===== Delete Operations ===== */
+
+  // Deletes an existing author's permissions by ID
+  deleteAuthorPermissions(authorId: IAuthor["user_id"]): Promise<void>;
 }

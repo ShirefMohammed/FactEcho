@@ -10,10 +10,11 @@ export const handleCors = (req: Request, res: Response, next: NextFunction) => {
 
   if (
     allowedOrigins.includes(req.headers.origin as string) ||
-    process.env.NODE_ENV === "development" ||
+    process.env.NODE_ENV?.trim() === "testing" ||
+    process.env.NODE_ENV?.trim() === "development" ||
     req.url === "/" ||
-    req.url.startsWith("/api/v1/auth/verifyAccount") ||
-    req.url.startsWith("/api/v1/auth/resetPassword")
+    req.url.startsWith("/api/v1/auth/verify-account") ||
+    req.url.startsWith("/api/v1/auth/reset-password")
   ) {
     next();
   } else {

@@ -1,11 +1,12 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.ts",
+  "description": "server",
+  "main": "server.ts",
   "scripts": {
-    "start": "node ./src/index.ts",
-    "dev": "nodemon ./src/index.ts"
+    "start": "node ./src/server.ts",
+    "dev": "nodemon ./src/server.ts",
+    "test": "set NODE_ENV=testing && jest --runInBand"
   },
   "keywords": [],
   "author": "Shiref Mohammed",
@@ -27,6 +28,7 @@
     "pg": "^8.13.1",
     "pino": "^9.5.0",
     "pino-multi-stream": "^6.0.0",
+    "supertest": "^7.0.0",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.1"
   },
@@ -36,6 +38,7 @@
     "@types/cookie-parser": "^1.4.7",
     "@types/cors": "^2.8.17",
     "@types/express": "^4.17.21",
+    "@types/jest": "^29.5.14",
     "@types/jsonwebtoken": "^9.0.6",
     "@types/node": "^20.14.10",
     "@types/nodemailer": "^6.4.15",
@@ -43,9 +46,12 @@
     "@types/passport-google-oauth20": "^2.0.16",
     "@types/pg": "^8.11.10",
     "@types/pino-multi-stream": "^5.1.6",
+    "@types/supertest": "^6.0.2",
     "@types/swagger-jsdoc": "^6.0.4",
     "@types/swagger-ui-express": "^4.1.7",
+    "jest": "^29.7.0",
     "nodemon": "^3.1.4",
+    "ts-jest": "^29.2.5",
     "ts-node": "^10.9.2",
     "typescript": "^5.5.4"
   }

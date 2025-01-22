@@ -9,8 +9,18 @@ export const uploadFileToCloudinary = async (file: Blob): Promise<string> => {
     // Prepare FormData for the file upload
     const formData = new FormData();
     formData.append("file", file);
-    formData.append("upload_preset", "default_upload"); // Replace with your Cloudinary upload preset
-    formData.append("folder", "FactEcho"); // Folder name in Cloudinary
+
+    const upload_preset = import.meta.env.VITE_CLOUDINARY_MY_UPLOAD_PRESET;
+    if (!upload_preset) {
+      throw new Error("upload_preset is not configured.");
+    }
+    formData.append("upload_preset", upload_preset); // Replace with your Cloudinary upload preset
+
+    const upload_folder = import.meta.env.VITE_CLOUDINARY_MY_UPLOAD_FOLDER;
+    if (!upload_folder) {
+      throw new Error("upload_folder is not configured.");
+    }
+    formData.append("folder", upload_folder); // Folder name in Cloudinary
 
     // API endpoint for file upload
     const cloudName = import.meta.env.VITE_CLOUDINARY_CLOUD_NAME;

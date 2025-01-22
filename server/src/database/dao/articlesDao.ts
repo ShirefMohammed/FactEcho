@@ -1,26 +1,35 @@
-import { ArticleFields, IArticle } from "@shared/types/entitiesTypes";
+import {
+  ArticleFields,
+  IArticle,
+  ICategory,
+  IUser,
+} from "@shared/types/entitiesTypes";
 
 export interface ArticlesDao {
+  /* ===== Create Operations ===== */
+
+  // Creates a new article
+  createArticle(article: Partial<IArticle>): Promise<IArticle>;
+
+  // Saves an article for the user.
+  saveArticle(
+    userId: IUser["user_id"],
+    articleId: IArticle["article_id"],
+  ): Promise<void>;
+
+  /* ===== Read Operations ===== */
+
   // Finds an article by ID, with specific fields to select
   findArticleById(
-    articleId: string,
+    articleId: IArticle["article_id"],
     selectedFields?: ArticleFields[],
   ): Promise<IArticle | null>;
 
   // Finds an article by title, with specific fields to select
   findArticleByTitle(
-    title: string,
+    title: IArticle["title"],
     selectedFields?: ArticleFields[],
   ): Promise<IArticle | null>;
-
-  // Creates a new article
-  createArticle(article: Partial<IArticle>): Promise<void>;
-
-  // Updates an existing article by ID
-  updateArticle(articleId: string, article: Partial<IArticle>): Promise<void>;
-
-  // Deletes an article by ID
-  deleteArticle(articleId: string): Promise<void>;
 
   // Retrieves multiple articles with optional order, limit, skip, and selected fields
   getArticles(
@@ -42,9 +51,6 @@ export interface ArticlesDao {
     selectedFields?: ArticleFields[],
   ): Promise<IArticle[]>;
 
-  // Get articles count
-  getArticlesCount(): Promise<number>;
-
   // Retrieves a list of random articles with an optional limit.
   getRandomArticles(limit: number): Promise<IArticle[]>;
 
@@ -56,15 +62,24 @@ export interface ArticlesDao {
 
   // Retrieves articles associated with a given category
   getCategoryArticles(
-    categoryId: string,
+    categoryId: ICategory["category_id"],
     order?: number,
     limit?: number,
     skip?: number,
   ): Promise<IArticle[]>;
 
+  // Retrieves a list of created articles with optional order, limit, skip, and selected fields.
+  getCreatedArticles(
+    userId: IUser["user_id"],
+    order?: number,
+    limit?: number,
+    skip?: number,
+    selectedFields?: ArticleFields[],
+  ): Promise<IArticle[]>;
+
   // Retrieves a list of saved articles with optional order, limit, skip, and selected fields.
   getSavedArticles(
-    userId: string,
+    userId: IUser["user_id"],
     order?: number,
     limit?: number,
     skip?: number,
@@ -72,20 +87,27 @@ export interface ArticlesDao {
   ): Promise<IArticle[]>;
 
   // Checks if the specified article is saved by the user.
-  isArticleSaved(userId: string, articleId: string): Promise<boolean>;
+  isArticleSaved(
+    userId: IUser["user_id"],
+    articleId: IArticle["article_id"],
+  ): Promise<boolean>;
 
-  // Saves an article for the user.
-  saveArticle(userId: string, articleId: string): Promise<void>;
+  /* ===== Update Operations ===== */
+
+  // Updates an existing article by ID
+  updateArticle(
+    articleId: IArticle["article_id"],
+    article: Partial<IArticle>,
+  ): Promise<IArticle>;
+
+  /* ===== Delete Operations ===== */
 
   // Removes a saved article for the user.
-  unsaveArticle(userId: string, articleId: string): Promise<void>;
+  unsaveArticle(
+    userId: IUser["user_id"],
+    articleId: IArticle["article_id"],
+  ): Promise<void>;
 
-  // Retrieves a list of created articles with optional order, limit, skip, and selected fields.
-  getCreatedArticles(
-    userId: string,
-    order?: number,
-    limit?: number,
-    skip?: number,
-    selectedFields?: ArticleFields[],
-  ): Promise<IArticle[]>;
+  // Deletes an article by ID
+  deleteArticle(articleId: IArticle["article_id"]): Promise<void>;
 }

@@ -1,0 +1,9 @@
+Todo:
+  - Add API end point accessed only by the admin to store logs from app file system to DB.
+  - Add API end point accessed only by the admin to handle unused files in cloudinary "Heavy operation on the DB".
+
+In Progress:
+  
+Finished:
+  - Follow industry standards with modular tests, code coverage checks, and CI/CD integration.
+  - Review routes and its controllers.

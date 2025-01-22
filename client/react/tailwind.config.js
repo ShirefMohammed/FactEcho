@@ -16,6 +16,7 @@ export default {
     },
     extend: {
       colors: {
+        // Styles for whole application
         originalColor: 'var(--original-color)',
         primaryColor: 'var(--primary-color)',
         primaryDarkColor: 'var(--primary-dark-color)',
@@ -25,6 +26,8 @@ export default {
         secondaryColor: 'var(--secondary-color)',
         hyperlinkColor: 'var(--hyperlink-color)',
         tickerColor: 'var(--ticker-color)',
+
+        // Styles for admin dashboard
         current: 'currentColor',
         transparent: 'transparent',
         white: '#FFFFFF',

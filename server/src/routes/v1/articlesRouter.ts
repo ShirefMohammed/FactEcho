@@ -108,7 +108,7 @@ const router = express.Router();
  *     description: Adds a new article. Accessible by both Admin and authors.
  *     tags: [Articles_V1]
  *     security:
- *       - BearerAuth: []  # Use Bearer token authentication
+ *       - BearerAuth: [] # Use Bearer token authentication
  *     requestBody:
  *       required: true
  *       content:

@@ -6,7 +6,7 @@ import { IUser } from "@shared/types/entitiesTypes";
 import { useUsersAPIs } from "../../../../../api/hooks/useUsersAPIs";
 import defaultAvatar from "../../../../../assets/defaultAvatar.png";
 import { useNotify } from "../../../../../hooks";
-import { uploadFileToCloudinary } from "../../../../../utils/uploadFileToCloudinary";
+import { uploadFileToCloudinary } from "../../../../../services/uploadFileToCloudinary";
 
 /**
  * `UpdateUserAvatar` component allows users to upload and update their profile photo.

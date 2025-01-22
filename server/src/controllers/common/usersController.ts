@@ -192,15 +192,15 @@ export const cleanupUnverifiedUsers: ExtendedRequestHandler<
     }
 
     // Call the database method to delete stale unverified users
-    await usersModel.deleteStaleUnverifiedUsers(interval);
+    const count = await usersModel.deleteStaleUnverifiedUsers(interval);
 
     usersLogger.info(
-      `cleanupUnverifiedUsers: Unverified users older than ${interval} deleted successfully.`,
+      `cleanupUnverifiedUsers: ${count} unverified users older than ${interval} deleted successfully.`,
     );
 
     res.status(204).send({
       statusText: httpStatusText.SUCCESS,
-      message: `Unverified users older than ${interval} deleted successfully.`,
+      message: `${count} unverified users older than ${interval} deleted successfully.`,
     });
   } catch (err) {
     next(err);
@@ -629,6 +629,8 @@ export const deleteUser: ExtendedRequestHandler<
       "user_id",
       "password",
       "role",
+      "provider",
+      "provider_user_id",
     ]);
     if (!user) {
       return res.status(404).send({
@@ -648,8 +650,11 @@ export const deleteUser: ExtendedRequestHandler<
       });
     }
 
-    // Verify password for non-admin deletion
-    if (requesterRole !== ROLES_LIST.Admin) {
+    // Verify password for non-admin and non-oauth user deletion
+    if (
+      requesterRole !== ROLES_LIST.Admin &&
+      !(user.provider && user.provider_user_id)
+    ) {
       if (!password) {
         usersLogger.warn(
           `deleteUser: Password not provided for deletion attempt by {${requesterId}}`,

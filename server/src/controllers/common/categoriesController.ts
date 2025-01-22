@@ -225,25 +225,14 @@ export const createCategory: ExtendedRequestHandler<
 
     // Create the new category
     const creatorId = (res.locals.userInfo as AccessTokenUserInfo).user_id;
-    await categoriesModel.createCategory({
+    const newCategory = await categoriesModel.createCategory({
       title: title,
       creator_id: creatorId,
     });
 
-    // Retrieve the newly created category for confirmation
-    const newCategory = await categoriesModel.findCategoryByTitle(title);
-
     categoriesLogger.info(
       `createCategory: New Category with title {${title}} created successfully`,
     );
-
-    if (!newCategory) {
-      return res.status(500).send({
-        statusText: httpStatusText.FAIL,
-        message:
-          "Category creation succeeded, but an error occurred while retrieving the new category.",
-      });
-    }
 
     // Send success response with the new category
     res.status(201).send({
@@ -301,24 +290,17 @@ export const updateCategory: ExtendedRequestHandler<
     }
 
     // Update the category if there are fields to update
+    let updatedCategory = {} as ICategory;
     if (Object.keys(updatedFields).length > 0) {
-      await categoriesModel.updateCategory(categoryId, updatedFields);
+      updatedCategory = await categoriesModel.updateCategory(
+        categoryId,
+        updatedFields,
+      );
     }
-
-    // Retrieve the updated category
-    const updatedCategory = await categoriesModel.findCategoryById(categoryId);
 
     categoriesLogger.info(
       `updateCategory: Category with id {${categoryId}} updated successfully`,
     );
-
-    if (!updatedCategory) {
-      return res.status(500).send({
-        statusText: httpStatusText.FAIL,
-        message:
-          "Category update succeeded, but an error occurred while retrieving the updated category.",
-      });
-    }
 
     // Send success response with updated category
     res.status(200).send({

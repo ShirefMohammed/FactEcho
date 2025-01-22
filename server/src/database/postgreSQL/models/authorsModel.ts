@@ -8,12 +8,14 @@ import {
 import { usersModel } from "../..";
 import { ROLES_LIST } from "../../../utils/rolesList";
 import { AuthorsDao } from "../../dao/authorsDao";
-import { pool } from "../connectToPostgreSQL";
+import { pool } from "../setup/connectToPostgreSQL";
 
 /**
  * Model for performing author-related database operations.
  */
 export class AuthorsModel implements AuthorsDao {
+  /* ===== Fields for users and users_oauth ===== */
+
   private userFields: AuthorFields[] = [
     "user_id",
     "name",
@@ -27,9 +29,14 @@ export class AuthorsModel implements AuthorsDao {
 
   private userOAuthFields: AuthorFields[] = ["provider", "provider_user_id"];
 
+  /* ===== Private Helpers ===== */
+
   /**
    * Filters selected fields to include only valid fields for the `users` table
    * and prefixes them with the given table alias.
+   *
+   * If no selectedFields provided return all fields from the `users` table with the provided alias.
+   *
    * @param tableAlias - The table alias or name to prefix the fields with.
    * @param selectedFields - Optional array of fields to filter.
    * @returns A comma-separated string of valid selected fields prefixed with the table alias.
@@ -49,15 +56,17 @@ export class AuthorsModel implements AuthorsDao {
       this.userFields.includes(field),
     );
 
-    const prefix = tableAlias ? `${tableAlias}.` : "";
     return selectedFieldsAfterFilter
-      .map((field) => `${prefix}${field}`)
+      .map((field) => `${tableAlias}.${field}`)
       .join(", ");
   }
 
   /**
    * Filters selected fields to include only valid fields for the `users_oauth` table
    * and prefixes them with the given table alias.
+   *
+   * If no selectedFields provided return all fields from the `users_oauth` table with the provided alias.
+   *
    * @param tableAlias - The table alias or name to prefix the fields with.
    * @param selectedFields - Optional array of fields to filter.
    * @returns A comma-separated string of valid selected fields prefixed with the table alias.
@@ -77,20 +86,57 @@ export class AuthorsModel implements AuthorsDao {
       this.userOAuthFields.includes(field),
     );
 
-    const prefix = tableAlias ? `${tableAlias}.` : "";
     return selectedFieldsAfterFilter
-      .map((field) => `${prefix}${field}`)
+      .map((field) => `${tableAlias}.${field}`)
       .join(", ");
   }
 
+  /* ===== Create Operations ===== */
+
+  /**
+   * Creates an author's permissions.
+   *
+   * @param authorId - The unique identifier of the author.
+   * @param authorPermissions - The permissions data to create.
+   * @returns created authorPermissions.
+   */
+  async createAuthorPermissions(
+    authorId: IAuthor["user_id"],
+    authorPermissions: IAuthorPermissions,
+  ): Promise<IAuthorPermissions> {
+    try {
+      const query = `
+        INSERT INTO author_permissions (user_id, "create", "update", "delete") 
+        VALUES ($1, $2, $3, $4) RETURNING *
+      `;
+
+      const { rows } = await pool.query(query, [
+        authorId,
+        Boolean(authorPermissions.create),
+        Boolean(authorPermissions.update),
+        Boolean(authorPermissions.delete),
+      ]);
+
+      return rows[0];
+    } catch (err) {
+      console.error("Error in createAuthorPermissions:", err);
+      throw err;
+    }
+  }
+
+  /* ===== Read Operations ===== */
+
   /**
    * Finds an author by their ID, including user details, avatar, and permissions.
+   *
+   * If no selectedFields provided it will return all author fields form `users` table
+   *
    * @param authorId - The unique identifier of the author.
    * @param selectedFields - Optional array of fields to return. Avatar and permissions will always be included in the result.
    * @returns The author object if found, otherwise null.
    */
   async findAuthorById(
-    authorId: string,
+    authorId: IAuthor["user_id"],
     selectedFields?: UserFields[],
   ): Promise<IAuthor | null> {
     try {
@@ -103,16 +149,14 @@ export class AuthorsModel implements AuthorsDao {
       if (!authorUserData) return null; // If user data is not found, return null
 
       // Retrieve the author's avatar
-      const avatarQuery = `SELECT avatar FROM users_avatars WHERE user_id = $1`;
-      const { rows: avatarRows } = await pool.query(avatarQuery, [authorId]);
-      const avatar = avatarRows[0]?.avatar || null;
+      const avatar = await usersModel.findUserAvatar(authorId);
 
       // Retrieve the author's permissions
       const permissionsQuery = `
-      SELECT *
-      FROM author_permissions
-      WHERE user_id = $1
-    `;
+        SELECT *
+        FROM author_permissions
+        WHERE user_id = $1
+      `;
       const { rows: permissionsRows } = await pool.query(permissionsQuery, [
         authorId,
       ]);
@@ -125,7 +169,7 @@ export class AuthorsModel implements AuthorsDao {
       // Construct the IAuthor object
       const author: IAuthor = {
         ...authorUserData,
-        avatar: avatar,
+        avatar: avatar || "",
         permissions: permissions,
       };
 
@@ -137,82 +181,8 @@ export class AuthorsModel implements AuthorsDao {
   }
 
   /**
-   * Creates an author's permissions.
-   * @param authorId - The unique identifier of the author.
-   * @param authorPermissions - The permissions data to create.
-   * @returns void
-   */
-  async createAuthorPermissions(
-    authorId: string,
-    authorPermissions: IAuthorPermissions,
-  ): Promise<void> {
-    try {
-      const query = `
-        INSERT INTO author_permissions (user_id, "create", "update", "delete") 
-        VALUES ($1, $2, $3, $4)
-      `;
-      await pool.query(query, [
-        authorId,
-        Boolean(authorPermissions.create),
-        Boolean(authorPermissions.update),
-        Boolean(authorPermissions.delete),
-      ]);
-    } catch (err) {
-      console.error("Error in createAuthorPermissions:", err);
-      throw err;
-    }
-  }
-
-  /**
-   * Updates an author's permissions by ID.
-   * @param authorId - The unique identifier of the author.
-   * @param authorPermissions - The permissions data to update.
-   * @returns void
-   */
-  async updateAuthorPermissions(
-    authorId: string,
-    authorPermissions: IAuthorPermissions,
-  ): Promise<void> {
-    try {
-      const query = `
-      UPDATE author_permissions 
-      SET 
-        "create" = $1, 
-        "update" = $2, 
-        "delete" = $3 
-      WHERE user_id = $4
-    `;
-
-      await pool.query(query, [
-        Boolean(authorPermissions.create),
-        Boolean(authorPermissions.update),
-        Boolean(authorPermissions.delete),
-        authorId,
-      ]);
-    } catch (err) {
-      console.error("Error in updateAuthorPermissions:", err);
-      throw err;
-    }
-  }
-
-  /**
-   * Deletes an author's permissions by ID.
-   * @param authorId - The unique identifier of the author.
-   * @returns void
-   */
-  async deleteAuthorPermissions(authorId: string): Promise<void> {
-    try {
-      await pool.query(`DELETE FROM author_permissions WHERE user_id = $1`, [
-        authorId,
-      ]);
-    } catch (err) {
-      console.error("Error in deleteAuthorPermissions:", err);
-      throw err;
-    }
-  }
-
-  /**
    * Retrieves a list of authors with optional sorting, pagination, and selected fields.
+   *
    * @param order - Sorting order (1 for ascending, -1 for descending). Defaults to ascending.
    * @param limit - Optional maximum number of authors to retrieve.
    * @param skip - Optional number of authors to skip for pagination.
@@ -277,6 +247,7 @@ export class AuthorsModel implements AuthorsDao {
 
   /**
    * Retrieves the total count of authors by checking the users table where role is "Author".
+   *
    * @returns Total count of authors as a number.
    */
   async getAuthorsCount(): Promise<number> {
@@ -286,7 +257,9 @@ export class AuthorsModel implements AuthorsDao {
         FROM users
         WHERE role = $1
       `;
+
       const { rows } = await pool.query(query, [ROLES_LIST.Author]);
+
       return Number(rows[0].total_count);
     } catch (err) {
       console.error("Error in getAuthorsCount:", err);
@@ -296,6 +269,9 @@ export class AuthorsModel implements AuthorsDao {
 
   /**
    * Searches for authors by a keyword in their name or email, including avatars, permissions, and OAuth data.
+   *
+   * If no selectedFields provided it will return all author fields form `users` table
+   *
    * @param searchKey - The keyword to search for.
    * @param order - Sorting order (1 for ascending, -1 for descending). Defaults to ascending.
    * @param limit - Optional maximum number of authors to retrieve.
@@ -356,6 +332,63 @@ export class AuthorsModel implements AuthorsDao {
       }));
     } catch (err) {
       console.error("Error in searchAuthors:", err);
+      throw err;
+    }
+  }
+
+  /* ===== Update Operations ===== */
+
+  /**
+   * Updates an author's permissions by ID.
+   *
+   * @param authorId - The unique identifier of the author.
+   * @param authorPermissions - The permissions data to update.
+   * @returns updated authorPermissions.
+   */
+  async updateAuthorPermissions(
+    authorId: IAuthor["user_id"],
+    authorPermissions: IAuthorPermissions,
+  ): Promise<IAuthorPermissions> {
+    try {
+      const query = `
+        UPDATE author_permissions 
+        SET 
+          "create" = $1, 
+          "update" = $2, 
+          "delete" = $3 
+        WHERE user_id = $4
+        RETURNING *
+    `;
+
+      const { rows } = await pool.query(query, [
+        Boolean(authorPermissions.create),
+        Boolean(authorPermissions.update),
+        Boolean(authorPermissions.delete),
+        authorId,
+      ]);
+
+      return rows[0];
+    } catch (err) {
+      console.error("Error in updateAuthorPermissions:", err);
+      throw err;
+    }
+  }
+
+  /* ===== Delete Operations ===== */
+
+  /**
+   * Deletes an author's permissions by ID.
+   *
+   * @param authorId - The unique identifier of the author.
+   * @returns void
+   */
+  async deleteAuthorPermissions(authorId: string): Promise<void> {
+    try {
+      await pool.query(`DELETE FROM author_permissions WHERE user_id = $1`, [
+        authorId,
+      ]);
+    } catch (err) {
+      console.error("Error in deleteAuthorPermissions:", err);
       throw err;
     }
   }

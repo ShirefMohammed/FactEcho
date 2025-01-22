@@ -1,14 +1,19 @@
 import { CategoryFields, ICategory } from "@shared/types/entitiesTypes";
 
 import { CategoriesDao } from "../../dao/categoriesDao";
-import { pool } from "../connectToPostgreSQL";
+import { pool } from "../setup/connectToPostgreSQL";
 
 /**
  * Model for performing categories-related database operations.
  */
 export class CategoriesModel implements CategoriesDao {
+  /* ===== Private Helpers ===== */
+
   /**
    * Helper function for dynamic selection of fields.
+   *
+   * If no selectedFields provided it returns all fields.
+   *
    * @param selectedFields - Optional CategoryFields[] of selected fields to be fetched.
    * @returns The selected fields or default to '*' if not provided.
    */
@@ -18,14 +23,43 @@ export class CategoriesModel implements CategoriesDao {
       : "*";
   }
 
+  /* ===== Create Operations ===== */
+
+  /**
+   * Creates a new category.
+   *
+   * @param category - The category object to be created.
+   * @returns created category.
+   */
+  async createCategory(category: Partial<ICategory>): Promise<ICategory> {
+    try {
+      const query = `INSERT INTO categories (title, creator_id) VALUES ($1, $2) RETURNING *`;
+
+      const { rows } = await pool.query(query, [
+        category.title,
+        category.creator_id || null,
+      ]);
+
+      return rows[0];
+    } catch (err) {
+      console.error("Error in createCategory:", err);
+      throw err;
+    }
+  }
+
+  /* ===== Read Operations ===== */
+
   /**
    * Finds a category by its ID.
+   *
+   * If no selectedFields provided it returns all fields.
+   *
    * @param categoryId - The ID of the category to find.
    * @param selectedFields - Optional array of fields to return;
    * @returns The category matching the ID, or null if not found.
    */
   async findCategoryById(
-    categoryId: string,
+    categoryId: ICategory["category_id"],
     selectedFields?: CategoryFields[],
   ): Promise<ICategory | null> {
     try {
@@ -40,12 +74,15 @@ export class CategoriesModel implements CategoriesDao {
 
   /**
    * Finds a category by its title.
+   *
+   * If no selectedFields provided it returns all fields.
+   *
    * @param title - The title of the category to find.
    * @param selectedFields - Optional array of fields to return;
    * @returns The category matching the title, or null if not found.
    */
   async findCategoryByTitle(
-    title: string,
+    title: ICategory["title"],
     selectedFields?: CategoryFields[],
   ): Promise<ICategory | null> {
     try {
@@ -59,65 +96,10 @@ export class CategoriesModel implements CategoriesDao {
   }
 
   /**
-   * Creates a new category.
-   * @param category - The category object to be created.
-   * @returns void
-   */
-  async createCategory(category: Partial<ICategory>): Promise<void> {
-    try {
-      const query = `INSERT INTO categories (title, creator_id) VALUES ($1, $2)`;
-      await pool.query(query, [category.title, category.creator_id || null]);
-    } catch (err) {
-      console.error("Error in createCategory:", err);
-      throw err;
-    }
-  }
-
-  /**
-   * Updates a category by its ID.
-   * @param categoryId - The unique identifier of the category.
-   * @param category - Partial category data to update.
-   * @returns void
-   */
-  async updateCategory(
-    categoryId: string,
-    category: Partial<ICategory>,
-  ): Promise<void> {
-    try {
-      const fields = Object.keys(category)
-        .filter((key) => category[key as keyof ICategory] !== undefined)
-        .map((key, index) => `${key} = $${index + 2}`)
-        .join(", ");
-
-      if (!fields) return;
-
-      // No need to update 'updated_at' here because the trigger will handle it
-      const query = `UPDATE categories SET ${fields} WHERE category_id = $1`;
-      await pool.query(query, [categoryId, ...Object.values(category)]);
-    } catch (err) {
-      console.error("Error in updateCategory:", err);
-      throw err;
-    }
-  }
-
-  /**
-   * Deletes a category by its ID.
-   * @param categoryId - The ID of the category to delete.
-   * @returns void
-   */
-  async deleteCategory(categoryId: string): Promise<void> {
-    try {
-      await pool.query("DELETE FROM categories WHERE category_id = $1", [
-        categoryId,
-      ]);
-    } catch (err) {
-      console.error("Error in deleteCategory:", err);
-      throw err;
-    }
-  }
-
-  /**
    * Retrieves a list of categories with optional sorting, pagination, and selected fields.
+   *
+   * If no selectedFields provided it returns all fields.
+   *
    * @param order - Sorting order (1 for ascending, -1 for descending). Defaults to ascending.
    * @param limit - Optional maximum number of categories to retrieve.
    * @param skip - Optional number of categories to skip for pagination.
@@ -157,7 +139,9 @@ export class CategoriesModel implements CategoriesDao {
 
   /**
    * Retrieves the total count of categories from the records_count table.
+   *
    * Ensures fast retrieval without performing a direct count on the categories table.
+   *
    * @returns Total number of categories as a number.
    */
   async getCategoriesCount(): Promise<number> {
@@ -175,6 +159,9 @@ export class CategoriesModel implements CategoriesDao {
 
   /**
    * Searches for categories by title with optional sorting, pagination, and selected fields.
+   *
+   * If no selectedFields provided it returns all fields.
+   *
    * @param searchKey - The search term to look for in the category title.
    * @param order - Sorting order (1 for ascending, -1 for descending). Defaults to ascending.
    * @param limit - Optional maximum number of categories to retrieve.
@@ -211,6 +198,61 @@ export class CategoriesModel implements CategoriesDao {
       return rows;
     } catch (err) {
       console.error("Error in searchCategories:", err);
+      throw err;
+    }
+  }
+
+  /* ===== Update Operations ===== */
+
+  /**
+   * Updates a category by its ID.
+   *
+   * @param categoryId - The unique identifier of the category.
+   * @param category - Partial category data to update.
+   * @returns updated category.
+   */
+  async updateCategory(
+    categoryId: ICategory["category_id"],
+    category: Partial<ICategory>,
+  ): Promise<ICategory> {
+    try {
+      let updatedCategory = {} as ICategory; // updatedCategory will be returned
+
+      const fields = Object.keys(category)
+        .filter((key) => category[key as keyof ICategory] !== undefined)
+        .map((key, index) => `${key} = $${index + 2}`)
+        .join(", ");
+
+      if (!fields) return updatedCategory;
+
+      // No need to update 'updated_at' here because the trigger will handle it
+      const query = `UPDATE categories SET ${fields} WHERE category_id = $1 RETURNING *`;
+      const { rows } = await pool.query(query, [
+        categoryId,
+        ...Object.values(category),
+      ]);
+      return rows[0];
+    } catch (err) {
+      console.error("Error in updateCategory:", err);
+      throw err;
+    }
+  }
+
+  /* ===== Delete Operations ===== */
+
+  /**
+   * Deletes a category by its ID.
+   *
+   * @param categoryId - The ID of the category to delete.
+   * @returns void
+   */
+  async deleteCategory(categoryId: ICategory["category_id"]): Promise<void> {
+    try {
+      await pool.query("DELETE FROM categories WHERE category_id = $1", [
+        categoryId,
+      ]);
+    } catch (err) {
+      console.error("Error in deleteCategory:", err);
       throw err;
     }
   }

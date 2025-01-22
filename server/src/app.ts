@@ -10,7 +10,6 @@ import { corsOptions } from "./config/corsOptions";
 import "./config/passportConfig";
 import swaggerSpecs from "./config/swaggerConfig";
 import { connectDB } from "./database";
-import { pool } from "./database/postgreSQL/connectToPostgreSQL";
 import { handleCors } from "./middleware/handleCors";
 import { handleErrors } from "./middleware/handleErrors";
 import articlesRouterV1 from "./routes/v1/articlesRouter";
@@ -22,11 +21,9 @@ import { handleNotFoundRoutes } from "./utils/handleNotFoundRoutes";
 
 dotenv.config();
 
-(async function () {
-  // Create server
-  const app: Express = express();
-  const _PORT = process.env.PORT;
+const app: Express = express();
 
+export const initializeApp = async () => {
   // Connect to database
   await connectDB();
 
@@ -70,32 +67,6 @@ dotenv.config();
 
   // Handle error middleware
   app.use(handleErrors);
+};
 
-  // Gracefully shut down the server and close database connections
-  process.on("SIGINT", async () => {
-    console.log("Server is shutting down...");
-    await pool.end(); // Close database connections
-    process.exit(0); // Exit with success code
-  });
-
-  process.on("SIGTERM", async () => {
-    console.log("Received termination signal...");
-    await pool.end(); // Close database connections
-    process.exit(0); // Exit with success code
-  });
-
-  // Listen for requests
-  app.listen(_PORT, () => {
-    // Apply green color for "Server running"
-    console.log(
-      "\x1b[32m%s\x1b[0m",
-      `Server running on ${process.env.SERVER_URL}`,
-    );
-
-    // Apply cyan color for "Swagger running"
-    console.log(
-      "\x1b[36m%s\x1b[0m",
-      `Swagger running on ${process.env.SERVER_URL}/api-docs`,
-    );
-  });
-})();
+export default app;

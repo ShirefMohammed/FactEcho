@@ -1,11 +1,11 @@
-// Entities types
+/* Entities Types */
 export interface IUser extends IUserOAuth {
   user_id: string; // UUID
   name: string;
   email: string;
   password: string;
   is_verified: boolean;
-  role: number; // 2001 or other roles
+  role: number;
   created_at: string;
   updated_at: string;
 }
@@ -33,7 +33,7 @@ export interface IUserResetPasswordToken {
 
 export interface IUserAvatar {
   user_id: string; // UUID
-  avatar: string; // e.g., "defaultAvatar.png" or a file path
+  avatar: string; // Storage file path
 }
 
 export interface ICategory {
@@ -48,7 +48,7 @@ export interface IArticle {
   article_id: string; // UUID
   title: string;
   content: string;
-  image: string; // e.g., "defaultArticleImage.png" or a file path
+  image: string; // Storage file path
   views: number; // Default to 0
   created_at: string;
   updated_at: string;
@@ -68,7 +68,7 @@ export interface IAuthorPermissions {
   delete: boolean;
 }
 
-// Entities fields
+/* Entities Fields Types */
 export type UserFields = keyof IUser;
 
 export type UserOAuthFields = keyof IUserOAuth;
@@ -88,12 +88,3 @@ export type ArticleFields = keyof IArticle;
 export type UserSavedArticleFields = keyof IUserSavedArticle;
 
 export type AuthorPermissionsFields = keyof IAuthorPermissions;
-
-// More global types
-export interface IPagination {
-  currentPage: number;
-  totalPages: number;
-  totalCount: number;
-  hasNextPage: boolean;
-  hasPreviousPage: boolean;
-}

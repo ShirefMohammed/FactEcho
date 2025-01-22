@@ -64,7 +64,6 @@ export type ResetPasswordResponse = string;
 export type LoginWithGoogleRequest = null;
 export type LoginWithGoogleResponse = null;
 
-
 export interface LoginWithGoogleCallbackRequest {}
 export interface LoginWithGoogleCallbackResponse {}
 
@@ -72,12 +71,7 @@ export type LoginWithFacebookRequest = null;
 export type LoginWithFacebookResponse = null;
 
 export interface LoginWithFacebookCallbackRequest {}
-export interface LoginWithFacebookCallbackResponse {
-  user: Pick<IUser, "user_id" | "name" | "email" | "role"> & {
-    avatar: IUserAvatar["avatar"] | null;
-  };
-  accessToken: string;
-}
+export interface LoginWithFacebookCallbackResponse {}
 
 // Users
 export type GetUsersRequest = null;

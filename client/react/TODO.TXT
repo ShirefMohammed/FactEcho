@@ -1,0 +1,6 @@
+Todo:
+
+In Progress:
+  - Optimize pages and components
+
+Finished:

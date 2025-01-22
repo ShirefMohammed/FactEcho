@@ -407,7 +407,7 @@ export const createArticle: ExtendedRequestHandler<
     }
 
     // Create the new article in the database
-    await articlesModel.createArticle({
+    const newArticle = await articlesModel.createArticle({
       title,
       content,
       image,
@@ -419,21 +419,11 @@ export const createArticle: ExtendedRequestHandler<
       `createArticle: New Article with title {${title}} created successfully`,
     );
 
-    // Retrieve the newly created article to confirm successful creation
-    const createdArticle = await articlesModel.findArticleByTitle(title);
-    if (!createdArticle) {
-      return res.status(500).send({
-        statusText: httpStatusText.FAIL,
-        message:
-          "Article creation succeeded, but an error occurred while retrieving the new article.",
-      });
-    }
-
     // Send a success response with the new article data
     res.status(201).send({
       statusText: httpStatusText.SUCCESS,
       message: "Article created successfully.",
-      data: { newArticle: createdArticle },
+      data: { newArticle },
     });
   } catch (err) {
     next(err);
@@ -578,27 +568,19 @@ export const updateArticle: ExtendedRequestHandler<
     }
 
     // Update the article with the new fields
-    await articlesModel.updateArticle(req.params.articleId, updatedFields);
+    const updatedArticle = await articlesModel.updateArticle(
+      req.params.articleId,
+      updatedFields,
+    );
 
     // Delete the old image from Cloudinary if a new image was provided
     if (updatedFields.image) {
       await deleteFileFromCloudinary(article.image);
     }
 
-    // Retrieve the updated article for confirmation
-    const updatedArticle = await articlesModel.findArticleById(articleId);
-
     articlesLogger.info(
       `updateArticle: Article {${articleId}} updated successfully by {${requesterRole}}.`,
     );
-
-    if (!updatedArticle) {
-      return res.status(500).send({
-        statusText: httpStatusText.FAIL,
-        message:
-          "Article update succeeded, but an error occurred while retrieving the updated article.",
-      });
-    }
 
     // Send success response with the updated article
     res.status(200).send({

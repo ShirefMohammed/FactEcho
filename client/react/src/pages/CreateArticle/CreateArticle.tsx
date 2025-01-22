@@ -8,7 +8,7 @@ import { useArticlesAPIs } from "../../api/hooks/useArticlesAPIs";
 import { CategoriesSelectBox } from "../../components";
 import { Editor } from "../../components";
 import { useNotify } from "../../hooks";
-import { uploadFileToCloudinary } from "../../utils/uploadFileToCloudinary";
+import { uploadFileToCloudinary } from "../../services/uploadFileToCloudinary";
 
 const CreateArticle = () => {
   // Refs for title input

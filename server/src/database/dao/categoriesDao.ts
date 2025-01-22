@@ -1,29 +1,24 @@
 import { CategoryFields, ICategory } from "@shared/types/entitiesTypes";
 
 export interface CategoriesDao {
+  /* ===== Create Operations ===== */
+
+  // Creates a new category
+  createCategory(category: Partial<ICategory>): Promise<ICategory>;
+
+  /* ===== Read Operations ===== */
+
   // Finds a category by its ID, with optional specific fields to select
   findCategoryById(
-    categoryId: string,
+    categoryId: ICategory["category_id"],
     selectedFields?: CategoryFields[],
   ): Promise<ICategory | null>;
 
   // Finds a category by its title, with optional specific fields to select
   findCategoryByTitle(
-    title: string,
+    title: ICategory["title"],
     selectedFields?: CategoryFields[],
   ): Promise<ICategory | null>;
-
-  // Creates a new category
-  createCategory(category: Partial<ICategory>): Promise<void>;
-
-  // Updates an existing category by its ID
-  updateCategory(
-    categoryId: string,
-    category: Partial<ICategory>,
-  ): Promise<void>;
-
-  // Deletes a category by its ID
-  deleteCategory(categoryId: string): Promise<void>;
 
   // Retrieves multiple categories with optional order, limit, skip, and selected fields
   getCategories(
@@ -44,4 +39,17 @@ export interface CategoriesDao {
     skip?: number,
     selectedFields?: CategoryFields[],
   ): Promise<ICategory[]>;
+
+  /* ===== Update Operations ===== */
+
+  // Updates an existing category by its ID
+  updateCategory(
+    categoryId: ICategory["category_id"],
+    category: Partial<ICategory>,
+  ): Promise<ICategory>;
+
+  /* ===== Delete Operations ===== */
+
+  // Deletes a category by its ID
+  deleteCategory(categoryId: ICategory["category_id"]): Promise<void>;
 }

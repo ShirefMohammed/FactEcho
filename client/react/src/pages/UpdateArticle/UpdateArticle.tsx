@@ -9,7 +9,7 @@ import { useArticlesAPIs } from "../../api/hooks/useArticlesAPIs";
 import { CategoriesSelectBox } from "../../components";
 import { Editor } from "../../components";
 import { useHandleErrors, useNotify } from "../../hooks";
-import { uploadFileToCloudinary } from "../../utils/uploadFileToCloudinary";
+import { uploadFileToCloudinary } from "../../services/uploadFileToCloudinary";
 
 const UpdateArticle = () => {
   // Will updated article id

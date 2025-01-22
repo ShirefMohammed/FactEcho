@@ -28,7 +28,7 @@ This playlist explain how the database works in internal to choose best DBMS for
 
 https://www.youtube.com/playlist?list=PLE8kQVoC67PzGwMMsSk3C8MvfAqcYjusF
 
-### API Design and Management by Software ArchTalks for Arabs 🛠️
+### API Design and Management by Software ArchTalks for Arabs ✅
 
 Improve your skills in building standard APIs.
 
@@ -52,7 +52,7 @@ https://www.youtube.com/playlist?list=PLxRKoQzM5m3LhmXA4b9FwuuUFzRnJCzoe
 
 https://www.youtube.com/playlist?list=PLxRKoQzM5m3K3OFcL4zUtpUgq8cMMceNO
 
-### Yalla Tips by Yallacode 🛠️
+### Yalla Tips by Yallacode ✅
 
 https://www.youtube.com/playlist?list=PLtxOBbrOOPH7mM-BV7dYJ2u1WW4qJMJ6F
 
@@ -66,7 +66,7 @@ https://www.youtube.com/playlist?list=PLtxOBbrOOPH6pNpU-I4TJ15DrwU-hxNIz
 
 https://youtu.be/B9rLLcVQfpI?si=aC3rHojqTJ7i14S0
 
-### Unit Testing by Tariq Elouzeh 🛠️
+### Unit Testing by Tariq Elouzeh ✅
 
 https://youtu.be/g1Fl5qiH0F4?si=Lndvx4-DQ0yHszyX
 
