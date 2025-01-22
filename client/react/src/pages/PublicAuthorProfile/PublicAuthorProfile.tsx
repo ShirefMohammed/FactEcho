@@ -66,7 +66,7 @@ const PublicAuthorProfile = () => {
       <div className="flex items-center gap-6 mb-8">
         <div className="w-32 h-32 rounded-full overflow-hidden">
           <img
-            src={author.avatar || defaultAvatar} // Use default avatar if no avatar is available
+            src={author.avatar && author.avatar !== "" ? author.avatar : defaultAvatar}
             alt={author.name}
             className="w-full h-full object-cover"
           />

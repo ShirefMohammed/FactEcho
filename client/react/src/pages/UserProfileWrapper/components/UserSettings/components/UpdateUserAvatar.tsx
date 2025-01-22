@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { MoonLoader } from "react-spinners";
 
 import { IUser } from "@shared/types/entitiesTypes";
@@ -7,16 +8,20 @@ import { useUsersAPIs } from "../../../../../api/hooks/useUsersAPIs";
 import defaultAvatar from "../../../../../assets/defaultAvatar.png";
 import { useNotify } from "../../../../../hooks";
 import { uploadFileToCloudinary } from "../../../../../services/uploadFileToCloudinary";
+import { setUserAvatar } from "../../../../../store/slices/userAvatarSlice";
+import { StoreState } from "../../../../../store/store";
 
 /**
  * `UpdateUserAvatar` component allows users to upload and update their profile photo.
  */
 const UpdateUserAvatar = ({ fullUserData }: { fullUserData: IUser }) => {
+  const currentUserAvatar = useSelector((state: StoreState) => state.currentUserAvatar); // Access Redux currentUserAvatar state
   const [newAvatarBlob, setNewAvatarBlob] = useState<Blob | null>(null); // State for managing the selected avatar file as a Blob
   const [updateAvatarLoad, setUpdateAvatarLoad] = useState<boolean>(false); // State to handle loading indicator during the avatar update process
 
   const notify = useNotify(); // Hook for sending notifications to the user
   const usersAPIs = useUsersAPIs(); // Hook for calling user-related APIs
+  const dispatch = useDispatch();
 
   /**
    * Function to handle updating the user's avatar.
@@ -40,6 +45,7 @@ const UpdateUserAvatar = ({ fullUserData }: { fullUserData: IUser }) => {
 
       // Update the user's avatar in the backend
       await usersAPIs.updateUserAvatar(fullUserData.user_id, { avatar: newAvatarUrl });
+      dispatch(setUserAvatar(URL.createObjectURL(newAvatarBlob)));
 
       notify("success", "تم تحديث الصورة بنجاح!");
     } catch (err) {
@@ -66,7 +72,13 @@ const UpdateUserAvatar = ({ fullUserData }: { fullUserData: IUser }) => {
           {/* Display user's current avatar */}
           <div className="mb-4 flex items-center gap-3">
             <img
-              src={newAvatarBlob ? URL.createObjectURL(newAvatarBlob) : defaultAvatar}
+              src={
+                newAvatarBlob
+                  ? URL.createObjectURL(newAvatarBlob)
+                  : currentUserAvatar && currentUserAvatar !== ""
+                    ? currentUserAvatar
+                    : defaultAvatar
+              }
               alt="user avatar"
               className="h-14 w-14 rounded-full"
             />

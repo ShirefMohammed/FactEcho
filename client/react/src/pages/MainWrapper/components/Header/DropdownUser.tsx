@@ -1,8 +1,8 @@
 import { faPlusSquare } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { memo, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import { useLogout } from "../../../..//hooks";
 import defaultAvatar from "../../../../assets/defaultAvatar.png";
@@ -11,14 +11,21 @@ import { StoreState } from "../../../../store/store";
 import { ROLES_LIST } from "../../../../utils/rolesList";
 
 const DropdownUser = memo(() => {
+  const { pathname } = useLocation();
+
   // Fetching the current user state from Redux store
   const currentUser = useSelector((state: StoreState) => state.currentUser);
+  const currentUserAvatar = useSelector((state: StoreState) => state.currentUserAvatar);
 
   // State to manage whether the dropdown is open or closed
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   // Hook for handling user logout functionality
   const logout = useLogout();
+
+  useEffect(() => {
+    setDropdownOpen(false);
+  }, [pathname]);
 
   return (
     <ClickOutside onClick={() => setDropdownOpen(false)} className="relative">
@@ -30,7 +37,11 @@ const DropdownUser = memo(() => {
       >
         {/* Display user avatar */}
         <span className="h-8 w-8">
-          <img src={defaultAvatar} alt="Avatar" className="rounded-full" />
+          <img
+            src={currentUserAvatar && currentUserAvatar !== "" ? currentUserAvatar : defaultAvatar}
+            alt="Avatar"
+            className="rounded-full"
+          />
         </span>
 
         {/* Dropdown indicator (arrow) */}
@@ -61,9 +72,8 @@ const DropdownUser = memo(() => {
             <li>
               <Link
                 to={`/users/${currentUser.user_id}/profile`}
-                className="flex items-center gap-3.5 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base"
+                className="flex items-center gap-3.5 text-sm font-medium duration-300 ease-in-out hover:text-primaryColor lg:text-base"
               >
-                {/* Profile icon */}
                 <svg
                   className="fill-current"
                   width="22"
@@ -89,9 +99,8 @@ const DropdownUser = memo(() => {
             <li>
               <Link
                 to={`/users/${currentUser.user_id}/settings`}
-                className="flex items-center gap-3.5 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base"
+                className="flex items-center gap-3.5 text-sm font-medium duration-300 ease-in-out hover:text-primaryColor lg:text-base"
               >
-                {/* Settings icon */}
                 <svg
                   className="fill-current"
                   width="22"
@@ -115,10 +124,10 @@ const DropdownUser = memo(() => {
 
             {/* Create article link */}
             {currentUser.role === ROLES_LIST.Author || currentUser.role === ROLES_LIST.Admin ? (
-              <li title={"إنشاء مقال"}>
+              <li>
                 <Link
                   to={"/articles/create"}
-                  className="flex items-center gap-3.5 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base"
+                  className="flex items-center gap-3.5 text-sm font-medium duration-300 ease-in-out hover:text-primaryColor lg:text-base"
                 >
                   <FontAwesomeIcon icon={faPlusSquare} className="w-5 h-5" />
                   <span className="hidden md:inline">إنشاء مقال</span>
@@ -133,9 +142,8 @@ const DropdownUser = memo(() => {
               <li>
                 <Link
                   to={`/admin`}
-                  className="flex items-center gap-3.5 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base"
+                  className="flex items-center gap-3.5 text-sm font-medium duration-300 ease-in-out hover:text-primaryColor lg:text-base"
                 >
-                  {/* Admin icon */}
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="fill-current"
@@ -160,7 +168,7 @@ const DropdownUser = memo(() => {
           {/* Logout btn */}
           <button
             type="button"
-            className="flex items-center gap-3.5 px-6 py-4 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base"
+            className="flex items-center gap-3.5 px-6 py-4 text-sm font-medium duration-300 ease-in-out hover:text-danger lg:text-base"
             onClick={logout}
           >
             <svg

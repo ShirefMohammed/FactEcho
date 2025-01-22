@@ -189,11 +189,11 @@ const AdminArticles = () => {
       </header>
 
       {/* Articles Table */}
-      <div className="relative overflow-x-auto">
+      <div className="relative overflow-x-auto custom-scrollbar">
         <table className="w-full text-sm text-left shadow-lg border border-slate-300 dark:border-slate-700">
           <thead>
             <tr>
-              <th className="px-6 py-3 whitespace-nowrap">article_id</th>
+              {/* <th className="px-6 py-3 whitespace-nowrap">article_id</th> */}
               <th className="px-6 py-3 whitespace-nowrap">title</th>
               <th className="px-6 py-3 whitespace-nowrap">image</th>
               <th className="px-6 py-3 whitespace-nowrap">views</th>
@@ -201,6 +201,7 @@ const AdminArticles = () => {
               <th className="px-6 py-3 whitespace-nowrap">updated_at</th>
               <th className="px-6 py-3 whitespace-nowrap">category_id</th>
               <th className="px-6 py-3 whitespace-nowrap">creator_id</th>
+              <th className="px-6 py-3 whitespace-nowrap">Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -291,9 +292,9 @@ const ArticleRow = ({
   return (
     <tr className="border-b border-slate-300 dark:border-slate-700 text-sm text-body bg-white dark:bg-boxdark dark:text-bodydark font-normal">
       {/* Article Details */}
-      <td className="px-6 py-4 whitespace-nowrap">{article.article_id || "---"}</td>
+      {/* <td className="px-6 py-4 whitespace-nowrap">{article.article_id || "---"}</td> */}
       <td className="px-6 py-4 whitespace-nowrap">
-        {(article.title.length <= 40 ? article.title : article.title.substr(0, 50) + "...") ||
+        {(article.title.length <= 40 ? article.title : "..." + article.title.substr(0, 50)) ||
           "---"}
       </td>
       <td className="px-6 py-4 whitespace-nowrap">

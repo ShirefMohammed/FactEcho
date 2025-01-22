@@ -4,6 +4,7 @@ import { RefreshResponse } from "@shared/types/apiTypes";
 
 import { useAuthAPIs } from "../api/hooks/useAuthAPIs";
 import { setAccessToken } from "../store/slices/accessTokenSlice";
+import { setUserAvatar } from "../store/slices/userAvatarSlice";
 import { setUser } from "../store/slices/userSlice";
 
 /**
@@ -35,6 +36,7 @@ const useRefreshToken = (): (() => Promise<string>) => {
 
     // Dispatch the user and access token to the Redux store
     dispatch(setUser(resData.user));
+    dispatch(setUserAvatar(resData.user?.avatar || ""));
     dispatch(setAccessToken(resData.accessToken));
 
     // Return the new access token

@@ -290,7 +290,7 @@ const Sidebar = memo(({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
             </li>
             {/* <!-- Menu Item Articles --> */}
 
-            {/* <!-- Menu Item Client Home --> */}
+            {/* <!-- Menu Item Home --> */}
             <li>
               <NavLink
                 to="/"
@@ -311,15 +311,15 @@ const Sidebar = memo(({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                     fill=""
                   />
                 </svg>
-                Client Home
+                Home
               </NavLink>
             </li>
-            {/* <!-- Menu Item Client Home --> */}
+            {/* <!-- Menu Item Home --> */}
 
             {/* <!-- Menu Item Settings --> */}
             <li>
               <NavLink
-                to={`/users/${currentUser.user_id}/profile/settings`}
+                to={`/users/${currentUser.user_id}/settings`}
                 className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
                   pathname.includes("settings") && "bg-graydark dark:bg-meta-4"
                 }`}

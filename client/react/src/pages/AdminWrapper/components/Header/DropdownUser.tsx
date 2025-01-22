@@ -10,6 +10,7 @@ import { StoreState } from "../../../../store/store";
 const DropdownUser = memo(() => {
   // Fetching the current user state from Redux store
   const currentUser = useSelector((state: StoreState) => state.currentUser);
+  const currentUserAvatar = useSelector((state: StoreState) => state.currentUserAvatar);
 
   // State to manage whether the dropdown is open or closed
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -30,7 +31,11 @@ const DropdownUser = memo(() => {
         </span>
 
         <span className="h-12 w-12">
-          <img src={defaultAvatar} alt="User" className="rounded-full" />
+          <img
+            src={currentUserAvatar && currentUserAvatar !== "" ? currentUserAvatar : defaultAvatar}
+            alt="Avatar"
+            className="rounded-full"
+          />
         </span>
 
         <svg
@@ -114,7 +119,7 @@ const DropdownUser = memo(() => {
           {/* Logout btn */}
           <button
             type="button"
-            className="flex items-center gap-3.5 px-6 py-4 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base"
+            className="flex items-center gap-3.5 px-6 py-4 text-sm font-medium duration-300 ease-in-out hover:text-danger lg:text-base"
             onClick={logout}
           >
             <svg

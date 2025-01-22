@@ -167,11 +167,11 @@ const AdminAuthors = () => {
       </header>
 
       {/* Authors Table */}
-      <div className="relative overflow-x-auto">
+      <div className="relative overflow-x-auto custom-scrollbar">
         <table className="w-full text-sm text-left shadow-lg border border-slate-300 dark:border-slate-700">
           <thead>
             <tr>
-              <th className="px-6 py-3 whitespace-nowrap">user_id</th>
+              {/* <th className="px-6 py-3 whitespace-nowrap">user_id</th> */}
               <th className="px-6 py-3 whitespace-nowrap">name</th>
               <th className="px-6 py-3 whitespace-nowrap">email</th>
               <th className="px-6 py-3 whitespace-nowrap">is_verified</th>
@@ -179,7 +179,7 @@ const AdminAuthors = () => {
               <th className="px-6 py-3 whitespace-nowrap">created_at</th>
               <th className="px-6 py-3 whitespace-nowrap">updated_at</th>
               <th className="px-6 py-3 whitespace-nowrap">provider</th>
-              <th className="px-6 py-3 whitespace-nowrap">provider_author_id</th>
+              {/* <th className="px-6 py-3 whitespace-nowrap">provider_author_id</th> */}
               <th className="px-6 py-3 whitespace-nowrap">avatar</th>
               <th className="px-6 py-3 whitespace-nowrap">permissions</th>
               <th className="px-6 py-3 whitespace-nowrap">Actions</th>
@@ -292,7 +292,7 @@ const AuthorRow = ({
   return (
     <tr className="border-b border-slate-300 dark:border-slate-700 text-sm text-body bg-white dark:bg-boxdark dark:text-bodydark font-normal">
       {/* Author Details */}
-      <td className="px-6 py-4 whitespace-nowrap">{author.user_id || "---"}</td>
+      {/* <td className="px-6 py-4 whitespace-nowrap">{author.user_id || "---"}</td> */}
       <td className="px-6 py-4 whitespace-nowrap">{author.name || "---"}</td>
       <td className="px-6 py-4 whitespace-nowrap">{author.email || "---"}</td>
       <td className="px-6 py-4 whitespace-nowrap">{author.is_verified ? "Yes" : "No"}</td>
@@ -306,11 +306,11 @@ const AuthorRow = ({
       <td className="px-6 py-4 whitespace-nowrap">{formatTimestamp(author.created_at) || "---"}</td>
       <td className="px-6 py-4 whitespace-nowrap">{formatTimestamp(author.updated_at) || "---"}</td>
       <td className="px-6 py-4 whitespace-nowrap">{author.provider || "---"}</td>
-      <td className="px-6 py-4 whitespace-nowrap">{author.provider_user_id || "---"}</td>
+      {/* <td className="px-6 py-4 whitespace-nowrap">{author.provider_user_id || "---"}</td> */}
       <td className="px-6 py-4 whitespace-nowrap">
         <img
           className="w-6 h-6 rounded-full"
-          src={author.avatar || defaultAvatar}
+          src={author.avatar && author.avatar !== "" ? author.avatar : defaultAvatar}
           alt="author avatar"
         />
       </td>

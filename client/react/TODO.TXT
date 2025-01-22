@@ -1,6 +1,13 @@
 Todo:
+  - Add controllers to article card (handle delete, update, save, unsave).
+  - handle card layout.
+  - Add controllers to article page.
+  - handle general pages grid layout.
+  - handle admin dashboard statistics.
+  - Implement Home
+  - Implement PublicUserProfile
 
 In Progress:
-  - Optimize pages and components
 
 Finished:
+  - Optimize pages and components

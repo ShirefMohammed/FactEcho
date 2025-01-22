@@ -196,14 +196,15 @@ const AdminCategories = () => {
       </header>
 
       {/* Categories Table */}
-      <div className="relative overflow-x-auto">
+      <div className="relative overflow-x-auto custom-scrollbar">
         <table className="w-full text-sm text-left shadow-lg border border-slate-300 dark:border-slate-700">
           <thead>
             <tr>
-              <th className="px-6 py-3 whitespace-nowrap">category_id</th>
+              {/* <th className="px-6 py-3 whitespace-nowrap">category_id</th> */}
               <th className="px-6 py-3 whitespace-nowrap">title</th>
               <th className="px-6 py-3 whitespace-nowrap">created_at</th>
               <th className="px-6 py-3 whitespace-nowrap">updated_at</th>
+              <th className="px-6 py-3 whitespace-nowrap">Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -321,7 +322,7 @@ const CategoryRow = ({
   return (
     <tr className="border-b border-slate-300 dark:border-slate-700 text-sm text-body bg-white dark:bg-boxdark dark:text-bodydark font-normal">
       {/* Category Details */}
-      <td className="px-6 py-4 whitespace-nowrap">{category.category_id || "---"}</td>
+      {/* <td className="px-6 py-4 whitespace-nowrap">{category.category_id || "---"}</td> */}
       <td className="px-6 py-4 whitespace-nowrap">
         {(category.title.length <= 40 ? category.title : category.title.substr(0, 50) + "...") ||
           "---"}

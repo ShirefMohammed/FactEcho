@@ -22,7 +22,7 @@ const OAuthSuccess = () => {
     };
 
     verifyRefreshToken();
-  }, [refresh]);
+  }, []);
 
   return <section>جاري معالجة تسجيل الدخول...</section>;
 };

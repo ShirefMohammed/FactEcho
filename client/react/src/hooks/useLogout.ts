@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import { useAuthAPIs } from "../api/hooks/useAuthAPIs";
 import { setAccessToken } from "../store/slices/accessTokenSlice";
+import { setUserAvatar } from "../store/slices/userAvatarSlice";
 import { setUser } from "../store/slices/userSlice";
 
 /**
@@ -34,6 +35,7 @@ const useLogout = (): (() => Promise<void>) => {
 
       // Clear user data and access token from Redux store
       dispatch(setUser({}));
+      dispatch(setUserAvatar(""));
       dispatch(setAccessToken(""));
 
       // Navigate to the auth page after logging out

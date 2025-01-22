@@ -8,6 +8,7 @@ import { ApiBodyResponse, LoginRequest, LoginResponse } from "@shared/types/apiT
 import { useAuthAPIs } from "../../../../api/hooks/useAuthAPIs";
 import { useNotify } from "../../../../hooks";
 import { setAccessToken } from "../../../../store/slices/accessTokenSlice";
+import { setUserAvatar } from "../../../../store/slices/userAvatarSlice";
 import { setUser } from "../../../../store/slices/userSlice";
 import style from "./Login.module.css";
 
@@ -64,6 +65,7 @@ const Login = () => {
 
       // Dispatch user and access token to store
       dispatch(setUser(resData.user));
+      dispatch(setUserAvatar(resData.user?.avatar || ""));
       dispatch(setAccessToken(resData.accessToken));
 
       notify("success", "تم تسجيل الدخول بنجاح");

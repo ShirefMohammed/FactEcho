@@ -4,16 +4,10 @@ import { useLogout } from "../../../../../src/hooks";
 import style from "./AuthNotValidPage.module.css";
 
 const AuthNotValidPage = () => {
-  // useNavigate hook from React Router for navigating to different routes
   const navigate = useNavigate();
 
-  // Custom logout function from the useLogout hook
   const logout = useLogout();
-
-  // Function to navigate back to the previous page
   const goBack = () => navigate(-1);
-
-  // Function to navigate to the home page
   const goHome = () => navigate("/");
 
   return (

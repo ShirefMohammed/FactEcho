@@ -162,11 +162,11 @@ const AdminUsers = () => {
       </header>
 
       {/* Users Table */}
-      <div className="relative overflow-x-auto">
+      <div className="relative overflow-x-auto custom-scrollbar">
         <table className="w-full text-sm text-left shadow-lg border border-slate-300 dark:border-slate-700">
           <thead>
             <tr>
-              <th className="px-6 py-3 whitespace-nowrap">user_id</th>
+              {/* <th className="px-6 py-3 whitespace-nowrap">user_id</th> */}
               <th className="px-6 py-3 whitespace-nowrap">name</th>
               <th className="px-6 py-3 whitespace-nowrap">email</th>
               <th className="px-6 py-3 whitespace-nowrap">is_verified</th>
@@ -174,7 +174,7 @@ const AdminUsers = () => {
               <th className="px-6 py-3 whitespace-nowrap">created_at</th>
               <th className="px-6 py-3 whitespace-nowrap">updated_at</th>
               <th className="px-6 py-3 whitespace-nowrap">provider</th>
-              <th className="px-6 py-3 whitespace-nowrap">provider_user_id</th>
+              {/* <th className="px-6 py-3 whitespace-nowrap">provider_user_id</th> */}
               <th className="px-6 py-3 whitespace-nowrap">Actions</th>
             </tr>
           </thead>
@@ -283,7 +283,7 @@ const UserRow = ({
   return (
     <tr className="border-b border-slate-300 dark:border-slate-700 text-sm text-body bg-white dark:bg-boxdark dark:text-bodydark font-normal">
       {/* User Details */}
-      <td className="px-6 py-4 whitespace-nowrap">{user.user_id || "---"}</td>
+      {/* <td className="px-6 py-4 whitespace-nowrap">{user.user_id || "---"}</td> */}
       <td className="px-6 py-4 whitespace-nowrap">{user.name || "---"}</td>
       <td className="px-6 py-4 whitespace-nowrap">{user.email || "---"}</td>
       <td className="px-6 py-4 whitespace-nowrap">{user.is_verified ? "Yes" : "No"}</td>
@@ -297,7 +297,7 @@ const UserRow = ({
       <td className="px-6 py-4 whitespace-nowrap">{formatTimestamp(user.created_at) || "---"}</td>
       <td className="px-6 py-4 whitespace-nowrap">{formatTimestamp(user.updated_at) || "---"}</td>
       <td className="px-6 py-4 whitespace-nowrap">{user.provider || "---"}</td>
-      <td className="px-6 py-4 whitespace-nowrap">{user.provider_user_id || "---"}</td>
+      {/* <td className="px-6 py-4 whitespace-nowrap">{user.provider_user_id || "---"}</td> */}
 
       {/* Actions */}
       <td className="px-6 py-4 whitespace-nowrap flex items-center space-x-4">

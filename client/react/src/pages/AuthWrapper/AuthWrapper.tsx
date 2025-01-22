@@ -27,7 +27,7 @@ const AuthWrapper: React.FC = () => {
       {!accessToken ? (
         // If not authenticated, display the appropriate authentication page based on the route
         <section className="flex flex-col lg:flex-row gap-4">
-          {/* Left section: Form content for Login, Register, or Forget Password */}
+          {/* Right section: Form content for Login, Register, or Forget Password */}
           <section className="flex-1">
             <div className="p-6 lg:p-12">
               {/* Heading for the authentication page */}
@@ -60,7 +60,7 @@ const AuthWrapper: React.FC = () => {
             </div>
           </section>
 
-          {/* Right section: Additional authentication-related content */}
+          {/* Left section: Additional authentication-related content */}
           <section className="flex-1">
             <AuthMessage />
           </section>

@@ -1,7 +1,7 @@
 import { StoreState } from "client/react/src/store/store";
-import React, { memo, useState } from "react";
+import React, { memo, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 
 import Logo from "../../../../assets/Logo.svg";
 import DropdownUser from "./DropdownUser";
@@ -16,11 +16,17 @@ const headerLinks = [
 
 // Header component (Memoized for performance optimization)
 const Header: React.FC = memo(() => {
-  // Access the current user from Redux state
-  const currentUser = useSelector((state: StoreState) => state.currentUser);
+  const { pathname } = useLocation();
+
+  // Access the accessToken from Redux state
+  const accessToken = useSelector((state: StoreState) => state.accessToken);
 
   // State to toggle sidebar visibility on mobile
   const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false);
+
+  useEffect(() => {
+    setIsSidebarOpen(false);
+  }, [pathname]);
 
   return (
     <header className="sticky top-0 z-999 flex w-full bg-white drop-shadow-1">
@@ -53,7 +59,7 @@ const Header: React.FC = memo(() => {
           {/* Auth status and Toggle button */}
           <div className="flex items-center gap-2">
             {/* Conditional rendering based on the current user's login status */}
-            {currentUser?.user_id ? (
+            {accessToken && accessToken !== "" ? (
               <div className="flex items-center gap-3 2xsm:gap-7 z-100">
                 {/* DropdownUser component, displayed when the user is not logged in */}
                 <DropdownUser />
