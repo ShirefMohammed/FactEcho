@@ -1,14 +1,16 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { PuffLoader } from "react-spinners";
 
 import { IArticle } from "@shared/types/entitiesTypes";
 
 import { useArticlesAPIs } from "../../../api/hooks/useArticlesAPIs";
 import defaultAvatar from "../../../assets/defaultAvatar.png";
-import { useHandleErrors } from "../../../hooks";
+import { useHandleErrors, useNotify } from "../../../hooks";
 import { StoreState } from "../../../store/store";
 import { formatArticleDate } from "../../../utils/formatArticleDate";
+import { ROLES_LIST } from "../../../utils/rolesList";
 
 interface ArticleViewerProps {
   article: IArticle | null;
@@ -16,14 +18,19 @@ interface ArticleViewerProps {
 }
 
 const ArticleViewer = ({ article, fetchArticleLoad }: ArticleViewerProps) => {
+  const currentUser = useSelector((state: StoreState) => state.currentUser);
   const accessToken = useSelector((state: StoreState) => state.accessToken);
 
   const [saveLoad, setSaveLoad] = useState<boolean>(false);
   const [unsaveLoad, setUnsaveLoad] = useState<boolean>(false);
   const [isArticleSaved, setIsArticleSaved] = useState<boolean>(false);
+  const [deleteArticleLoad, setDeleteArticleLoad] = useState<boolean>(false);
 
   const articlesAPIs = useArticlesAPIs();
   const handleErrors = useHandleErrors();
+  const location = useLocation();
+  const navigate = useNavigate();
+  const notify = useNotify();
 
   /**
    * Save the article for the current user.
@@ -67,6 +74,46 @@ const ArticleViewer = ({ article, fetchArticleLoad }: ArticleViewerProps) => {
       setIsArticleSaved(resBody.data?.isArticleSaved || false);
     } catch (err) {
       handleErrors(err);
+    }
+  };
+
+  /**
+   * Deletes an article by its ID.
+   *
+   * This function performs the following steps:
+   * 1. Prompts the user for confirmation to delete the article.
+   * 2. Calls the delete article API to remove the article from the database.
+   * 3. Displays a success or error notification based on the result.
+   * 4. Redirects the user to the homepage after successful deletion.
+   * 5. Resets the loading state after the process is complete.
+   *
+   * @param {string} articleId - The unique identifier of the article to be deleted.
+   * @returns {Promise<void>} - A promise that resolves when the operation completes.
+   */
+
+  const deleteArticle = async (articleId: string) => {
+    try {
+      setDeleteArticleLoad(true);
+
+      // Confirm deletion
+      const confirmResult = confirm("Are you sure?");
+      if (!confirmResult) return;
+
+      // Call API to delete article
+      await articlesAPIs.deleteArticle(articleId);
+
+      notify("success", "Article deleted successfully");
+      navigate("/", { state: { from: location }, replace: true });
+    } catch (err) {
+      // Handle errors and notify the article
+      if (!err?.response) {
+        notify("error", "No Server Response");
+      } else {
+        const message = err.response?.data?.message;
+        notify("error", message || "Delete article failed!");
+      }
+    } finally {
+      setDeleteArticleLoad(false); // Reset loading state
     }
   };
 
@@ -227,16 +274,51 @@ const ArticleViewer = ({ article, fetchArticleLoad }: ArticleViewerProps) => {
         </div>
       </div>
 
-      {/* Link to Author */}
+      {/* Author Link */}
       <Link
         to={`/authors/${article.creator_id}`}
-        className="w-fit flex items-center gap-2 text-mainGreyColor hover:text-primaryColor mb-8"
+        className="w-fit flex items-center gap-2 text-mainGreyColor hover:text-primaryColor mb-4"
         title="article author profile"
       >
         <div className="w-1 h-8 bg-primaryColor"></div> {/* Div For Styling */}
         <img className="w-6 h-6 rounded-full" src={defaultAvatar} alt="author avatar" />
         كاتب المقال
       </Link>
+
+      {/* Article Controllers */}
+      {(currentUser.role === ROLES_LIST.Admin || currentUser.role === ROLES_LIST.Author) && (
+        <div className="w-fit flex items-center gap-2 mb-8">
+          {/* Div for styling */}
+          <div className="w-1 h-8 bg-primaryColor"></div>
+
+          {/* Update link */}
+          {currentUser.user_id === article.creator_id && (
+            <>
+              <Link
+                to={`/articles/${article.article_id}/update`}
+                className="w-fit text-mainGreyColor hover:text-primaryColor"
+              >
+                تحديث
+              </Link>
+              .
+            </>
+          )}
+
+          {/* Delete btn */}
+          {(currentUser.role === ROLES_LIST.Admin ||
+            currentUser.user_id === article.creator_id) && (
+            <button
+              type="button"
+              className="flex items-center gap-2 w-fit text-mainGreyColor hover:text-danger"
+              onClick={() => deleteArticle(article.article_id)}
+              disabled={deleteArticleLoad}
+              style={deleteArticleLoad ? { opacity: 0.5, cursor: "not-allowed" } : {}}
+            >
+              {deleteArticleLoad ? <PuffLoader color="#000" size={20} /> : <span>حذف</span>}
+            </button>
+          )}
+        </div>
+      )}
 
       {/* Article Content */}
       <div className="prose max-w-none" dangerouslySetInnerHTML={{ __html: article.content }} />

@@ -45,7 +45,7 @@ const RelatedArticlesByCategory = ({ article }: { article: IArticle }) => {
       title="مقالات ذات صلة"
       isLoading={isLoading}
       articles={relatedArticles}
-      displayFields={["title", "image", "views", "created_at"]}
+      displayFields={["title", "image", "views", "created_at", "creator_id"]}
       gridClassName="grid gap-4 md:grid-cols-2"
     />
   );

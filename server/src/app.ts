@@ -6,6 +6,7 @@ import path from "node:path";
 import passport from "passport";
 import swaggerUi from "swagger-ui-express";
 
+import { initializeCache } from "./cache";
 import { corsOptions } from "./config/corsOptions";
 import "./config/passportConfig";
 import swaggerSpecs from "./config/swaggerConfig";
@@ -26,6 +27,9 @@ const app: Express = express();
 export const initializeApp = async () => {
   // Connect to database
   await connectDB();
+
+  // Initialize cache
+  await initializeCache();
 
   // Cross Origin Resource Sharing
   app.use(handleCors, cors(corsOptions));

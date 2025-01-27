@@ -44,7 +44,7 @@ const TrendArticlesSection = memo(() => {
       title="المقالات الرائجة"
       isLoading={isLoading}
       articles={articles}
-      displayFields={["title", "image", "views", "created_at"]}
+      displayFields={["title", "image", "views", "created_at", "creator_id"]}
       gridClassName="grid gap-4 md:grid-cols-2"
     />
   );

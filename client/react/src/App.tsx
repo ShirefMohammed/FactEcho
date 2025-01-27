@@ -19,12 +19,14 @@ import {
   ErrorServerError,
   ErrorUnauthorized,
   ExploreArticles,
+  Home,
   LatestArticles,
   MainWrapper,
   PublicAuthorProfile,
   SearchArticles,
   TrendArticles,
   UpdateArticle,
+  UserProfileOverview,
   UserProfileWrapper,
 } from "./pages";
 import { ROLES_LIST } from "./utils/rolesList";
@@ -62,8 +64,8 @@ function App() {
               </Route>
 
               {/* Main Routes */}
-              <Route index element={"<Home />"} />
-              <Route path="home" element={"<Home />"} />
+              <Route index element={<Home />} />
+              <Route path="home" element={<Home />} />
               <Route path="explore" element={<ExploreArticles />} />
               <Route path="trend" element={<TrendArticles />} />
               <Route path="latest" element={<LatestArticles />} />
@@ -84,6 +86,11 @@ function App() {
                   <Route path="news-letters" element={null} />
                   <Route path="settings" element={null} />
                 </Route>
+              </Route>
+
+              {/* User Profile Overview Route */}
+              <Route element={<RequireAuth allowedRoles={[ROLES_LIST.Admin]} />}>
+                <Route path="users/:userId/overview" element={<UserProfileOverview />} />
               </Route>
 
               {/* Authors Routes */}

@@ -302,7 +302,7 @@ const UserRow = ({
       {/* Actions */}
       <td className="px-6 py-4 whitespace-nowrap flex items-center space-x-4">
         <Link
-          to={`/users/${user.user_id}/profile`}
+          to={`/users/${user.user_id}/overview`}
           title="View user profile"
           className="text-blue-600 dark:text-blue-500"
         >

@@ -10,6 +10,7 @@ import {
   searchCategories,
   updateCategory,
 } from "../../controllers/v1/categoriesController";
+import { checkCache } from "../../middleware/checkCache";
 import { verifyJWT } from "../../middleware/verifyJWT";
 import { verifyRole } from "../../middleware/verifyRole";
 import { ROLES_LIST } from "../../utils/rolesList";
@@ -176,7 +177,7 @@ const router = express.Router();
  */
 router
   .route("/")
-  .get(getCategories)
+  .get(checkCache, getCategories)
   .post(verifyJWT, verifyRole(ROLES_LIST.Admin), createCategory);
 
 /**
@@ -264,7 +265,7 @@ router
  *                   type: string
  *                   example: "Internal server error."
  */
-router.route("/search").get(searchCategories);
+router.route("/search").get(checkCache, searchCategories);
 
 /**
  * @swagger
@@ -307,7 +308,7 @@ router.route("/search").get(searchCategories);
  *                   type: string
  *                   example: "Internal server error."
  */
-router.route("/count").get(getTotalCategoriesCount);
+router.route("/count").get(checkCache, getTotalCategoriesCount);
 
 /**
  * @swagger
@@ -495,7 +496,7 @@ router.route("/count").get(getTotalCategoriesCount);
  */
 router
   .route("/:categoryId")
-  .get(getCategory)
+  .get(checkCache, getCategory)
   .patch(verifyJWT, verifyRole(ROLES_LIST.Admin), updateCategory)
   .delete(verifyJWT, verifyRole(ROLES_LIST.Admin), deleteCategory);
 
@@ -581,6 +582,6 @@ router
  *                   type: string
  *                   example: "Internal server error."
  */
-router.route("/:categoryId/articles").get(getCategoryArticles);
+router.route("/:categoryId/articles").get(checkCache, getCategoryArticles);
 
 export default router;

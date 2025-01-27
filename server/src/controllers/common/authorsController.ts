@@ -17,6 +17,8 @@ import { IArticle, IAuthor } from "@shared/types/entitiesTypes";
 import { getServiceLogger } from "../../config/logger";
 import { articlesModel, authorsModel } from "../../database";
 import { ExtendedRequestHandler } from "../../types/requestHandlerTypes";
+import { cacheResponse } from "../../utils/cacheResponse";
+import { deleteRelatedCachedItemsForRequest } from "../../utils/deleteRelatedCachedItemsForRequest";
 import { httpStatusText } from "../../utils/httpStatusText";
 
 // Logger for authors service
@@ -53,6 +55,9 @@ export const getAuthors: ExtendedRequestHandler<
 
     // Fetch paginated authors
     const authors: IAuthor[] = await authorsModel.getAuthors(-1, limit, skip);
+
+    // Cache response data
+    cacheResponse(req, { authors });
 
     // Send response with authors
     res.status(200).send({
@@ -109,6 +114,9 @@ export const searchAuthors: ExtendedRequestHandler<
       skip,
     );
 
+    // Cache response data
+    cacheResponse(req, { authors });
+
     // Send response with authors
     res.status(200).send({
       statusText: httpStatusText.SUCCESS,
@@ -131,9 +139,12 @@ export const searchAuthors: ExtendedRequestHandler<
 export const getTotalAuthorsCount: ExtendedRequestHandler<
   GetTotalAuthorsCountRequest,
   GetTotalAuthorsCountResponse
-> = async (_req, res, next) => {
+> = async (req, res, next) => {
   try {
     const totalAuthorsCount: number = await authorsModel.getAuthorsCount();
+
+    // Cache response data
+    cacheResponse(req, { totalAuthorsCount });
 
     res.status(200).send({
       statusText: httpStatusText.SUCCESS,
@@ -174,6 +185,9 @@ export const getAuthor: ExtendedRequestHandler<
 
     // Delete the permissions field from the author object
     delete (author as any).permissions;
+
+    // Cache response data
+    cacheResponse(req, { author });
 
     // Return the author details with a success message
     res.status(200).send({
@@ -222,6 +236,9 @@ export const updateAuthorPermissions: ExtendedRequestHandler<
       `Author permissions updated for author {${req.params.authorId}}`,
     );
 
+    // Delete related cached item for this request
+    deleteRelatedCachedItemsForRequest(req);
+
     // Send success response
     res.status(200).send({
       statusText: httpStatusText.SUCCESS,
@@ -269,6 +286,9 @@ export const getAuthorArticles: ExtendedRequestHandler<
       limit,
       skip,
     );
+
+    // Cache response data
+    cacheResponse(req, { articles });
 
     // Send response with articles
     res.status(200).send({

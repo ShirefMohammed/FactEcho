@@ -44,7 +44,7 @@ const LatestArticles = () => {
       title="المقالات الجديدة"
       isLoading={isLoading}
       articles={articles}
-      displayFields={["title", "image", "views", "created_at"]}
+      displayFields={["title", "image", "views", "created_at", "creator_id"]}
     />
   );
 };

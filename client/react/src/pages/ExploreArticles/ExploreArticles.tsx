@@ -44,7 +44,7 @@ const ExploreArticles = () => {
       title="المقالات المقترحة"
       isLoading={isLoading}
       articles={articles}
-      displayFields={["title", "image", "views", "created_at"]}
+      displayFields={["title", "image", "views", "created_at", "creator_id"]}
     />
   );
 };

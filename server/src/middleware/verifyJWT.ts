@@ -35,13 +35,20 @@ export const verifyJWT: ExtendedRequestHandler<null, null> = async (
 
       const isUserFound = await usersModel.findUserById(
         decoded?.userInfo?.user_id,
-        ["user_id"],
+        ["user_id", "role"],
       );
 
       if (!isUserFound) {
         return res.status(404).json({
           statusText: httpStatusText.FAIL,
           message: "Your account is not found",
+        } as ApiBodyResponse<null>);
+      }
+
+      if (isUserFound.role !== decoded.userInfo?.role) {
+        return res.status(403).json({
+          statusText: httpStatusText.FAIL,
+          message: "Not Allowed",
         } as ApiBodyResponse<null>);
       }
 

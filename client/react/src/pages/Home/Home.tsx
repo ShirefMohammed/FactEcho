@@ -1,39 +1,38 @@
-import { BannerOne, CategoriesList, NewProductsList } from "../../components";
-import AllCategoriesList from "./components/AllCategoriesList";
-import BannerSlider from "./components/BannerSlider";
-import HomeBanners from "./components/HomeBanners";
-import LatestProducts from "./components/LatestProducts";
+import { CategoriesList, LatestArticlesList } from "../../components";
+import CategoriesArticles from "./components/CategoriesArticles";
+import NewsBanner from "./components/NewsBanner";
+import SocialMediaLinks from "./components/SocialMediaLinks";
+import TrendArticlesGrid from "./components/TrendArticlesGrid";
+import TrendArticlesList from "./components/TrendArticlesList";
 
 const Home = () => {
   return (
     <section className="flex flex-col gap-8">
-      {/* Top */}
+      {/* News Banner Section */}
+      <NewsBanner />
 
-      <div className="flex gap-4">
-        {/* Left Side */}
-        <div className="hidden lg:flex w-60 flex-col gap-5">
-          <CategoriesList />
-
-          <NewProductsList />
+      {/* Main Content Section */}
+      <div className="flex flex-col lg:flex-row gap-4">
+        {/* Right Side: Trending Articles Grid */}
+        <div className="flex-1">
+          <TrendArticlesGrid />
         </div>
 
-        {/* Right Side */}
-        <div className="flex-1 flex flex-col gap-6">
-          <BannerSlider />
-
-          <LatestProducts />
-
-          <HomeBanners />
+        {/* Left Side: Categories and Latest Articles */}
+        <div className="w-full lg:w-80 flex flex-col gap-5">
+          <CategoriesList />
+          <LatestArticlesList />
         </div>
       </div>
 
-      {/* Bottom */}
+      {/* Categories Articles Section */}
+      <CategoriesArticles />
 
-      {/* All Categories List */}
-      <AllCategoriesList />
+      {/* Social Media Links Section */}
+      <SocialMediaLinks />
 
-      {/* Banner One */}
-      <BannerOne />
+      {/* Trend Articles List Section */}
+      <TrendArticlesList />
     </section>
   );
 };

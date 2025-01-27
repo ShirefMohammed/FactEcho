@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 
 import Logo from "../../../../assets/Logo.svg";
+import DropdownCategories from "./DropdownCategories";
 import DropdownUser from "./DropdownUser";
 
 // Header links for navigation (used in both desktop and mobile view)
@@ -49,6 +50,8 @@ const Header: React.FC = memo(() => {
                 {link.label}
               </NavLink>
             ))}
+
+            <DropdownCategories />
           </div>
 
           {/* Desktop search form (hidden on small screens) */}
@@ -109,7 +112,7 @@ const Header: React.FC = memo(() => {
 
           {/* Sidebar for small screens */}
           <div
-            className={`fixed inset-0 bg-white z-100 transform transition-transform h-screen top-14 ${
+            className={`fixed inset-0 bg-white z-1 transform transition-transform h-screen overflow-auto top-14 ${
               isSidebarOpen ? "translate-x-0" : "translate-x-full"
             } lg:hidden`}
           >
@@ -124,6 +127,8 @@ const Header: React.FC = memo(() => {
                   {link.label}
                 </NavLink>
               ))}
+
+              <DropdownCategories />
 
               <br />
 

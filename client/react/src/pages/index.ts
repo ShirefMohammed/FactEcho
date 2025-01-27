@@ -20,12 +20,12 @@ export { default as CreateArticle } from "./CreateArticle/CreateArticle.tsx";
 export { default as UpdateArticle } from "./UpdateArticle/UpdateArticle.tsx";
 
 export { default as ExploreArticles } from "./ExploreArticles/ExploreArticles.tsx";
-// export { default as Home } from "./Home/Home.tsx";
+export { default as Home } from "./Home/Home.tsx";
 export { default as LatestArticles } from "./LatestArticles/LatestArticles.tsx";
 export { default as MainWrapper } from "./MainWrapper/MainWrapper.tsx";
 export { default as PublicAuthorProfile } from "./PublicAuthorProfile/PublicAuthorProfile.tsx";
+export { default as UserProfileOverview } from "./UserProfileOverview/UserProfileOverview.tsx";
 export { default as SearchArticles } from "./SearchArticles/SearchArticles.tsx";
 export { default as TrendArticles } from "./TrendArticles/TrendArticles.tsx";
 
 export { default as UserProfileWrapper } from "./UserProfileWrapper/UserProfileWrapper.tsx";
-// export { default as UserSettings } from "./UserSettings/UserSettings.tsx";

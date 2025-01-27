@@ -46,7 +46,7 @@ const DropdownUser = memo(() => {
 
         {/* Dropdown indicator (arrow) */}
         <svg
-          className="hidden fill-current sm:block"
+          className="fill-current"
           width="12"
           height="8"
           viewBox="0 0 12 8"
@@ -65,7 +65,7 @@ const DropdownUser = memo(() => {
       {/* Dropdown menu, conditionally rendered when dropdownOpen is true */}
       {dropdownOpen && (
         <div
-          className={`absolute left-0 mt-4 flex w-62.5 flex-col rounded-sm border border-stroke bg-white shadow-default`}
+          className={`absolute left-0 z-99 mt-4 flex w-62.5 flex-col rounded-sm border border-stroke bg-white shadow-default`}
         >
           <ul className="flex flex-col gap-5 border-b border-stroke px-6 py-7.5">
             {/* Profile link */}
@@ -130,7 +130,7 @@ const DropdownUser = memo(() => {
                   className="flex items-center gap-3.5 text-sm font-medium duration-300 ease-in-out hover:text-primaryColor lg:text-base"
                 >
                   <FontAwesomeIcon icon={faPlusSquare} className="w-5 h-5" />
-                  <span className="hidden md:inline">إنشاء مقال</span>
+                  <span>إنشاء مقال</span>
                 </Link>
               </li>
             ) : (
@@ -157,7 +157,7 @@ const DropdownUser = memo(() => {
                     <rect x="13" y="10" width="8" height="8" rx="2" ry="2"></rect>
                     <rect x="3" y="13" width="8" height="5" rx="2" ry="2"></rect>
                   </svg>
-                  لوحة الأدمن
+                  <span>لوحة الأدمن</span>
                 </Link>
               </li>
             ) : (

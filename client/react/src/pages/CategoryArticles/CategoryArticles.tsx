@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-import { ApiBodyResponse, GetArticlesResponse } from "@shared/types/apiTypes";
+import { ApiBodyResponse, GetCategoryArticlesResponse } from "@shared/types/apiTypes";
 import { IArticle, ICategory } from "@shared/types/entitiesTypes";
 
 import { useCategoriesAPIs } from "../../api/hooks/useCategoriesAPIs";
@@ -41,9 +41,9 @@ const CategoryArticles = () => {
   const fetchCategoryArticles = async () => {
     try {
       setFetchCategoryArticlesLoad(true);
-      const resBody: ApiBodyResponse<GetArticlesResponse> =
+      const resBody: ApiBodyResponse<GetCategoryArticlesResponse> =
         await categoriesAPIs.getCategoryArticles(categoryId!, articlesPage, limit, "new");
-      setArticles((prevArticles) => [...prevArticles, ...(resBody.data?.articles || [])]);
+      setArticles(resBody.data?.articles || []);
     } catch (err) {
       handleErrors(err);
     } finally {
@@ -67,7 +67,7 @@ const CategoryArticles = () => {
       isLoading={fetchCategoryArticlesLoad}
       setIsLoading={setFetchCategoryArticlesLoad}
       articles={articles}
-      displayFields={["title", "image", "views", "created_at"]}
+      displayFields={["title", "image", "views", "created_at", "creator_id"]}
       btn={{
         articlesLength: articles.length,
         limit: limit,

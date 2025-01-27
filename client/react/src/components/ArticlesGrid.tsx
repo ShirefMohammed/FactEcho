@@ -10,7 +10,7 @@ interface ArticlesGridProps {
   isLoading?: boolean;
   setIsLoading?: (isLoading: boolean) => void;
   articles: IArticle[];
-  displayFields: Array<"title" | "image" | "views" | "created_at">;
+  displayFields: Array<"title" | "image" | "views" | "created_at" | "creator_id">;
   gridClassName?: string;
   btn?: {
     articlesLength: number;
@@ -33,7 +33,7 @@ interface ArticlesGridProps {
  *   isLoading={isLoading}
  *   setIsLoading={setIsLoading}
  *   articles={articles}
- *   displayFields={["title", "image", "views", "created_at"]}
+ *   displayFields={["title", "image", "views", "created_at", "creator_id"]}
  *   gridClassName="grid gap-4 md:grid-cols-2"
  *   btn={{
  *     articlesLength: articles.length,
@@ -72,6 +72,7 @@ const ArticlesGrid: FC<ArticlesGridProps> = ({
             if (displayFields.indexOf("image") !== -1) props.image = article.image;
             if (displayFields.indexOf("views") !== -1) props.views = article.views;
             if (displayFields.indexOf("created_at") !== -1) props.created_at = article.created_at;
+            if (displayFields.indexOf("creator_id") !== -1) props.creator_id = article.creator_id;
 
             return (
               <li key={article.article_id}>

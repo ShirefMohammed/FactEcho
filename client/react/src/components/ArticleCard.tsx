@@ -1,8 +1,17 @@
+import { faBookmark, faEllipsisV, faPen, faTrash } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { memo, useState } from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 import { IArticle } from "@shared/types/entitiesTypes";
 
+import { useArticlesAPIs } from "../api/hooks/useArticlesAPIs";
+import { ClickOutside } from "../components";
+import { useNotify } from "../hooks";
+import { StoreState } from "../store/store";
 import { formatCreatedSince } from "../utils/formateCreatedSince";
+import { ROLES_LIST } from "../utils/rolesList";
 
 interface ArticleCardProps {
   article_id: IArticle["article_id"];
@@ -10,7 +19,10 @@ interface ArticleCardProps {
   image?: IArticle["image"];
   views?: IArticle["views"];
   created_at?: IArticle["created_at"];
+  creator_id?: IArticle["creator_id"];
 }
+
+type DropdownCardControllersProps = Pick<ArticleCardProps, "article_id" | "creator_id">;
 
 /**
  * A reusable card component to display an article with its image, title, views, and creation date.
@@ -18,7 +30,14 @@ interface ArticleCardProps {
  *
  * @param {ArticleCardProps} props - Props containing the article details.
  */
-const ArticleCard = ({ article_id, title, image, views, created_at }: ArticleCardProps) => {
+const ArticleCard = ({
+  article_id,
+  title,
+  image,
+  views,
+  created_at,
+  creator_id,
+}: ArticleCardProps) => {
   return (
     <div className="w-full h-full rounded-lg">
       {/* Article image */}
@@ -34,15 +53,19 @@ const ArticleCard = ({ article_id, title, image, views, created_at }: ArticleCar
       )}
 
       <div className="flex flex-col gap-2 mt-4">
-        {/* Article title */}
-        {title && (
-          <Link
-            to={`/articles/${article_id}`}
-            className="text-lg font-bold text-main hover:underline"
-          >
-            {title}
-          </Link>
-        )}
+        <div className="flex justify-between gap-2">
+          {/* Article title */}
+          {title && (
+            <Link
+              to={`/articles/${article_id}`}
+              className="text-lg font-bold text-main hover:underline"
+            >
+              {title}
+            </Link>
+          )}
+
+          <DropdownCardControllers article_id={article_id} creator_id={creator_id} />
+        </div>
 
         {/* Article details */}
         <div className="text-xs text-textSoft flex items-center justify-end gap-2" dir="ltr">
@@ -54,5 +77,237 @@ const ArticleCard = ({ article_id, title, image, views, created_at }: ArticleCar
     </div>
   );
 };
+
+/**
+ * A memoized React component that provides a dropdown menu with controls for managing articles.
+ *
+ * @param {DropdownCardControllersProps} props - The props for the component.
+ * @returns {JSX.Element} The rendered dropdown card controllers component.
+ */
+const DropdownCardControllers = memo(({ article_id, creator_id }: DropdownCardControllersProps) => {
+  const currentUser = useSelector((state: StoreState) => state.currentUser);
+  const accessToken = useSelector((state: StoreState) => state.accessToken);
+
+  const [dropdownOpen, setDropdownOpen] = useState<boolean>(false);
+  const [saveLoad, setSaveLoad] = useState<boolean>(false);
+  const [unsaveLoad, setUnsaveLoad] = useState<boolean>(false);
+  const [deleteArticleLoad, setDeleteArticleLoad] = useState<boolean>(false);
+
+  const articlesAPIs = useArticlesAPIs();
+  const notify = useNotify();
+
+  /**
+   * Save the article for the current user.
+   * @param articleId - The ID of the article to save.
+   */
+  const saveArticle = async (articleId: IArticle["article_id"]) => {
+    try {
+      setSaveLoad(true);
+      await articlesAPIs.saveArticle(articleId);
+      notify("success", "تم حفظ المقال");
+    } catch (err) {
+      console.log(err);
+    } finally {
+      setSaveLoad(false);
+    }
+  };
+
+  /**
+   * Unsave the article for the current user.
+   * @param articleId - The ID of the article to unsave.
+   */
+  const unsaveArticle = async (articleId: IArticle["article_id"]) => {
+    try {
+      setUnsaveLoad(true);
+      await articlesAPIs.unsaveArticle(articleId);
+      notify("success", "تم إلغاء حفظ المقال");
+    } catch (err) {
+      console.log(err);
+    } finally {
+      setUnsaveLoad(false);
+    }
+  };
+
+  /**
+   * Deletes an article by its ID.
+   *
+   * This function performs the following steps:
+   * 1. Prompts the user for confirmation to delete the article.
+   * 2. Calls the delete article API to remove the article from the database.
+   * 3. Displays a success or error notification based on the result.
+   * 4. Redirects the user to the homepage after successful deletion.
+   * 5. Resets the loading state after the process is complete.
+   *
+   * @param {string} articleId - The unique identifier of the article to be deleted.
+   * @returns {Promise<void>} - A promise that resolves when the operation completes.
+   */
+  const deleteArticle = async (articleId: string) => {
+    try {
+      setDeleteArticleLoad(true);
+
+      // Confirm deletion
+      const confirmResult = confirm("Are you sure?");
+      if (!confirmResult) return;
+
+      // Call API to delete article
+      await articlesAPIs.deleteArticle(articleId);
+
+      notify("success", "Article deleted successfully");
+    } catch (err) {
+      // Handle errors and notify the article
+      if (!err?.response) {
+        notify("error", "No Server Response");
+      } else {
+        const message = err.response?.data?.message;
+        notify("error", message || "Delete article failed!");
+      }
+    } finally {
+      setDeleteArticleLoad(false); // Reset loading state
+    }
+  };
+
+  return (
+    <ClickOutside onClick={() => setDropdownOpen(false)} className="relative">
+      {/* Button to toggle the dropdown */}
+      <button
+        type="button"
+        className="flex items-center gap-6"
+        onClick={() => setDropdownOpen(!dropdownOpen)}
+      >
+        <FontAwesomeIcon icon={faEllipsisV} className="text-gray-500 cursor-pointer" />
+      </button>
+
+      {/* Dropdown menu, conditionally rendered when dropdownOpen is true */}
+      {dropdownOpen && (
+        <div
+          className={`absolute left-0 z-1 mt-4 flex w-62.5 flex-col rounded-sm border border-stroke bg-white shadow-zinc-800`}
+        >
+          <ul className="flex flex-col gap-4 border-b border-stroke p-4">
+            {accessToken && (
+              <>
+                {/* Save */}
+                <li>
+                  <button
+                    type="button"
+                    className="flex items-center gap-3.5 text-sm font-medium duration-300 ease-in-out hover:text-primaryColor lg:text-base"
+                    onClick={() => saveArticle(article_id)}
+                  >
+                    <FontAwesomeIcon icon={faBookmark} />
+                    حفظ للقرآة لاحقا
+                    {saveLoad && (
+                      <svg
+                        className="animate-spin h-5 w-5"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                      >
+                        <circle
+                          className="opacity-25"
+                          cx="12"
+                          cy="12"
+                          r="10"
+                          stroke="currentColor"
+                          strokeWidth="4"
+                        />
+                        <path
+                          className="opacity-75"
+                          fill="currentColor"
+                          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                        />
+                      </svg>
+                    )}
+                  </button>
+                </li>
+
+                {/* Unsave */}
+                <li>
+                  <button
+                    type="button"
+                    className="flex items-center gap-3.5 text-sm font-medium duration-300 ease-in-out hover:text-primaryColor lg:text-base"
+                    onClick={() => unsaveArticle(article_id)}
+                  >
+                    <FontAwesomeIcon icon={faBookmark} />
+                    إلغاء الحفظ
+                    {unsaveLoad && (
+                      <svg
+                        className="animate-spin h-5 w-5"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                      >
+                        <circle
+                          className="opacity-25"
+                          cx="12"
+                          cy="12"
+                          r="10"
+                          stroke="currentColor"
+                          strokeWidth="4"
+                        />
+                        <path
+                          className="opacity-75"
+                          fill="currentColor"
+                          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                        />
+                      </svg>
+                    )}
+                  </button>
+                </li>
+
+                {/* Update */}
+                {currentUser.user_id === creator_id && (
+                  <li>
+                    <Link
+                      to={`/articles/${article_id}/update`}
+                      className="flex items-center gap-3.5 text-sm font-medium duration-300 ease-in-out hover:text-primaryColor lg:text-base"
+                    >
+                      <FontAwesomeIcon icon={faPen} />
+                      تحديث المقال
+                    </Link>
+                  </li>
+                )}
+
+                {/* Delete */}
+                {(currentUser.role === ROLES_LIST.Admin || currentUser.user_id === creator_id) && (
+                  <li>
+                    <button
+                      type="button"
+                      className="flex items-center gap-3.5 text-sm font-medium duration-300 ease-in-out hover:text-danger lg:text-base"
+                      onClick={() => deleteArticle(article_id)}
+                    >
+                      <FontAwesomeIcon icon={faTrash} />
+                      حذف المقال
+                      {deleteArticleLoad && (
+                        <svg
+                          className="animate-spin h-5 w-5"
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                        >
+                          <circle
+                            className="opacity-25"
+                            cx="12"
+                            cy="12"
+                            r="10"
+                            stroke="currentColor"
+                            strokeWidth="4"
+                          />
+                          <path
+                            className="opacity-75"
+                            fill="currentColor"
+                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                          />
+                        </svg>
+                      )}
+                    </button>
+                  </li>
+                )}
+              </>
+            )}
+          </ul>
+        </div>
+      )}
+    </ClickOutside>
+  );
+});
 
 export default ArticleCard;

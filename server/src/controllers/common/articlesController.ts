@@ -34,7 +34,9 @@ import { IArticle } from "@shared/types/entitiesTypes";
 import { getServiceLogger } from "../../config/logger";
 import { articlesModel, authorsModel, categoriesModel } from "../../database";
 import { ExtendedRequestHandler } from "../../types/requestHandlerTypes";
+import { cacheResponse } from "../../utils/cacheResponse";
 import { deleteFileFromCloudinary } from "../../utils/deleteFileFromCloudinary";
+import { deleteRelatedCachedItemsForRequest } from "../../utils/deleteRelatedCachedItemsForRequest";
 import { httpStatusText } from "../../utils/httpStatusText";
 import { isFileExistsInCloudinary } from "../../utils/isFileExistsInCloudinary";
 import { ROLES_LIST } from "../../utils/rolesList";
@@ -78,6 +80,9 @@ export const getArticles: ExtendedRequestHandler<
       limit,
       skip,
     );
+
+    // Cache response data
+    cacheResponse(req, { articles });
 
     // Send response with articles and pagination metadata
     res.status(200).send({
@@ -129,6 +134,9 @@ export const searchArticles: ExtendedRequestHandler<
       skip,
     );
 
+    // Cache response data
+    cacheResponse(req, { articles });
+
     // Send response with articles and pagination metadata
     res.status(200).send({
       statusText: httpStatusText.SUCCESS,
@@ -151,9 +159,12 @@ export const searchArticles: ExtendedRequestHandler<
 export const getTotalArticlesCount: ExtendedRequestHandler<
   GetTotalArticlesCountRequest,
   GetTotalArticlesCountResponse
-> = async (_req, res, next) => {
+> = async (req, res, next) => {
   try {
     const totalArticlesCount: number = await articlesModel.getArticlesCount();
+
+    // Cache response data
+    cacheResponse(req, { totalArticlesCount });
 
     res.status(200).send({
       statusText: httpStatusText.SUCCESS,
@@ -192,6 +203,9 @@ export const getExploredArticles: ExtendedRequestHandler<
 
     // Fetch random articles from the database
     const articles: IArticle[] = await articlesModel.getRandomArticles(limit);
+
+    // Cache response data
+    cacheResponse(req, { articles });
 
     // Send response with the list of random articles
     res.status(200).send({
@@ -232,6 +246,9 @@ export const getTrendArticles: ExtendedRequestHandler<
     // Fetch trending articles (e.g., articles with most views)
     const articles: IArticle[] = await articlesModel.getTrendingArticles(limit);
 
+    // Cache response data
+    cacheResponse(req, { articles });
+
     // Send response with the list of trending articles
     res.status(200).send({
       statusText: httpStatusText.SUCCESS,
@@ -270,6 +287,9 @@ export const getLatestArticles: ExtendedRequestHandler<
 
     // Fetch latest articles based on their creation date
     const articles: IArticle[] = await articlesModel.getLatestArticles(limit);
+
+    // Cache response data
+    cacheResponse(req, { articles });
 
     // Send response with the list of latest articles
     res.status(200).send({
@@ -312,6 +332,9 @@ export const getArticle: ExtendedRequestHandler<
     articlesModel.updateArticle(article.article_id, {
       views: article.views + 1,
     });
+
+    // Cache response data
+    cacheResponse(req, { article });
 
     // Send response with the article details
     res.status(200).send({
@@ -418,6 +441,9 @@ export const createArticle: ExtendedRequestHandler<
     articlesLogger.info(
       `createArticle: New Article with title {${title}} created successfully`,
     );
+
+    // Delete related cached item for this request
+    deleteRelatedCachedItemsForRequest(req);
 
     // Send a success response with the new article data
     res.status(201).send({
@@ -582,6 +608,9 @@ export const updateArticle: ExtendedRequestHandler<
       `updateArticle: Article {${articleId}} updated successfully by {${requesterRole}}.`,
     );
 
+    // Delete related cached item for this request
+    deleteRelatedCachedItemsForRequest(req);
+
     // Send success response with the updated article
     res.status(200).send({
       statusText: httpStatusText.SUCCESS,
@@ -677,6 +706,9 @@ export const deleteArticle: ExtendedRequestHandler<
     articlesLogger.info(
       `deleteArticle: Article {${articleId}} deleted successfully by {${requesterRole}}.`,
     );
+
+    // Delete related cached item for this request
+    deleteRelatedCachedItemsForRequest(req);
 
     // Send a success response with no content (204 No Content)
     res.sendStatus(204);

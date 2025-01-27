@@ -55,7 +55,7 @@ const AuthorArticles = ({ authorId }: { authorId: IAuthor["user_id"] }) => {
       isLoading={fetchAuthorArticlesLoad}
       setIsLoading={setFetchAuthorArticlesLoad}
       articles={articles}
-      displayFields={["title", "image", "views", "created_at"]}
+      displayFields={["title", "image", "views", "created_at", "creator_id"]}
       btn={{
         articlesLength: articles.length,
         limit: limit,

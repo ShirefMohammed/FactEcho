@@ -62,7 +62,7 @@ const ReadingList = () => {
       isLoading={fetchReadingListArticlesLoad}
       setIsLoading={setFetchReadingListArticlesLoad}
       articles={articles}
-      displayFields={["title", "image", "views", "created_at"]}
+      displayFields={["title", "image", "views", "created_at", "creator_id"]}
       gridClassName="grid gap-4 md:grid-cols-2"
       btn={{
         articlesLength: articles.length,

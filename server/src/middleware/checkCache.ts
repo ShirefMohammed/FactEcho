@@ -1,0 +1,45 @@
+import { NextFunction, Request, Response } from "express";
+
+import { ApiBodyResponse } from "@shared/types/apiTypes";
+
+import { cacheService } from "../cache";
+import { httpStatusText } from "../utils/httpStatusText";
+
+/**
+ * Middleware to check the cache before processing a request.
+ * - If the requested data is found in the cache, it returns the cached response.
+ * - If the data is not found, it proceeds to the next middleware or route handler.
+ *
+ * @param {Request} req - The Express request object.
+ * @param {Response} res - The Express response object.
+ * @param {NextFunction} next - The Express next function.
+ *
+ * @example
+ * app.get("/data", checkCache, (req, res) => {
+ *   // Process request and cache the response
+ * });
+ */
+export const checkCache = (req: Request, res: Response, next: NextFunction) => {
+  const key = cacheService.generateKey(req); // Generate the cache key dynamically
+  const cachedResponse = cacheService.get(key); // Retrieve the cached response
+
+  // If the response is found in the cache, return it
+  if (cachedResponse) {
+    // Reset the TTL to the default
+    cacheService.ttl(key);
+
+    const response: ApiBodyResponse<any> = {
+      statusText: httpStatusText.SUCCESS,
+      message: "Data retrieved successfully.",
+      data: cachedResponse,
+    };
+
+    // console.log(`checkCache: Cache hit for key: ${key}`);
+
+    return res.status(200).json(response);
+  }
+
+  // If the response is not found, proceed to the next middleware or route handler
+  // console.log(`checkCache: Cache miss for key: ${key}`);
+  next();
+};

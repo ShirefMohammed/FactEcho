@@ -19,6 +19,8 @@ import {
 import { verifyJWT } from "../../middleware/verifyJWT";
 import { verifyRole } from "../../middleware/verifyRole";
 import { ROLES_LIST } from "../../utils/rolesList";
+import { checkCache } from "../../middleware/checkCache";
+
 
 const router = express.Router();
 
@@ -212,7 +214,7 @@ const router = express.Router();
  */
 router
   .route("/")
-  .get(getArticles)
+  .get(checkCache, getArticles)
   .post(
     verifyJWT,
     verifyRole(ROLES_LIST.Admin, ROLES_LIST.Author),
@@ -304,7 +306,7 @@ router
  *                   type: string
  *                   example: "Internal server error."
  */
-router.route("/search").get(searchArticles);
+router.route("/search").get(checkCache, searchArticles);
 
 /**
  * @swagger
@@ -347,7 +349,7 @@ router.route("/search").get(searchArticles);
  *                   type: string
  *                   example: "Internal server error."
  */
-router.route("/count").get(getTotalArticlesCount);
+router.route("/count").get(checkCache, getTotalArticlesCount);
 
 /**
  * @swagger
@@ -413,7 +415,7 @@ router.route("/count").get(getTotalArticlesCount);
  *                   type: string
  *                   example: "Internal server error."
  */
-router.route("/explore").get(getExploredArticles);
+router.route("/explore").get(checkCache, getExploredArticles);
 
 /**
  * @swagger
@@ -479,7 +481,7 @@ router.route("/explore").get(getExploredArticles);
  *                   type: string
  *                   example: "Internal server error."
  */
-router.route("/trend").get(getTrendArticles);
+router.route("/trend").get(checkCache, getTrendArticles);
 
 /**
  * @swagger
@@ -545,7 +547,7 @@ router.route("/trend").get(getTrendArticles);
  *                   type: string
  *                   example: "Internal server error."
  */
-router.route("/latest").get(getLatestArticles);
+router.route("/latest").get(checkCache, getLatestArticles);
 
 /**
  * @swagger
@@ -856,7 +858,7 @@ router.route("/saved").get(verifyJWT, getSavedArticles);
  */
 router
   .route("/:articleId")
-  .get(getArticle)
+  .get(checkCache, getArticle)
   .patch(
     verifyJWT,
     verifyRole(ROLES_LIST.Admin, ROLES_LIST.Author),
