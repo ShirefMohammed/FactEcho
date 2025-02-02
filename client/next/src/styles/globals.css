@@ -1,0 +1,85 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-family: "Noto Sans Arabic", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  --original-color: #011f75;
+  --primary-color: #32a2ef;
+  --primary-dark-color: #118add;
+  --primary-light-color: #9fc9e6;
+  --main-grey-color: #595959;
+  --very-light-grey-color: #f7f7f7;
+  --secondary-color: #fec300;
+  --hyperlink-color: #145587;
+  --ticker-color: #d71c45;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-family: var(--font-family);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+label,
+button,
+a {
+  cursor: pointer;
+}
+
+/* Skeleton loading styles for images */
+img {
+  background: linear-gradient(
+    100deg,
+    var(--very-light-grey-color) 8%,
+    var(--main-grey-color) 30%,
+    var(--very-light-grey-color) 33%
+  );
+  background-size: 200% 100%;
+  animation: shine 1s linear infinite;
+  -webkit-animation: shine 1s linear infinite;
+}
+
+@keyframes shine {
+  to {
+    background-position-x: -200%;
+  }
+}
+
+/* Standard Arabic text styles */
+body {
+  direction: rtl; /* Default direction for Arabic */
+  text-align: right;
+  font-family: var(--font-family);
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #3b82f6 #b1c3e0;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #3b82f6;
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background-color: #b1c3e0;
+}

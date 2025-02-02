@@ -1,0 +1,9 @@
+Todo:
+
+In Progress:
+  - Convert pages to fit next js.
+
+Finished:
+  - Convert hooks to fit next js.
+  - Convert components to fit next js.
+  
