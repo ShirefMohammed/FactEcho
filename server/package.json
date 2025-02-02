@@ -4,10 +4,12 @@
   "description": "server",
   "main": "server.ts",
   "scripts": {
-    "start": "npm run build && node dist/server/src/server.js",
-    "build": "tsc",
+    "start": "node dist/server/src/server.js",
+    "build": "tsc && npm run copy-files",
+    "copy-files": "copyfiles -u 1 src/logs/**/* src/database/postgreSQL/migrations/**/* dist/server/src",
     "dev": "nodemon ./src/server.ts",
-    "test": "set NODE_ENV=testing && jest --runInBand"
+    "test": "set NODE_ENV=testing && jest --runInBand",
+    "vercel-build": "npm run build"
   },
   "keywords": [],
   "author": "Shiref Mohammed",
@@ -52,6 +54,7 @@
     "@types/supertest": "^6.0.2",
     "@types/swagger-jsdoc": "^6.0.4",
     "@types/swagger-ui-express": "^4.1.7",
+    "copyfiles": "^2.4.1",
     "jest": "^29.7.0",
     "mkdirp": "^3.0.1",
     "nodemon": "^3.1.4",
