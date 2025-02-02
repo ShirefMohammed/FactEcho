@@ -4,11 +4,18 @@
   "description": "server",
   "main": "server.ts",
   "scripts": {
-    "build": "tsc",
-    "start": "node ./src/server.ts",
+    "start": "node src/server.ts",
+    "build": "rimraf dist && tsc",
+    "ts.check": "tsc --project tsconfig.json",
+    "add-build": "git add dist",
     "dev": "nodemon ./src/server.ts",
     "test": "set NODE_ENV=testing && jest --runInBand"
   },
+  "pre-commit": [
+    "ts.check",
+    "build",
+    "add-build"
+  ],
   "keywords": [],
   "author": "Shiref Mohammed",
   "license": "ISC",
