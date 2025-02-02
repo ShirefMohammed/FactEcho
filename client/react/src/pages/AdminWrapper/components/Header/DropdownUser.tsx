@@ -91,7 +91,7 @@ const DropdownUser = memo(() => {
             {/* Settings link */}
             <li>
               <Link
-                to={`/users/${currentUser.user_id}/profile/settings`}
+                to={`/users/${currentUser.user_id}/settings`}
                 className="flex items-center gap-3.5 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base"
               >
                 <svg

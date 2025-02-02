@@ -47,7 +47,7 @@ const CategoriesArticles = () => {
       {!isLoading ? (
         <>
           {categories.map((category) => (
-            <CategoryArticles category={category} />
+            <CategoryArticles key={category.category_id} category={category} />
           ))}
         </>
       ) : (

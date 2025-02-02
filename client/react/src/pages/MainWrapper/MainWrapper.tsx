@@ -2,7 +2,7 @@ import { Outlet } from "react-router-dom";
 
 import DefaultLayout from "./components/Layout/DefaultLayout";
 
-const AdminWrapper = () => {
+const MainWrapper = () => {
   return (
     <DefaultLayout>
       <Outlet />
@@ -10,4 +10,4 @@ const AdminWrapper = () => {
   );
 };
 
-export default AdminWrapper;
+export default MainWrapper;

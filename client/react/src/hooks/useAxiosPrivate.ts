@@ -46,7 +46,7 @@ const useAxiosPrivate = (): AxiosInstance => {
         // Check if the error is related to expired access token (401 status)
         if (
           error?.response?.status === 401 &&
-          error?.response?.data?.status === httpStatusText.AccessTokenExpiredError &&
+          error?.response?.data?.statusText === httpStatusText.AccessTokenExpiredError &&
           !prevRequest?.sent
         ) {
           try {
@@ -63,7 +63,7 @@ const useAxiosPrivate = (): AxiosInstance => {
             // If refresh token is expired, log out the user
             if (
               refreshError?.response?.status === 401 &&
-              refreshError?.response?.data?.status === httpStatusText.RefreshTokenExpiredError
+              refreshError?.response?.data?.statusText === httpStatusText.RefreshTokenExpiredError
             ) {
               logout();
             }

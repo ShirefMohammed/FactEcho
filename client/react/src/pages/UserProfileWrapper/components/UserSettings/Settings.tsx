@@ -91,15 +91,3 @@ const Settings = () => {
 };
 
 export default Settings;
-
-/*
-"user_id",
-"name",
-"email",
-"role",
-"is_verified",
-"created_at",
-"updated_at",
-"provider",
-"provider_user_id",
-*/
