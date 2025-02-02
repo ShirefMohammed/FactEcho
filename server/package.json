@@ -4,6 +4,7 @@
   "description": "server",
   "main": "server.ts",
   "scripts": {
+    "build": "tsc",
     "start": "node ./src/server.ts",
     "dev": "nodemon ./src/server.ts",
     "test": "set NODE_ENV=testing && jest --runInBand"
