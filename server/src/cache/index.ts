@@ -1,5 +1,5 @@
 import { CacheService } from "./interfaces/cacheService";
-import { NodeCacheUtils } from "./nodeCache/NodeCacheUtils";
+import { NodeCacheUtils } from "./nodeCache/nodeCacheUtils";
 
 export let cacheService: CacheService;
 

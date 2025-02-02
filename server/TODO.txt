@@ -3,10 +3,9 @@ Todo:
   - Add API end point accessed only by the admin to handle unused files in cloudinary "Heavy operation on the DB".
 
 In Progress:
-  - Add Redis server.
-    - Adding cache.
-    - How to refresh cache when some MODIFICATIONS operations done.
   
 Finished:
   - Follow industry standards with modular tests, code coverage checks, and CI/CD integration.
   - Review routes and its controllers.
+  - Add Redis server.
+  - Add node-cache.
