@@ -1,7 +1,7 @@
 import dotenv from "dotenv";
-import request from "supertest";
 
-import app, { initializeApp } from "../../../app";
+// import request from "supertest";
+import { initializeApp } from "../../../app";
 import { disconnectDB } from "../../../database";
 
 dotenv.config();
@@ -28,15 +28,15 @@ afterAll(async () => {
 /**
  * Auth end points
  */
-const authEndPoints = {
-  register: "/api/v1/auth/register",
-  login: "/api/v1/auth/login",
-  refresh: "/api/v1/auth/refresh",
-  logout: "/api/v1/auth/logout",
-  forgetPassword: "/api/v1/auth/forget-password",
-  loginWithGoogle: "/api/v1/auth/login/google",
-  loginWithFaceBook: "/api/v1/auth/login/facebook",
-};
+// const authEndPoints = {
+//   register: "/api/v1/auth/register",
+//   login: "/api/v1/auth/login",
+//   refresh: "/api/v1/auth/refresh",
+//   logout: "/api/v1/auth/logout",
+//   forgetPassword: "/api/v1/auth/forget-password",
+//   loginWithGoogle: "/api/v1/auth/login/google",
+//   loginWithFaceBook: "/api/v1/auth/login/facebook",
+// };
 
 /**
  * Test suite for authRouter API
