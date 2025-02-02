@@ -1,0 +1,16 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.loginWithFacebookCallback = exports.loginWithFacebook = exports.loginWithGoogleCallback = exports.loginWithGoogle = exports.resetPassword = exports.sendResetPasswordForm = exports.forgetPassword = exports.verifyAccount = exports.logout = exports.refresh = exports.login = exports.register = void 0;
+var authController_1 = require("../common/authController");
+exports.register = authController_1.register;
+exports.login = authController_1.login;
+exports.refresh = authController_1.refresh;
+exports.logout = authController_1.logout;
+exports.verifyAccount = authController_1.verifyAccount;
+exports.forgetPassword = authController_1.forgetPassword;
+exports.sendResetPasswordForm = authController_1.sendResetPasswordForm;
+exports.resetPassword = authController_1.resetPassword;
+exports.loginWithGoogle = authController_1.loginWithGoogle;
+exports.loginWithGoogleCallback = authController_1.loginWithGoogleCallback;
+exports.loginWithFacebook = authController_1.loginWithFacebook;
+exports.loginWithFacebookCallback = authController_1.loginWithFacebookCallback;
