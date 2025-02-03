@@ -8,7 +8,10 @@
         "includeFiles": [
           "server/dist/**",
           "shared/**"
-        ]
+        ],
+        "scripts": {
+          "start": "node server/dist/server/src/server.js"
+        }
       }
     }
   ],
