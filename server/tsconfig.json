@@ -19,6 +19,6 @@
     "outDir": "dist"
   },
   "extends": "../tsconfig.json",
-  "include": ["src/**/*", "../shared/types/**/*"],
+  "include": ["src/**/*", "../shared/types/**/*", "vercel"],
   "exclude": ["node_modules"]
 }
