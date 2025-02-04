@@ -2,7 +2,10 @@ import path from "path";
 import pino, { LevelWithSilent, Logger } from "pino";
 import { multistream } from "pino-multi-stream";
 
-const logsDir = process.env.NODE_ENV === "production" ? "/tmp/logs" : path.resolve(__dirname, "../logs");
+const logsDir =
+  process.env.NODE_ENV === "production"
+    ? "/tmp/logs"
+    : path.resolve(__dirname, "../logs");
 
 const logLevel: LevelWithSilent =
   (process.env.PINO_LOG_LEVEL as LevelWithSilent) || "info";
