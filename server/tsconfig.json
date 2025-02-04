@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
+    "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
@@ -19,6 +19,6 @@
     "outDir": "dist"
   },
   "extends": "../tsconfig.json",
-  "include": ["src/**/*", "../shared/types/**/*", "vercel-api"],
+  "include": ["src/**/*", "../shared/types/**/*"],
   "exclude": ["node_modules"]
 }
