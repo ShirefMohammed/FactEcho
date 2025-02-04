@@ -8,6 +8,21 @@ import { httpStatusText } from "../utils/httpStatusText";
 export const handleCors = (req: Request, res: Response, next: NextFunction) => {
   const allowedOrigins: string[] = getAllowedOrigins();
 
+  console.log(allowedOrigins);
+  console.log(req.headers.origin);
+  console.log(allowedOrigins.includes(req.headers.origin as string));
+
+  return res.status(403).json({
+    statusText: httpStatusText.FAIL,
+    message: "Not allowed by CORS",
+    data: {
+      allowedOrigins,
+      "req.headers.origin": req.headers.origin,
+      "allowedOrigins.includes(req.headers.origin as string)":
+        allowedOrigins.includes(req.headers.origin as string),
+    },
+  } as ApiBodyResponse<any>);
+
   if (
     allowedOrigins.includes(req.headers.origin as string) ||
     process.env.NODE_ENV?.trim() === "testing" ||
