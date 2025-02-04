@@ -31,5 +31,3 @@ import { disconnectDB } from "./database";
     );
   });
 })();
-
-export default app;
