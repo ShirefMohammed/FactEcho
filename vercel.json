@@ -7,10 +7,9 @@
       "config": {
         "distDir": "server/dist",
         "includeFiles": [
-          "server/dist/**",
-          "shared/**/*.js"
-        ],
-        "maxLambdaSize": "50mb"
+          "server/dist/**/*",
+          "shared/**/*"
+        ]
       }
     }
   ],
