@@ -5,6 +5,8 @@
   "main": "server.ts",
   "scripts": {
     "start": "node dist/server/src/server.js",
+    "build": "tsc && npm run copy-files",
+    "copy-files": "copyfiles -u 1 src/logs/**/* src/database/postgreSQL/migrations/**/* dist/server/src",
     "dev": "nodemon ./src/server.ts",
     "test": "set NODE_ENV=testing && jest --runInBand"
   },
