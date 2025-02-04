@@ -2,21 +2,22 @@
   "version": 2,
   "builds": [
     {
-      "src": "server/package.json",
+      "src": "server/src/server.ts",
       "use": "@vercel/node",
       "config": {
-        "distDir": "server/dist",
         "includeFiles": [
-          "server/dist/**/*",
-          "shared/**/*"
-        ]
+          "server/dist/**",
+          "shared/**/*.js",
+          "server/.env"
+        ],
+        "maxLambdaSize": "50mb"
       }
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "server/dist/server/src/server.js"
+      "dest": "server/src/server.ts"
     }
   ]
 }
