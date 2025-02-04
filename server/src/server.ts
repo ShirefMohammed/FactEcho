@@ -1,7 +1,7 @@
 import app, { initializeApp } from "./app";
 import { disconnectDB } from "./database";
 
-(async () => {
+export const runServer = async () => {
   await initializeApp();
 
   const _PORT = process.env.PORT;
@@ -30,6 +30,6 @@ import { disconnectDB } from "./database";
       `Swagger running on ${process.env.SERVER_URL}/api-docs`,
     );
   });
-})();
+};
 
-export default app;
+runServer();

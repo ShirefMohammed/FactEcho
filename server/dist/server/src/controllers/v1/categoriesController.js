@@ -1,0 +1,12 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.getCategoryArticles = exports.deleteCategory = exports.updateCategory = exports.createCategory = exports.getCategory = exports.getTotalCategoriesCount = exports.searchCategories = exports.getCategories = void 0;
+var categoriesController_1 = require("../common/categoriesController");
+exports.getCategories = categoriesController_1.getCategories;
+exports.searchCategories = categoriesController_1.searchCategories;
+exports.getTotalCategoriesCount = categoriesController_1.getTotalCategoriesCount;
+exports.getCategory = categoriesController_1.getCategory;
+exports.createCategory = categoriesController_1.createCategory;
+exports.updateCategory = categoriesController_1.updateCategory;
+exports.deleteCategory = categoriesController_1.deleteCategory;
+exports.getCategoryArticles = categoriesController_1.getCategoryArticles;
