@@ -5,7 +5,7 @@ import {
   GetCategoryResponse,
   GetTotalCategoriesCountResponse,
   SearchCategoriesResponse,
-} from "shared/types/apiTypes";
+} from "@shared/types/apiTypes";
 
 import { axiosPrivate } from "../axios";
 import { endPoints } from "../endPoints";

@@ -1,9 +1,7 @@
 "use client";
 
-import OAuthSuccess from "../_components/OAuthSuccess";
+import dynamic from "next/dynamic";
 
-const OAuthPage = () => {
-  return <OAuthSuccess />;
-};
+const OAuthSuccess = dynamic(() => import("../_components/OAuthSuccess"), { ssr: false });
 
-export default OAuthPage;
+export default OAuthSuccess;

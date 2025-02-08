@@ -1,14 +1,9 @@
 "use client";
 
-import { RequireAuth } from "../../../../../../components";
-import { ROLES_LIST } from "../../../../../../utils/rolesList";
+import dynamic from "next/dynamic";
 
-const UpdateArticleLayout = ({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) => {
-  return <RequireAuth allowedRoles={[ROLES_LIST.Admin, ROLES_LIST.Author]}>{children}</RequireAuth>;
-};
+const UpdateArticleLayout = dynamic(() => import("./_components/UpdateArticleLayout"), {
+  ssr: false,
+});
 
 export default UpdateArticleLayout;

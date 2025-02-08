@@ -1,11 +1,16 @@
-Features to be added in coming versions:
+Todo:
+  Finish next client.
+  Containerize the app.
+  Add app video demo.
+  Add current app ui snapshots.
+  Add app README.md.
+  Publish the app and get feedback.
 
-1) Add tests by jest. -> OK
+In Progress:
+  
 
-2) Add OAuth. -> OK
-
-3) Secure my APIs form Dos
-
-/**
- * Would you like to dive deeper into alerting or analyzing these logs using tools like ELK stack or Pino’s ecosystem? 😊
- */
+Finished:
+  Finish docs.
+  Finish node server.
+  Finish react client.
+  

@@ -1,9 +1,9 @@
 "use client";
 
-import ReadingList from "../_components/ReadingList";
+import dynamic from "next/dynamic";
 
-const ReadingListPage = () => {
-  return <ReadingList />;
-};
+const ReadingList = dynamic(() => import("../_components/ReadingList"), {
+  ssr: false,
+});
 
-export default ReadingListPage;
+export default ReadingList;

@@ -4,7 +4,8 @@ import axios from "axios";
 import Link from "next/link";
 import { FormEvent, useEffect, useRef, useState } from "react";
 import { MoonLoader } from "react-spinners";
-import { ForgetPasswordRequest } from "shared/types/apiTypes";
+
+import { ForgetPasswordRequest } from "@shared/types/apiTypes";
 
 import { useAuthAPIs } from "../../../../../../api/client/useAuthAPIs";
 import style from "./ForgetPassword.module.css";

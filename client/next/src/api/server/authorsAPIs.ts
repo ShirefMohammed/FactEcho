@@ -2,7 +2,7 @@ import {
   ApiBodyResponse,
   GetAuthorArticlesResponse,
   GetAuthorResponse,
-} from "shared/types/apiTypes";
+} from "@shared/types/apiTypes";
 
 import { axiosPrivate } from "../axios";
 import { endPoints } from "../endPoints";

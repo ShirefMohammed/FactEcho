@@ -6,7 +6,8 @@ import axios from "axios";
 import Link from "next/link";
 import { FormEvent, useEffect, useRef, useState } from "react";
 import { MoonLoader } from "react-spinners";
-import { RegisterRequest } from "shared/types/apiTypes";
+
+import { RegisterRequest } from "@shared/types/apiTypes";
 
 import { useAuthAPIs } from "../../../../../../api/client/useAuthAPIs";
 import { RgxList } from "../../../../../../utils/RgxList";

@@ -2,12 +2,13 @@
 
 import { useState } from "react";
 import { MoonLoader } from "react-spinners";
+
 import {
   ApiBodyResponse,
   UpdateCategoryRequest,
   UpdateCategoryResponse,
-} from "shared/types/apiTypes";
-import { ICategory } from "shared/types/entitiesTypes";
+} from "@shared/types/apiTypes";
+import { ICategory } from "@shared/types/entitiesTypes";
 
 import { useCategoriesAPIs } from "../../../../../api/client/useCategoriesAPIs";
 import { useNotify } from "../../../../../hooks";

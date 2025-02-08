@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { IUser } from "shared/types/entitiesTypes";
+import { IUser } from "@shared/types/entitiesTypes";
 
 import accessTokenReducer from "./slices/accessTokenSlice";
 import userAvatarReducer from "./slices/userAvatarSlice";

@@ -2,7 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { IUser } from "shared/types/entitiesTypes";
+
+import { IUser } from "@shared/types/entitiesTypes";
 
 import { useUsersAPIs } from "../../../../../../../../api/client/useUsersAPIs";
 import { useHandleErrors } from "../../../../../../../../hooks";
@@ -13,7 +14,7 @@ import UpdateUserAvatar from "./_components/UpdateUserAvatar";
 import UpdateUserInfo from "./_components/UpdateUserInfo";
 import UpdateUserPassword from "./_components/UpdateUserPassword";
 
-const Settings = () => {
+const UserSettings = () => {
   // Retrieve the current user from Redux store
   const currentUser = useSelector((state: StoreState) => state.currentUser);
 
@@ -91,4 +92,4 @@ const Settings = () => {
   );
 };
 
-export default Settings;
+export default UserSettings;

@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { useSelector } from "react-redux";
 
 import { StoreState } from "../store/store";
+import { JSX } from "react";
 
 const RequireAuth = ({
   allowedRoles,

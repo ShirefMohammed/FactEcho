@@ -1,5 +1,5 @@
 import { MoonLoader } from "react-spinners";
-import { IArticle } from "shared/types/entitiesTypes";
+import { IArticle } from "@shared/types/entitiesTypes";
 
 import ArticleCard from "./ArticleCard";
 

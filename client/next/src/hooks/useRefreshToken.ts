@@ -1,7 +1,7 @@
 "use client";
 
 import { useDispatch } from "react-redux";
-import { RefreshResponse } from "shared/types/apiTypes";
+import { RefreshResponse } from "@shared/types/apiTypes";
 
 import { useAuthAPIs } from "../api/client/useAuthAPIs";
 import { setAccessToken } from "../store/slices/accessTokenSlice";

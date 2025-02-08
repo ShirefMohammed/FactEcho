@@ -6,7 +6,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 import { useLogout } from "../../../../../../../hooks";
-import { UserRouteType } from "../layout";
+import { UserRouteType } from "./UserProfileWrapperLayout";
 
 /**
  * Sidebar component for rendering user-specific navigation routes and a logout button.

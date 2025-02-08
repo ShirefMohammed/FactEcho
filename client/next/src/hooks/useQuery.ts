@@ -14,7 +14,7 @@ import { useMemo } from "react";
  * const query = useQuery();
  * console.log(query); // { search: "keyword", page: "2" }
  */
-const useQuery = () => {
+const useQuery = (): Record<string, string> => {
   const searchParams = useSearchParams();
 
   return useMemo(() => {

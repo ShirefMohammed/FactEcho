@@ -15,7 +15,7 @@ import {
   UpdateUserPasswordResponse,
   UpdateUserRoleRequest,
   UpdateUserRoleResponse,
-} from "shared/types/apiTypes";
+} from "@shared/types/apiTypes";
 
 import { useAxiosPrivate } from "../../hooks";
 import { endPoints } from "../endPoints";

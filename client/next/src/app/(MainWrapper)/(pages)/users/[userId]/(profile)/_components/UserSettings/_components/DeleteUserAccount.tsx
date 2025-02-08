@@ -3,7 +3,8 @@
 import axios from "axios";
 import { useState } from "react";
 import { MoonLoader } from "react-spinners";
-import { IUser } from "shared/types/entitiesTypes";
+
+import { IUser } from "@shared/types/entitiesTypes";
 
 import { useUsersAPIs } from "../../../../../../../../../api/client/useUsersAPIs";
 import { useLogout, useNotify } from "../../../../../../../../../hooks";

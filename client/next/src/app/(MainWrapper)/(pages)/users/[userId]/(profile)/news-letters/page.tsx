@@ -1,9 +1,9 @@
 "use client";
 
-import Newsletters from "../_components/Newsletters";
+import dynamic from "next/dynamic";
 
-const NewslettersPage = () => {
-  return <Newsletters />;
-};
+const Newsletters = dynamic(() => import("../_components/Newsletters"), {
+  ssr: false,
+});
 
-export default NewslettersPage;
+export default Newsletters;

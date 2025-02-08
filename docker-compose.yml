@@ -1,40 +1,29 @@
 version: '3.8'
 services:
-  redis:
-    image: redis
-    container_name: my-redis
-    ports:
-      - "6379:6379"
-    restart: always
-
   server:
     build:
       context: .
       dockerfile: ./server/Dockerfile
-    container_name: factecho-server
+    container_name: factecho-node-server
     ports:
       - "3000:3000"
     env_file:
       - ./server/.env
-    environment:
-      - REDIS_URL=redis://redis:6379
     volumes:
       - ./shared:/app/shared  # Mount the shared directory
-    depends_on:
-      - redis
     restart: always
 
-  client:
-    build:
-      context: .
-      dockerfile: ./client/react/Dockerfile
-    container_name: factecho-client
-    ports:
-      - "5173:5173"
-    env_file:
-      - ./client/react/.env.local
-    volumes:
-      - ./shared:/app/shared  # Mount the shared directory
-    depends_on:
-      - server
-    restart: always
+  # client:
+  #   build:
+  #     context: .
+  #     dockerfile: ./client/react/Dockerfile
+  #   container_name: factecho-react-client
+  #   ports:
+  #     - "5173:5173"
+  #   env_file:
+  #     - ./client/react/.env.local
+  #   volumes:
+  #     - ./shared:/app/shared  # Mount the shared directory
+  #   depends_on:
+  #     - server
+  #   restart: always

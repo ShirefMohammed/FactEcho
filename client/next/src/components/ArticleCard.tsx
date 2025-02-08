@@ -7,8 +7,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import { ApiBodyResponse } from "shared/types/apiTypes";
-import { IArticle } from "shared/types/entitiesTypes";
+import { ApiBodyResponse } from "@shared/types/apiTypes";
+import { IArticle } from "@shared/types/entitiesTypes";
 
 import { useArticlesAPIs } from "../api/client/useArticlesAPIs";
 import { ClickOutside } from "../components";

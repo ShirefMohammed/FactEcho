@@ -7,12 +7,13 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { PuffLoader } from "react-spinners";
+
 import {
   ApiBodyResponse,
   GetCategoriesResponse,
   SearchCategoriesResponse,
-} from "shared/types/apiTypes";
-import { ICategory } from "shared/types/entitiesTypes";
+} from "@shared/types/apiTypes";
+import { ICategory } from "@shared/types/entitiesTypes";
 
 import { useCategoriesAPIs } from "../../../../api/client/useCategoriesAPIs";
 import { AdminBreadcrumb, GlassWrapper } from "../../../../components";

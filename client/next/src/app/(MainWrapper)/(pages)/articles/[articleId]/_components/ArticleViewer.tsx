@@ -7,7 +7,8 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { PuffLoader } from "react-spinners";
-import { IArticle } from "shared/types/entitiesTypes";
+
+import { IArticle } from "@shared/types/entitiesTypes";
 
 import { useArticlesAPIs } from "../../../../../../api/client/useArticlesAPIs";
 import defaultAvatar from "../../../../../../assets/defaultAvatar.png";

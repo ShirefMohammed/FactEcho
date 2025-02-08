@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { ApiBodyResponse, GetArticlesResponse } from "shared/types/apiTypes";
-import { IArticle } from "shared/types/entitiesTypes";
+import { useEffect, useState } from "react";
+
+import { ApiBodyResponse, GetArticlesResponse } from "@shared/types/apiTypes";
+import { IArticle } from "@shared/types/entitiesTypes";
 
 import { useArticlesAPIs } from "../../../../../api/client/useArticlesAPIs";
 import { ArticlesGrid } from "../../../../../components";
@@ -20,8 +21,6 @@ const TrendArticlesGrid = () => {
 
   const handleErrors = useHandleErrors(); // Hook to manage API error handling
   const articlesAPIs = useArticlesAPIs(); // Provides API methods related to articles
-
-  const isFirstRender = useRef(true); // Flag to track the first render
 
   /**
    * Fetches the trend articles from the API.
@@ -43,11 +42,7 @@ const TrendArticlesGrid = () => {
 
   // Fetch articles when the component is mounted
   useEffect(() => {
-    if (isFirstRender.current) {
-      isFirstRender.current = false;
-      return; // Skip API call on first render
-    }
-    fetchTrendArticles(); // Fetch the trend articles
+    fetchTrendArticles();
   }, []);
 
   return (

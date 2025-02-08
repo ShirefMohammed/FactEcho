@@ -1,7 +1,7 @@
 "use client";
 
-import DefaultLayout from "./_components/Layout/DefaultLayout";
+import dynamic from "next/dynamic";
 
-export default function AdminWrapper({ children }: { children: React.ReactNode }) {
-  return <DefaultLayout>{children}</DefaultLayout>;
-}
+const AdminLayout = dynamic(() => import("./_components/AdminLayout"), { ssr: false });
+
+export default AdminLayout;

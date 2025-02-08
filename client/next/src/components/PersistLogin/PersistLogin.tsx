@@ -10,11 +10,19 @@ import { useRefreshToken } from "../../hooks";
 import { StoreState } from "../../store/store";
 import style from "./PersistLogin.module.css";
 
-const PersistLogin = ({ children }: { children: React.ReactNode }): JSX.Element => {
-  const [persist] = useState<boolean>(localStorage.getItem("persist") === "true");
+const PersistLogin = ({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) => {
+  const [persist, setPersist] = useState<boolean | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const accessToken = useSelector((state: StoreState) => state.accessToken);
   const refresh = useRefreshToken();
+
+  useEffect(() => {
+    setPersist(localStorage.getItem("persist") === "true");
+  }, []);
 
   useEffect(() => {
     const verifyRefreshToken = async () => {
@@ -29,7 +37,11 @@ const PersistLogin = ({ children }: { children: React.ReactNode }): JSX.Element 
     };
 
     verifyRefreshToken();
-  }, []);
+  }, [persist]);
+
+  if (persist === null) {
+    return null;
+  }
 
   return (
     <>

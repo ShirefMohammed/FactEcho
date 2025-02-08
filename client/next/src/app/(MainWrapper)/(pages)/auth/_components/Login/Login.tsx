@@ -6,7 +6,8 @@ import { useRouter } from "next/navigation";
 import { FormEvent, useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import { MoonLoader } from "react-spinners";
-import { ApiBodyResponse, LoginRequest, LoginResponse } from "shared/types/apiTypes";
+
+import { ApiBodyResponse, LoginRequest, LoginResponse } from "@shared/types/apiTypes";
 
 import { useAuthAPIs } from "../../../../../../api/client/useAuthAPIs";
 import { useNotify } from "../../../../../../hooks";

@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { ApiBodyResponse, GetCategoriesResponse } from "shared/types/apiTypes";
-import { ICategory } from "shared/types/entitiesTypes";
+import { ApiBodyResponse, GetCategoriesResponse } from "@shared/types/apiTypes";
+import { ICategory } from "@shared/types/entitiesTypes";
 
 import { useCategoriesAPIs } from "../api/client/useCategoriesAPIs";
 import { useHandleErrors } from "../hooks";

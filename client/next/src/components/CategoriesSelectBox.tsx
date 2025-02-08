@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { ICategory } from "shared/types/entitiesTypes";
+import { ICategory } from "@shared/types/entitiesTypes";
 
 import { useCategoriesAPIs } from "../api/client/useCategoriesAPIs";
 import { useHandleErrors } from "../hooks";

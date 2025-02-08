@@ -8,8 +8,9 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { PuffLoader } from "react-spinners";
-import { ApiBodyResponse, GetAuthorsResponse, SearchAuthorsResponse } from "shared/types/apiTypes";
-import { IAuthor } from "shared/types/entitiesTypes";
+
+import { ApiBodyResponse, GetAuthorsResponse, SearchAuthorsResponse } from "@shared/types/apiTypes";
+import { IAuthor } from "@shared/types/entitiesTypes";
 
 import { useAuthorsAPIs } from "../../../../api/client/useAuthorsAPIs";
 import { useUsersAPIs } from "../../../../api/client/useUsersAPIs";

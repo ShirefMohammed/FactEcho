@@ -72,11 +72,9 @@ https://youtu.be/g1Fl5qiH0F4?si=Lndvx4-DQ0yHszyX
 
 ## **Deployment**
 
-### Let's build a web app by pragma
+### Let's build a web app by pragma ✅
 
 https://www.youtube.com/playlist?list=PL9ExMy1CBZjmRw0JcocbXKdy271BvWBGq
-
-### Review Containers and Docker
 
 ## **Maintenance**
 

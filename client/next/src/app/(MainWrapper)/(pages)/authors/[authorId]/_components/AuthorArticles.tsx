@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { ApiBodyResponse, GetArticlesResponse } from "shared/types/apiTypes";
-import { IArticle, IAuthor } from "shared/types/entitiesTypes";
+import { useEffect, useState } from "react";
+
+import { ApiBodyResponse, GetArticlesResponse } from "@shared/types/apiTypes";
+import { IArticle, IAuthor } from "@shared/types/entitiesTypes";
 
 import { useAuthorsAPIs } from "../../../../../../api/client/useAuthorsAPIs";
 import { ArticlesGrid } from "../../../../../../components";
@@ -17,8 +18,6 @@ const AuthorArticles = ({ authorId }: { authorId: IAuthor["user_id"] }) => {
 
   const handleErrors = useHandleErrors(); // Hook to manage API error handling
   const authorsAPIs = useAuthorsAPIs(); // Provides API methods related to authors
-
-  const isFirstRender = useRef(true); // Flag to track the first render
 
   /**
    * Fetches articles written by the specified author based on the authorId, current page, and limit.
@@ -43,10 +42,6 @@ const AuthorArticles = ({ authorId }: { authorId: IAuthor["user_id"] }) => {
 
   // Reset and fetches articles whenever the authorId changes.
   useEffect(() => {
-    if (isFirstRender.current) {
-      isFirstRender.current = false;
-      return; // Prevent API call on first render
-    }
     setArticles([]);
     fetchAuthorArticles();
   }, [authorId]);

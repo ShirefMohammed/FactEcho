@@ -1,9 +1,12 @@
 Todo:
+  - Solve Editor problem.
+  - Test all pages performance and behavior.
+  - Convert to ssr (article, author, categoriesArticle, explore, latest, trend, home) pages.
+  - Add metadata to enhance seo.
+  - deploy the app to vercel.
 
 In Progress:
-  - Convert pages to fit next js.
+  
 
 Finished:
-  - Convert hooks to fit next js.
-  - Convert components to fit next js.
   

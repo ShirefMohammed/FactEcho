@@ -1,9 +1,9 @@
 "use client";
 
-import PersonalInfo from "../_components/PersonalInfo";
+import dynamic from "next/dynamic";
 
-const ProfilePage = () => {
-  return <PersonalInfo />;
-};
+const PersonalInfo = dynamic(() => import("../_components/PersonalInfo"), {
+  ssr: false,
+});
 
-export default ProfilePage;
+export default PersonalInfo;

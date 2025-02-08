@@ -1,13 +1,14 @@
 "use client";
 
 import { useEffect, useState } from "react";
+
 import {
   ApiBodyResponse,
   GetTotalArticlesCountResponse,
   GetTotalAuthorsCountResponse,
   GetTotalCategoriesCountResponse,
   GetTotalUsersCountResponse,
-} from "shared/types/apiTypes";
+} from "@shared/types/apiTypes";
 
 import { useArticlesAPIs } from "../../../../../../api/client/useArticlesAPIs";
 import { useAuthorsAPIs } from "../../../../../../api/client/useAuthorsAPIs";

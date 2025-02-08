@@ -1,9 +1,9 @@
 "use client";
 
-import Settings from "../_components/UserSettings/Settings";
+import dynamic from "next/dynamic";
 
-const SettingsPage = () => {
-  return <Settings />;
-};
+const UserSettings = dynamic(() => import("../_components/UserSettings/UserSettings"), {
+  ssr: false,
+});
 
-export default SettingsPage;
+export default UserSettings;

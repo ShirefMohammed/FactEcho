@@ -3,7 +3,7 @@
 import { AxiosError, AxiosInstance } from "axios";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
-import { ApiBodyResponse } from "shared/types/apiTypes";
+import { ApiBodyResponse } from "@shared/types/apiTypes";
 
 import { axiosPrivate } from "../api/axios";
 import { StoreState } from "../store/store";

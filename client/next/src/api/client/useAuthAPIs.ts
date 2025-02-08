@@ -8,7 +8,7 @@ import {
   RefreshResponse,
   RegisterRequest,
   RegisterResponse,
-} from "shared/types/apiTypes";
+} from "@shared/types/apiTypes";
 
 import { axiosPrivate } from "../axios";
 import { endPoints } from "../endPoints";

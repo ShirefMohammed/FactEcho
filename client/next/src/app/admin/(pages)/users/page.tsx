@@ -4,10 +4,12 @@ import { faEye, faPen, faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { PuffLoader } from "react-spinners";
-import { ApiBodyResponse, GetUsersResponse, SearchUsersResponse } from "shared/types/apiTypes";
-import { IUser } from "shared/types/entitiesTypes";
+
+import { ApiBodyResponse, GetUsersResponse, SearchUsersResponse } from "@shared/types/apiTypes";
+import { IUser } from "@shared/types/entitiesTypes";
 
 import { useUsersAPIs } from "../../../../api/client/useUsersAPIs";
 import { AdminBreadcrumb, GlassWrapper } from "../../../../components";
@@ -15,7 +17,6 @@ import { useHandleErrors, useNotify, useQuery } from "../../../../hooks";
 import { formatTimestamp } from "../../../../utils/formatTimestamp";
 import { ROLES_LIST } from "../../../../utils/rolesList";
 import UpdateUser from "./_components/UpdateUser";
-import { useRouter } from "next/navigation";
 
 const AdminUsers = () => {
   // Extract query parameters for default states

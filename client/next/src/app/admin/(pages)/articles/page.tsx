@@ -8,12 +8,13 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { PuffLoader } from "react-spinners";
+
 import {
   ApiBodyResponse,
   GetArticlesResponse,
   SearchArticlesResponse,
-} from "shared/types/apiTypes";
-import { IArticle } from "shared/types/entitiesTypes";
+} from "@shared/types/apiTypes";
+import { IArticle } from "@shared/types/entitiesTypes";
 
 import { useArticlesAPIs } from "../../../../api/client/useArticlesAPIs";
 import { AdminBreadcrumb } from "../../../../components";

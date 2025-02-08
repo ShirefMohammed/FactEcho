@@ -5,7 +5,8 @@ import Image from "next/image";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { MoonLoader } from "react-spinners";
-import { IUser } from "shared/types/entitiesTypes";
+
+import { IUser } from "@shared/types/entitiesTypes";
 
 import { useUsersAPIs } from "../../../../../../../../../api/client/useUsersAPIs";
 import defaultAvatar from "../../../../../../../../../assets/defaultAvatar.png";

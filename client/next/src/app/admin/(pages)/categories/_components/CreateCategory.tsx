@@ -2,8 +2,9 @@
 
 import { useEffect, useRef, useState } from "react";
 import { MoonLoader } from "react-spinners";
-import { CreateCategoryRequest } from "shared/types/apiTypes";
-import { ICategory } from "shared/types/entitiesTypes";
+
+import { CreateCategoryRequest } from "@shared/types/apiTypes";
+import { ICategory } from "@shared/types/entitiesTypes";
 
 import { useCategoriesAPIs } from "../../../../../api/client/useCategoriesAPIs";
 import { useNotify } from "../../../../../hooks";

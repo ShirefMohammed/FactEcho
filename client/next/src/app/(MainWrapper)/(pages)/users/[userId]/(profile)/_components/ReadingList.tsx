@@ -1,9 +1,10 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { ApiBodyResponse, GetArticlesResponse } from "shared/types/apiTypes";
-import { IArticle } from "shared/types/entitiesTypes";
+
+import { ApiBodyResponse, GetArticlesResponse } from "@shared/types/apiTypes";
+import { IArticle } from "@shared/types/entitiesTypes";
 
 import { useArticlesAPIs } from "../../../../../../../api/client/useArticlesAPIs";
 import { ArticlesGrid } from "../../../../../../../components";
@@ -26,8 +27,6 @@ const ReadingList = () => {
   const handleErrors = useHandleErrors(); // Hook to manage API error handling
   const articlesAPIs = useArticlesAPIs(); // Provides API methods related to articles
 
-  const isFirstRender = useRef(true); // Flag to track the first render
-
   /**
    * Fetches saved articles for the user based on the current page and limit.
    * Updates the articles state on successful fetch or handles errors on failure.
@@ -45,30 +44,23 @@ const ReadingList = () => {
         ...(resBody.data?.articles || []), // Append new articles to the existing list
       ]);
     } catch (err) {
-      handleErrors(err as Error); // Handle API errors
+      handleErrors(err as Error);
     } finally {
       setFetchReadingListArticlesLoad(false);
     }
   };
 
-  // Reset articles and fetch new ones when the userId changes
   useEffect(() => {
-    if (isFirstRender.current) {
-      isFirstRender.current = false;
-      return; // Skip API call on first render
-    }
-    setArticles([]); // Clear existing articles
+    setArticles([]); // Clear articles when userId changes
     fetchReadingList(); // Fetch the first page of articles for the new userId
   }, [currentUser.user_id]);
 
-  // Fetch more articles when the page changes (pagination)
   useEffect(() => {
     if (articlesPage > 1) fetchReadingList(); // Fetch more articles when the page changes
   }, [articlesPage]);
 
   return (
     <ArticlesGrid
-      title="Reading List" // You can customize the title
       isLoading={fetchReadingListArticlesLoad}
       setIsLoading={setFetchReadingListArticlesLoad}
       articles={articles}

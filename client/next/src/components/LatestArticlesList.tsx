@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { ApiBodyResponse, GetArticlesResponse } from "shared/types/apiTypes";
-import { IArticle } from "shared/types/entitiesTypes";
+import { ApiBodyResponse, GetArticlesResponse } from "@shared/types/apiTypes";
+import { IArticle } from "@shared/types/entitiesTypes";
 
 import { useArticlesAPIs } from "../api/client/useArticlesAPIs";
 import { useHandleErrors } from "../hooks";

@@ -1,6 +1,6 @@
 {
-  "extends": "../../tsconfig.json",
   "compilerOptions": {
+    "target": "ES2017",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
@@ -13,6 +13,9 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "allowImportingTsExtensions": true,
     "plugins": [
       {
         "name": "next"
@@ -21,12 +24,8 @@
     "paths": {
       "@/*": ["./src/*"],
       "@shared/*": ["../../shared/*"]
-    },
-    "noImplicitReturns": true,
-    "noImplicitThis": true,
-    "allowImportingTsExtensions": true
+    }
   },
-  "baseUrl": ".",
   "include": [
     "next-env.d.ts",
     "**/*.ts",

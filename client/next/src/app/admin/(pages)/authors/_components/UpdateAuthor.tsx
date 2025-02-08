@@ -3,7 +3,8 @@
 import axios from "axios";
 import { useState } from "react";
 import { MoonLoader } from "react-spinners";
-import { IAuthor } from "shared/types/entitiesTypes";
+
+import { IAuthor } from "@shared/types/entitiesTypes";
 
 import { useAuthorsAPIs } from "../../../../../api/client/useAuthorsAPIs";
 import { useUsersAPIs } from "../../../../../api/client/useUsersAPIs";

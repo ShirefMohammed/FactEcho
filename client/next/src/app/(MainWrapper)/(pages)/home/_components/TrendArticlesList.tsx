@@ -1,9 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
-import { ApiBodyResponse, GetArticlesResponse } from "shared/types/apiTypes";
-import { IArticle } from "shared/types/entitiesTypes";
+import { useEffect, useState } from "react";
+
+import { ApiBodyResponse, GetArticlesResponse } from "@shared/types/apiTypes";
+import { IArticle } from "@shared/types/entitiesTypes";
 
 import { useArticlesAPIs } from "../../../../../api/client/useArticlesAPIs";
 import { useHandleErrors } from "../../../../../hooks";
@@ -20,8 +21,6 @@ const TrendArticlesList = () => {
 
   const handleErrors = useHandleErrors(); // Hook to manage API error handling
   const articlesAPIs = useArticlesAPIs(); // Provides API methods related to articles
-
-  const isFirstRender = useRef(true); // Flag to track the first render
 
   /**
    * Fetches the trending articles from the API.
@@ -43,10 +42,6 @@ const TrendArticlesList = () => {
 
   // Fetch articles when the component is mounted, but skip on first render
   useEffect(() => {
-    if (isFirstRender.current) {
-      isFirstRender.current = false;
-      return; // Skip API call on first render
-    }
     fetchTrendArticles(); // Fetch the trending articles
   }, []);
 

@@ -1,8 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { ApiBodyResponse, GetArticlesResponse } from "shared/types/apiTypes";
-import { IArticle } from "shared/types/entitiesTypes";
+
+import { ApiBodyResponse, GetArticlesResponse } from "@shared/types/apiTypes";
+import { IArticle } from "@shared/types/entitiesTypes";
 
 import { useCategoriesAPIs } from "../../../../../../api/client/useCategoriesAPIs";
 import { ArticlesGrid } from "../../../../../../components";

@@ -1,38 +1,47 @@
 "use client";
 
-import ReactQuill from "react-quill";
+import dynamic from "next/dynamic";
+import { useEffect, useState } from "react";
 import "react-quill/dist/quill.snow.css";
 
-// Define the type for the Editor props
+const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
+
 interface EditorProps {
   value: string;
   setValue: (value: string) => void;
 }
 
 const Editor = ({ value, setValue }: EditorProps) => {
-  // Toolbar configuration for Quill editor
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return <div>Loading editor...</div>;
+
   const modules = {
-    toolbar: {
-      container: [
-        [{ header: [2, 3, 4, 5, 6, false] }],
-        ["bold", "italic", "underline", "strike", "blockquote"],
-        [{ list: "ordered" }, { list: "bullet" }, { indent: "-1" }, { indent: "+1" }],
-        ["link"],
-        ["clean"],
-        [{ direction: "rtl" }],
-      ],
-    },
+    toolbar: [
+      [{ header: [2, 3, 4, 5, 6, false] }],
+      ["bold", "italic", "underline", "strike", "blockquote"],
+      [{ list: "ordered" }, { list: "bullet" }, { indent: "-1" }, { indent: "+1" }],
+      ["link"],
+      ["clean"],
+      [{ direction: "rtl" }],
+    ],
   };
 
   return (
-    <ReactQuill
-      theme="snow"
-      modules={modules}
-      value={value}
-      onChange={(value) => setValue(value)}
-      style={{ direction: "rtl", textAlign: "right" }}
-      id="editor"
-    />
+    <div suppressHydrationWarning>
+      <ReactQuill
+        theme="snow"
+        modules={modules}
+        value={value}
+        onChange={(value) => setValue(value)}
+        style={{ direction: "rtl", textAlign: "right" }}
+        id="editor"
+      />
+    </div>
   );
 };
 
