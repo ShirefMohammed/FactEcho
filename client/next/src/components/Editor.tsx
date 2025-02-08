@@ -2,9 +2,9 @@
 
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
-import "react-quill/dist/quill.snow.css";
+// import "react-quill/dist/quill.snow.css";
 
-const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
+// const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
 interface EditorProps {
   value: string;
@@ -33,14 +33,14 @@ const Editor = ({ value, setValue }: EditorProps) => {
 
   return (
     <div suppressHydrationWarning>
-      <ReactQuill
+      {/* <ReactQuill
         theme="snow"
         modules={modules}
         value={value}
         onChange={(value) => setValue(value)}
         style={{ direction: "rtl", textAlign: "right" }}
         id="editor"
-      />
+      /> */}
     </div>
   );
 };
