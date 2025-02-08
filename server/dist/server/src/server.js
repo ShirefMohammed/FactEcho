@@ -59,9 +59,10 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.runServer = void 0;
 var app_1 = __importStar(require("./app"));
 var database_1 = require("./database");
-(function () { return __awaiter(void 0, void 0, void 0, function () {
+var runServer = function () { return __awaiter(void 0, void 0, void 0, function () {
     var _PORT;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -104,5 +105,6 @@ var database_1 = require("./database");
                 return [2 /*return*/];
         }
     });
-}); })();
-exports.default = app_1.default;
+}); };
+exports.runServer = runServer;
+(0, exports.runServer)();
