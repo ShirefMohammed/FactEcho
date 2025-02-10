@@ -10,6 +10,8 @@ import { ArticlesGrid } from "../../../../../../components";
 import { useHandleErrors } from "../../../../../../hooks";
 
 const RelatedArticlesByCategory = ({ article }: { article: IArticle }) => {
+  const limit = 4;
+
   // State to store related articles fetched from the API
   const [relatedArticles, setRelatedArticles] = useState<IArticle[]>([]);
   // State to track the loading status
@@ -28,7 +30,7 @@ const RelatedArticlesByCategory = ({ article }: { article: IArticle }) => {
       if (!article?.category_id) return;
       setIsLoading(true); // Set loading state
       const response: ApiBodyResponse<GetArticlesResponse> =
-        await categoriesAPIs.getCategoryArticles(article.category_id, 1, 4, "new");
+        await categoriesAPIs.getCategoryArticles(article.category_id, 1, limit, "new");
       setRelatedArticles(response.data?.articles || []); // Update state with the articles
     } catch (error) {
       handleErrors(error as Error); // Handle API errors

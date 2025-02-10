@@ -11,6 +11,8 @@ import { useCategoriesAPIs } from "../../../../api/client/useCategoriesAPIs";
 import { ClickOutside } from "../../../../components";
 
 const DropdownCategories = () => {
+  const limit = 100;
+
   const pathname = usePathname();
   const [categories, setCategories] = useState<ICategory[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -27,7 +29,7 @@ const DropdownCategories = () => {
       setIsLoading(true); // Indicate loading state
       const resBody: ApiBodyResponse<GetCategoriesResponse> = await categoriesAPIs.getCategories(
         1,
-        100,
+        limit,
         "new",
       );
       setCategories(resBody.data?.categories || []); // Safely set the categories

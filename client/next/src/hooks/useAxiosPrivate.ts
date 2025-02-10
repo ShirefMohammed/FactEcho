@@ -46,6 +46,10 @@ const useAxiosPrivate = (): AxiosInstance => {
       async (error) => {
         const prevRequest = error?.config;
 
+        console.log(error?.response?.status === 401);
+        console.log(error?.response?.data?.statusText);
+        console.log(!prevRequest?.sent);
+
         // Check if the error is related to expired access token (401 status)
         if (
           error?.response?.status === 401 &&
@@ -56,9 +60,13 @@ const useAxiosPrivate = (): AxiosInstance => {
             // Mark the request as 'sent' to avoid infinite loops
             prevRequest.sent = true;
 
+            console.log("start refresh after accessToken expired");
+
             // Try to refresh the access token
             const newAccessToken = await refresh();
             prevRequest.headers["Authorization"] = `Bearer ${newAccessToken}`;
+
+            console.log("newAccessToken", newAccessToken);
 
             // Retry the original request with the new access token
             return axiosPrivate(prevRequest);

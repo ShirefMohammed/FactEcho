@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+
 import { ApiBodyResponse, GetArticlesResponse } from "@shared/types/apiTypes";
 import { IArticle } from "@shared/types/entitiesTypes";
 
@@ -9,6 +10,8 @@ import { useArticlesAPIs } from "../api/client/useArticlesAPIs";
 import { useHandleErrors } from "../hooks";
 
 const LatestArticlesList = () => {
+  const limit = 5;
+
   const [articles, setArticles] = useState<IArticle[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
@@ -22,7 +25,8 @@ const LatestArticlesList = () => {
   const fetchLatestArticles = async () => {
     try {
       setIsLoading(true);
-      const resBody: ApiBodyResponse<GetArticlesResponse> = await articlesAPIs.getLatestArticles(5);
+      const resBody: ApiBodyResponse<GetArticlesResponse> =
+        await articlesAPIs.getLatestArticles(limit);
       setArticles(resBody.data?.articles || []);
     } catch (err) {
       handleErrors(err as Error);

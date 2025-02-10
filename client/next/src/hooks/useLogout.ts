@@ -41,7 +41,7 @@ const useLogout = (): (() => Promise<void>) => {
       dispatch(setAccessToken(""));
 
       // Navigate to the auth page after logging out
-      router.replace("/auth");
+      router.push("/auth");
     } catch (err) {
       console.error(err); // Log any error that occurs during the logout process
     }

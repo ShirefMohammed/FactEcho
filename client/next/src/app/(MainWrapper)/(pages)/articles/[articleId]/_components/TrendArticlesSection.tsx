@@ -10,6 +10,8 @@ import { ArticlesGrid } from "../../../../../../components";
 import { useHandleErrors } from "../../../../../../hooks";
 
 const TrendArticlesSection = () => {
+  const limit = 4;
+
   // State to store the fetched articles
   const [articles, setArticles] = useState<IArticle[]>([]);
   // State to track the loading status of the API call
@@ -27,7 +29,7 @@ const TrendArticlesSection = () => {
   const fetchTrendArticles = async () => {
     try {
       setIsLoading(true); // Indicate loading state
-      const resBody: ApiBodyResponse<GetArticlesResponse> = await articlesAPIs.getTrendArticles(4);
+      const resBody: ApiBodyResponse<GetArticlesResponse> = await articlesAPIs.getTrendArticles(limit);
       setArticles(resBody.data?.articles || []); // Safely set the articles
     } catch (err) {
       handleErrors(err as Error); // Handle any errors using the custom hook

@@ -1,12 +1,13 @@
-Todo:
-  - Solve Editor problem.
-  - Test all pages performance and behavior.
-  - Convert to ssr (article, author, categoriesArticle, explore, latest, trend, home) pages.
-  - Add metadata to enhance seo.
-  - deploy the app to vercel.
+✅ To-Do
+  - Improve app SEO
+  - Convert to ssr (article, author, categoriesArticle, explore, latest, trend, home) pages
+  - Test all pages performance and behavior
+  - Test JWT Rotation
 
-In Progress:
+⏳ In Progress
   
 
-Finished:
-  
+🎯 Finished
+  - Add metadata to enhance seo
+  - Solve Editor problem
+  - deploy the app to vercel

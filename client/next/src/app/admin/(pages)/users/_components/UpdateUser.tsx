@@ -32,6 +32,10 @@ const UpdateUser = ({
     try {
       setUpdateUserRoleLoad(true);
 
+      // Confirm
+      const confirmResult = confirm("Are you sure?");
+      if (!confirmResult) return;
+
       // Define the new role to set for the user
       const newRole = ROLES_LIST.Author;
 

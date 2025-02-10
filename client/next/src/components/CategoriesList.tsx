@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+
 import { ApiBodyResponse, GetCategoriesResponse } from "@shared/types/apiTypes";
 import { ICategory } from "@shared/types/entitiesTypes";
 
@@ -9,6 +10,8 @@ import { useCategoriesAPIs } from "../api/client/useCategoriesAPIs";
 import { useHandleErrors } from "../hooks";
 
 const CategoriesList = () => {
+  const limit = 5;
+
   const [categories, setCategories] = useState<ICategory[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
@@ -24,7 +27,7 @@ const CategoriesList = () => {
       setIsLoading(true);
       const resBody: ApiBodyResponse<GetCategoriesResponse> = await categoriesAPIs.getCategories(
         1,
-        5,
+        limit,
         "new",
       );
       setCategories(resBody.data?.categories || []);

@@ -8,7 +8,7 @@ const CreateArticleLayout = ({
 }: Readonly<{
   children: React.ReactNode;
 }>) => {
-  return <RequireAuth allowedRoles={[ROLES_LIST.Admin]}>{children}</RequireAuth>;
+  return <RequireAuth allowedRoles={[ROLES_LIST.Admin, ROLES_LIST.Author]}>{children}</RequireAuth>;
 };
 
 export default CreateArticleLayout;
