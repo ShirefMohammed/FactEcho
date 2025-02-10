@@ -30,9 +30,7 @@ import { getServiceLogger } from "../../config/logger";
 import { authorsModel, usersModel } from "../../database";
 import { ExtendedRequestHandler } from "../../types/requestHandlerTypes";
 import { RgxList } from "../../utils/RgxList";
-import { cacheResponse } from "../../utils/cacheResponse";
 import { deleteFileFromCloudinary } from "../../utils/deleteFileFromCloudinary";
-import { deleteRelatedCachedItemsForRequest } from "../../utils/deleteRelatedCachedItemsForRequest";
 import { httpStatusText } from "../../utils/httpStatusText";
 import { isFileExistsInCloudinary } from "../../utils/isFileExistsInCloudinary";
 import { ROLES_LIST } from "../../utils/rolesList";
@@ -71,9 +69,6 @@ export const getUsers: ExtendedRequestHandler<
 
     // Fetch paginated users
     const users: IUser[] = await usersModel.getUsers(-1, limit, skip);
-
-    // Cache response data
-    cacheResponse(req, { users });
 
     // Send response with users and pagination metadata
     res.status(200).send({
@@ -130,9 +125,6 @@ export const searchUsers: ExtendedRequestHandler<
       skip,
     );
 
-    // Cache response data
-    cacheResponse(req, { users });
-
     // Respond with search results and pagination metadata
     res.status(200).send({
       statusText: httpStatusText.SUCCESS,
@@ -155,12 +147,9 @@ export const searchUsers: ExtendedRequestHandler<
 export const getTotalUsersCount: ExtendedRequestHandler<
   GetTotalUsersCountRequest,
   GetTotalUsersCountResponse
-> = async (req, res, next) => {
+> = async (_req, res, next) => {
   try {
     const totalUsersCount: number = await usersModel.getUsersCount();
-
-    // Cache response data
-    cacheResponse(req, { totalUsersCount });
 
     res.status(200).send({
       statusText: httpStatusText.SUCCESS,
@@ -208,9 +197,6 @@ export const cleanupUnverifiedUsers: ExtendedRequestHandler<
     usersLogger.info(
       `cleanupUnverifiedUsers: ${count} unverified users older than ${interval} deleted successfully.`,
     );
-
-    // Delete related cached item for this request
-    deleteRelatedCachedItemsForRequest(req);
 
     res.status(204).send({
       statusText: httpStatusText.SUCCESS,
@@ -269,9 +255,6 @@ export const getUser: ExtendedRequestHandler<
         message: "Account not found.",
       });
     }
-
-    // Cache response data
-    cacheResponse(req, { user });
 
     res.status(200).send({
       statusText: httpStatusText.SUCCESS,
@@ -334,9 +317,6 @@ export const updateUserDetails: ExtendedRequestHandler<
     usersLogger.info(
       `updateUserDetails: User with ID {${userId}} updated successfully`,
     );
-
-    // Delete related cached item for this request
-    deleteRelatedCachedItemsForRequest(req);
 
     // Send a success response with a message confirming the update
     res.status(200).send({
@@ -434,9 +414,6 @@ export const updateUserRole: ExtendedRequestHandler<
       usersLogger.info(`updateUserRole: Author {${userId}} downgraded to user`);
     }
 
-    // Delete related cached item for this request
-    deleteRelatedCachedItemsForRequest(req);
-
     // Send a success response confirming the role update
     res.status(200).send({
       statusText: httpStatusText.SUCCESS,
@@ -521,9 +498,6 @@ export const updateUserPassword: ExtendedRequestHandler<
       `updateUserPassword: Password updated successfully for {${userId}}`,
     );
 
-    // Delete related cached item for this request
-    deleteRelatedCachedItemsForRequest(req);
-
     // Send a success response confirming the password update
     res.status(200).send({
       statusText: httpStatusText.SUCCESS,
@@ -605,9 +579,6 @@ export const updateUserAvatar: ExtendedRequestHandler<
     usersLogger.info(
       `updateUserAvatar: Avatar updated successfully for user {${userId}}`,
     );
-
-    // Delete related cached item for this request
-    deleteRelatedCachedItemsForRequest(req);
 
     // Send a success response confirming the avatar update
     res.status(200).send({
@@ -720,9 +691,6 @@ export const deleteUser: ExtendedRequestHandler<
     usersLogger.info(
       `deleteUser: User with ID {${userId}} deleted successfully`,
     );
-
-    // Delete related cached item for this request
-    deleteRelatedCachedItemsForRequest(req);
 
     res.status(204).send({
       statusText: httpStatusText.SUCCESS,

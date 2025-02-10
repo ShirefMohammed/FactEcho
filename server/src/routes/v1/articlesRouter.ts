@@ -16,11 +16,10 @@ import {
   unsaveArticle,
   updateArticle,
 } from "../../controllers/v1/articlesController";
+import { checkCache } from "../../middleware/checkCache";
 import { verifyJWT } from "../../middleware/verifyJWT";
 import { verifyRole } from "../../middleware/verifyRole";
 import { ROLES_LIST } from "../../utils/rolesList";
-import { checkCache } from "../../middleware/checkCache";
-
 
 const router = express.Router();
 
@@ -214,7 +213,7 @@ const router = express.Router();
  */
 router
   .route("/")
-  .get(checkCache, getArticles)
+  .get(getArticles)
   .post(
     verifyJWT,
     verifyRole(ROLES_LIST.Admin, ROLES_LIST.Author),
@@ -306,7 +305,7 @@ router
  *                   type: string
  *                   example: "Internal server error."
  */
-router.route("/search").get(checkCache, searchArticles);
+router.route("/search").get(searchArticles);
 
 /**
  * @swagger
@@ -349,7 +348,7 @@ router.route("/search").get(checkCache, searchArticles);
  *                   type: string
  *                   example: "Internal server error."
  */
-router.route("/count").get(checkCache, getTotalArticlesCount);
+router.route("/count").get(getTotalArticlesCount);
 
 /**
  * @swagger

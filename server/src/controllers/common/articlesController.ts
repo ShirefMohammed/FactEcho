@@ -81,9 +81,6 @@ export const getArticles: ExtendedRequestHandler<
       skip,
     );
 
-    // Cache response data
-    cacheResponse(req, { articles });
-
     // Send response with articles and pagination metadata
     res.status(200).send({
       statusText: httpStatusText.SUCCESS,
@@ -134,9 +131,6 @@ export const searchArticles: ExtendedRequestHandler<
       skip,
     );
 
-    // Cache response data
-    cacheResponse(req, { articles });
-
     // Send response with articles and pagination metadata
     res.status(200).send({
       statusText: httpStatusText.SUCCESS,
@@ -159,12 +153,9 @@ export const searchArticles: ExtendedRequestHandler<
 export const getTotalArticlesCount: ExtendedRequestHandler<
   GetTotalArticlesCountRequest,
   GetTotalArticlesCountResponse
-> = async (req, res, next) => {
+> = async (_req, res, next) => {
   try {
     const totalArticlesCount: number = await articlesModel.getArticlesCount();
-
-    // Cache response data
-    cacheResponse(req, { totalArticlesCount });
 
     res.status(200).send({
       statusText: httpStatusText.SUCCESS,
@@ -442,9 +433,6 @@ export const createArticle: ExtendedRequestHandler<
       `createArticle: New Article with title {${title}} created successfully`,
     );
 
-    // Delete related cached item for this request
-    deleteRelatedCachedItemsForRequest(req);
-
     // Send a success response with the new article data
     res.status(201).send({
       statusText: httpStatusText.SUCCESS,
@@ -607,9 +595,6 @@ export const updateArticle: ExtendedRequestHandler<
     articlesLogger.info(
       `updateArticle: Article {${articleId}} updated successfully by {${requesterRole}}.`,
     );
-
-    // Delete related cached item for this request
-    deleteRelatedCachedItemsForRequest(req);
 
     // Send success response with the updated article
     res.status(200).send({

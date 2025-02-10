@@ -1912,3 +1912,457 @@
 {"level":"INFO","time":"2025-02-08T06:07:38.318Z","pid":17256,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
 {"level":"INFO","time":"2025-02-08T06:08:52.094Z","pid":17256,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
 {"level":"INFO","time":"2025-02-08T06:09:23.186Z","pid":17256,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T07:12:20.335Z","pid":11504,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T07:13:21.222Z","pid":11504,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T07:13:38.188Z","pid":11504,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T07:14:12.322Z","pid":11504,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T07:14:21.349Z","pid":11504,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T11:39:42.788Z","pid":3020,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T11:52:45.483Z","pid":3020,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T11:54:44.029Z","pid":3020,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T11:59:12.404Z","pid":3020,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T11:59:26.397Z","pid":3020,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T12:01:07.062Z","pid":3020,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T12:01:24.174Z","pid":3020,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T12:03:04.883Z","pid":3020,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T12:03:09.975Z","pid":3020,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T12:03:39.127Z","pid":3020,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T12:04:33.045Z","pid":3020,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T12:05:10.367Z","pid":3020,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T12:08:32.263Z","pid":3020,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T12:13:08.337Z","pid":3020,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T12:14:12.589Z","pid":3020,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T12:15:22.351Z","pid":3020,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T12:19:09.702Z","pid":3020,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T12:22:05.613Z","pid":3020,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T12:23:44.626Z","pid":3020,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T12:29:44.475Z","pid":3020,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T12:37:20.573Z","pid":3020,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T18:23:26.917Z","pid":12468,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T18:24:22.388Z","pid":12468,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T18:25:20.382Z","pid":12468,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T18:25:24.185Z","pid":12468,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T18:26:15.701Z","pid":12468,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T18:26:18.864Z","pid":12468,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T18:26:51.290Z","pid":12468,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T18:27:37.979Z","pid":12468,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T18:31:43.655Z","pid":12468,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T18:33:12.904Z","pid":12468,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T18:41:51.814Z","pid":12468,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T19:22:16.361Z","pid":13736,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T19:22:25.873Z","pid":13736,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T19:22:29.181Z","pid":13736,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T19:30:42.925Z","pid":5304,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T19:30:47.029Z","pid":5304,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T19:30:48.397Z","pid":5304,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T19:30:48.665Z","pid":5304,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T19:30:49.081Z","pid":5304,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T19:30:49.364Z","pid":5304,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T19:30:49.676Z","pid":5304,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T19:30:49.956Z","pid":5304,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T19:30:50.266Z","pid":5304,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T19:30:50.563Z","pid":5304,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T19:30:50.971Z","pid":5304,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T19:32:07.252Z","pid":5304,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T19:32:13.469Z","pid":5304,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T19:34:35.994Z","pid":5304,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T19:34:42.416Z","pid":5304,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T19:35:37.249Z","pid":5304,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T19:35:46.353Z","pid":5304,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T19:35:56.210Z","pid":5304,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T19:36:25.209Z","pid":5304,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T19:36:32.346Z","pid":5304,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T19:37:09.965Z","pid":5304,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T19:58:02.781Z","pid":16184,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T19:59:13.991Z","pid":16184,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T19:59:19.653Z","pid":16184,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T20:08:41.447Z","pid":12052,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T20:08:53.785Z","pid":12052,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T20:08:59.136Z","pid":12052,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T20:11:30.029Z","pid":12052,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T20:11:31.162Z","pid":12052,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T20:11:32.238Z","pid":12052,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T20:11:32.878Z","pid":12052,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T20:11:33.211Z","pid":12052,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T20:11:33.503Z","pid":12052,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T20:11:33.793Z","pid":12052,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T20:11:34.068Z","pid":12052,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T20:11:41.240Z","pid":12052,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T20:12:48.251Z","pid":12052,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T20:12:49.614Z","pid":12052,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T20:12:50.027Z","pid":12052,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T20:12:50.367Z","pid":12052,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T20:12:50.612Z","pid":12052,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T20:12:50.969Z","pid":12052,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T20:12:51.273Z","pid":12052,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T20:12:51.603Z","pid":12052,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T20:12:51.910Z","pid":12052,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T20:12:52.216Z","pid":12052,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T20:12:52.748Z","pid":12052,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T20:12:53.062Z","pid":12052,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T20:12:53.392Z","pid":12052,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T20:12:53.853Z","pid":12052,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T20:19:39.407Z","pid":11700,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T20:19:42.926Z","pid":11700,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T20:19:43.954Z","pid":11700,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T20:21:40.325Z","pid":11700,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-08T20:21:41.645Z","pid":11700,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T12:43:14.705Z","pid":10632,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T12:45:15.363Z","pid":10632,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T12:45:32.506Z","pid":10632,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T12:45:32.699Z","pid":10632,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T12:46:38.681Z","pid":10632,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T12:46:41.169Z","pid":10632,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T12:46:41.904Z","pid":10632,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T12:46:55.498Z","pid":10632,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T12:49:06.669Z","pid":10632,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T18:26:41.685Z","pid":6432,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T18:27:53.165Z","pid":6432,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T18:28:06.914Z","pid":6432,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T18:28:33.985Z","pid":6432,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T18:28:36.617Z","pid":6432,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T18:28:46.132Z","pid":6432,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T18:29:48.574Z","pid":6432,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T18:33:07.273Z","pid":6432,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T18:33:53.975Z","pid":6432,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T18:34:01.007Z","pid":6432,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T18:34:58.791Z","pid":6432,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T18:42:21.053Z","pid":6432,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T18:42:27.588Z","pid":6432,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T18:42:43.720Z","pid":6432,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T18:42:47.024Z","pid":6432,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T18:43:03.616Z","pid":6432,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T18:43:05.097Z","pid":6432,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T18:45:00.970Z","pid":6432,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T18:45:24.020Z","pid":6432,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T18:46:08.955Z","pid":6432,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T18:58:00.373Z","pid":6432,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T18:58:18.107Z","pid":6432,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T18:58:50.033Z","pid":6432,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T18:59:51.047Z","pid":6432,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T18:59:58.267Z","pid":6432,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T19:00:10.829Z","pid":6432,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T19:00:29.083Z","pid":6432,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T19:03:33.240Z","pid":6432,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T19:08:33.637Z","pid":6432,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T19:08:36.886Z","pid":6432,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Logout: User logged out"}
+{"level":"INFO","time":"2025-02-09T19:08:54.575Z","pid":6432,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"loginWithGoogleCallback: User with email {shirefmo012345@gmail.com} logged in via Google"}
+{"level":"INFO","time":"2025-02-09T19:08:57.655Z","pid":6432,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T19:08:58.134Z","pid":6432,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T19:08:58.152Z","pid":6432,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T19:09:27.670Z","pid":6432,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T19:09:28.341Z","pid":6432,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T19:09:28.368Z","pid":6432,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T19:12:31.888Z","pid":6432,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T19:12:31.905Z","pid":6432,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T19:12:31.924Z","pid":6432,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T19:12:40.076Z","pid":6432,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T19:12:40.265Z","pid":6432,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T19:12:40.280Z","pid":6432,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T19:12:53.250Z","pid":6432,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"loginWithGoogleCallback: User with email {shirefmo012345@gmail.com} logged in via Google"}
+{"level":"INFO","time":"2025-02-09T19:12:54.776Z","pid":6432,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T19:12:55.278Z","pid":6432,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T19:12:55.297Z","pid":6432,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T19:20:19.715Z","pid":6432,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T19:20:23.875Z","pid":6432,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Logout: User logged out"}
+{"level":"INFO","time":"2025-02-09T19:20:29.992Z","pid":6432,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"loginWithGoogleCallback: User with email {shirefmo012345@gmail.com} logged in via Google"}
+{"level":"INFO","time":"2025-02-09T19:20:30.486Z","pid":6432,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T19:20:30.923Z","pid":6432,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T19:29:46.957Z","pid":6432,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T19:29:49.968Z","pid":6432,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Logout: User logged out"}
+{"level":"INFO","time":"2025-02-09T19:30:08.055Z","pid":6432,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"loginWithGoogleCallback: User with email {shirefmo012345@gmail.com} logged in via Google"}
+{"level":"INFO","time":"2025-02-09T19:30:09.103Z","pid":6432,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T19:30:09.278Z","pid":6432,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T19:39:37.333Z","pid":6432,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T19:39:41.764Z","pid":6432,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Logout: User logged out"}
+{"level":"INFO","time":"2025-02-09T19:39:52.197Z","pid":6432,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"loginWithGoogleCallback: User with email {shirefmo012345@gmail.com} logged in via Google"}
+{"level":"INFO","time":"2025-02-09T19:43:20.883Z","pid":9124,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T19:43:45.676Z","pid":9124,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T19:44:37.119Z","pid":9124,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T19:44:41.891Z","pid":9124,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T19:44:47.046Z","pid":9124,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T19:44:49.439Z","pid":9124,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T19:45:01.099Z","pid":9124,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T19:46:18.932Z","pid":9124,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T19:52:55.321Z","pid":9124,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T19:59:38.619Z","pid":9124,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T19:59:55.210Z","pid":9124,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T20:00:27.554Z","pid":9124,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T20:00:29.574Z","pid":9124,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T20:01:42.172Z","pid":9124,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T20:04:59.554Z","pid":9124,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T20:05:09.719Z","pid":9124,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T20:05:14.619Z","pid":9124,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T20:05:33.417Z","pid":9124,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T20:05:47.630Z","pid":9124,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T20:06:20.458Z","pid":9124,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T20:11:24.966Z","pid":16552,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T20:12:27.269Z","pid":16552,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T20:13:05.322Z","pid":16552,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T20:29:53.879Z","pid":12528,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T20:31:01.182Z","pid":12528,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T20:31:03.484Z","pid":12528,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Logout: User logged out"}
+{"level":"INFO","time":"2025-02-09T20:32:11.736Z","pid":12528,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"loginWithGoogleCallback: User with email {shirefmo012345@gmail.com} logged in via Google"}
+{"level":"INFO","time":"2025-02-09T20:32:13.251Z","pid":12528,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T20:32:13.447Z","pid":12528,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T20:32:13.459Z","pid":12528,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T20:32:20.415Z","pid":12528,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T20:32:32.192Z","pid":12528,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Logout: User logged out"}
+{"level":"INFO","time":"2025-02-09T20:32:37.837Z","pid":12528,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"loginWithGoogleCallback: User with email {shirefmo012345@gmail.com} logged in via Google"}
+{"level":"INFO","time":"2025-02-09T20:32:38.784Z","pid":12528,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T20:32:39.003Z","pid":12528,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T20:32:39.015Z","pid":12528,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T20:33:19.169Z","pid":12528,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T20:33:30.200Z","pid":12528,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T20:33:39.400Z","pid":12528,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T20:39:58.221Z","pid":12528,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T20:40:49.559Z","pid":12528,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T20:40:53.647Z","pid":12528,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Logout: User logged out"}
+{"level":"INFO","time":"2025-02-09T20:41:00.091Z","pid":12528,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"loginWithGoogleCallback: User with email {shirefmo012345@gmail.com} logged in via Google"}
+{"level":"INFO","time":"2025-02-09T20:41:00.368Z","pid":12528,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T20:41:00.648Z","pid":12528,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T20:41:13.187Z","pid":12528,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-09T20:41:23.605Z","pid":12528,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T04:05:40.016Z","pid":12208,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T04:05:50.016Z","pid":12208,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Logout: User logged out"}
+{"level":"INFO","time":"2025-02-10T04:10:05.998Z","pid":12208,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Register: Verification email sent to {shirefmohammed@std.mans.edu.eg}"}
+{"level":"WARN","time":"2025-02-10T04:12:20.818Z","pid":12208,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Login: Unverified account login attempt by {shirefmohammed@std.mans.edu.eg}"}
+{"level":"INFO","time":"2025-02-10T04:13:01.586Z","pid":12208,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"VerifyAccount: User {364afeb3-44ae-479f-9d9c-edc8424b3759} account verified successfully"}
+{"level":"INFO","time":"2025-02-10T04:13:21.802Z","pid":12208,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Login: User with email {shirefmohammed@std.mans.edu.eg} logged in"}
+{"level":"INFO","time":"2025-02-10T04:13:25.399Z","pid":12208,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Logout: User logged out"}
+{"level":"WARN","time":"2025-02-10T04:14:23.729Z","pid":12208,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Register: User with the same email {shirefmohammed@std.mans.edu.eg} already exists"}
+{"level":"INFO","time":"2025-02-10T04:14:44.656Z","pid":12208,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Login: User with email {shirefmohammed@std.mans.edu.eg} logged in"}
+{"level":"INFO","time":"2025-02-10T04:14:47.088Z","pid":12208,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Logout: User logged out"}
+{"level":"INFO","time":"2025-02-10T04:15:02.330Z","pid":12208,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Login: User with email {shirefmohammed@std.mans.edu.eg} logged in"}
+{"level":"WARN","time":"2025-02-10T04:15:57.942Z","pid":12208,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Login: User account with email {shirefmohammed@std.mans.edu.egc} not found"}
+{"level":"WARN","time":"2025-02-10T04:16:09.916Z","pid":12208,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Login: User account with email {shirefmohammed@std.mans.edu.f} not found"}
+{"level":"WARN","time":"2025-02-10T04:16:26.613Z","pid":12208,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Login: Wrong password attempt by {shirefmohammed@std.mans.edu.eg}"}
+{"level":"INFO","time":"2025-02-10T04:16:36.616Z","pid":12208,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Login: User with email {shirefmohammed@std.mans.edu.eg} logged in"}
+{"level":"INFO","time":"2025-02-10T04:16:39.037Z","pid":12208,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {364afeb3-44ae-479f-9d9c-edc8424b3759}"}
+{"level":"INFO","time":"2025-02-10T04:16:42.237Z","pid":12208,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Logout: User logged out"}
+{"level":"WARN","time":"2025-02-10T04:17:00.144Z","pid":12208,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"forgetPassword: No user found with this email {shirefmohammed@std.mans.edu.egx}"}
+{"level":"INFO","time":"2025-02-10T04:17:05.954Z","pid":12208,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"forgetPassword: Reset password email sent successfully to {shirefmohammed@std.mans.edu.eg}"}
+{"level":"INFO","time":"2025-02-10T04:17:31.701Z","pid":12208,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"sendResetPasswordForm: Serving reset password form to user {364afeb3-44ae-479f-9d9c-edc8424b3759}"}
+{"level":"INFO","time":"2025-02-10T04:17:49.575Z","pid":12208,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"resetPassword: Password reset successfully for user {364afeb3-44ae-479f-9d9c-edc8424b3759}"}
+{"level":"INFO","time":"2025-02-10T04:18:14.096Z","pid":12208,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Login: User with email {shirefmohammed@std.mans.edu.eg} logged in"}
+{"level":"INFO","time":"2025-02-10T04:18:19.938Z","pid":12208,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {364afeb3-44ae-479f-9d9c-edc8424b3759}"}
+{"level":"INFO","time":"2025-02-10T04:18:21.790Z","pid":12208,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Logout: User logged out"}
+{"level":"INFO","time":"2025-02-10T04:18:30.818Z","pid":12208,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Login: User with email {shirefmohammed@std.mans.edu.eg} logged in"}
+{"level":"INFO","time":"2025-02-10T04:18:41.633Z","pid":12208,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {364afeb3-44ae-479f-9d9c-edc8424b3759}"}
+{"level":"INFO","time":"2025-02-10T04:18:44.098Z","pid":12208,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Logout: User logged out"}
+{"level":"INFO","time":"2025-02-10T04:19:01.350Z","pid":12208,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Login: User with email {shirefmohammed@std.mans.edu.eg} logged in"}
+{"level":"INFO","time":"2025-02-10T04:20:53.901Z","pid":12208,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Logout: User logged out"}
+{"level":"INFO","time":"2025-02-10T04:21:06.914Z","pid":12208,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Login: User with email {shirefmohammed@std.mans.edu.eg} logged in"}
+{"level":"INFO","time":"2025-02-10T04:22:05.063Z","pid":12208,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {364afeb3-44ae-479f-9d9c-edc8424b3759}"}
+{"level":"INFO","time":"2025-02-10T04:22:09.344Z","pid":12208,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {364afeb3-44ae-479f-9d9c-edc8424b3759}"}
+{"level":"INFO","time":"2025-02-10T04:22:11.553Z","pid":12208,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Logout: User logged out"}
+{"level":"INFO","time":"2025-02-10T04:22:36.751Z","pid":12208,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Login: User with email {shirefmohammed@std.mans.edu.eg} logged in"}
+{"level":"INFO","time":"2025-02-10T04:23:06.870Z","pid":12208,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Logout: User logged out"}
+{"level":"INFO","time":"2025-02-10T04:23:24.120Z","pid":12208,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Login: User with email {shirefmohammed@std.mans.edu.eg} logged in"}
+{"level":"INFO","time":"2025-02-10T04:23:28.017Z","pid":12208,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Logout: User logged out"}
+{"level":"INFO","time":"2025-02-10T04:23:50.167Z","pid":12208,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"loginWithGoogleCallback: User with email {shirefmo012345@gmail.com} logged in via Google"}
+{"level":"INFO","time":"2025-02-10T04:23:52.146Z","pid":12208,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T04:23:52.267Z","pid":12208,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T04:23:52.276Z","pid":12208,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T04:23:58.525Z","pid":12208,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Logout: User logged out"}
+{"level":"INFO","time":"2025-02-10T04:24:05.464Z","pid":12208,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"loginWithGoogleCallback: User with email {shirefmo012345@gmail.com} logged in via Google"}
+{"level":"INFO","time":"2025-02-10T04:24:06.518Z","pid":12208,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T04:24:06.747Z","pid":12208,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T04:24:07.274Z","pid":12208,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T04:24:33.446Z","pid":12208,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Logout: User logged out"}
+{"level":"INFO","time":"2025-02-10T04:24:39.300Z","pid":12208,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"loginWithGoogleCallback: User with email {shirefmo012345@gmail.com} logged in via Google"}
+{"level":"INFO","time":"2025-02-10T04:24:40.414Z","pid":12208,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T04:24:40.621Z","pid":12208,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T04:24:40.634Z","pid":12208,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T04:25:24.293Z","pid":12208,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T04:25:31.718Z","pid":12208,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Logout: User logged out"}
+{"level":"INFO","time":"2025-02-10T04:25:44.161Z","pid":12208,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"loginWithGoogleCallback: User with email {shirefmo012345@gmail.com} logged in via Google"}
+{"level":"INFO","time":"2025-02-10T04:25:46.018Z","pid":12208,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T04:25:46.493Z","pid":12208,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T04:25:46.503Z","pid":12208,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T04:26:23.834Z","pid":12208,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Logout: User logged out"}
+{"level":"INFO","time":"2025-02-10T04:26:29.938Z","pid":12208,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"loginWithGoogleCallback: User with email {shirefmo012345@gmail.com} logged in via Google"}
+{"level":"INFO","time":"2025-02-10T04:26:31.543Z","pid":12208,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T04:26:31.743Z","pid":12208,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T04:26:31.752Z","pid":12208,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T04:27:10.780Z","pid":12208,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T04:27:22.772Z","pid":12208,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T04:27:27.715Z","pid":12208,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Logout: User logged out"}
+{"level":"INFO","time":"2025-02-10T04:28:11.291Z","pid":12208,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"loginWithFacebookCallback: New user with provider_user_id {1323374239019700} created successfully"}
+{"level":"INFO","time":"2025-02-10T04:28:11.293Z","pid":12208,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"loginWithFacebookCallback: User with provider_user_id {1323374239019700} logged in via Facebook"}
+{"level":"INFO","time":"2025-02-10T04:28:12.277Z","pid":12208,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {32dafe02-044b-407a-a99a-3e3665bc52d4}"}
+{"level":"INFO","time":"2025-02-10T04:28:12.445Z","pid":12208,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {32dafe02-044b-407a-a99a-3e3665bc52d4}"}
+{"level":"INFO","time":"2025-02-10T04:28:12.454Z","pid":12208,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {32dafe02-044b-407a-a99a-3e3665bc52d4}"}
+{"level":"INFO","time":"2025-02-10T04:28:27.410Z","pid":12208,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {32dafe02-044b-407a-a99a-3e3665bc52d4}"}
+{"level":"INFO","time":"2025-02-10T04:28:40.515Z","pid":12208,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Logout: User logged out"}
+{"level":"INFO","time":"2025-02-10T04:28:49.547Z","pid":12208,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"loginWithFacebookCallback: User with provider_user_id {1323374239019700} logged in via Facebook"}
+{"level":"INFO","time":"2025-02-10T04:28:50.583Z","pid":12208,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {32dafe02-044b-407a-a99a-3e3665bc52d4}"}
+{"level":"INFO","time":"2025-02-10T04:28:50.802Z","pid":12208,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {32dafe02-044b-407a-a99a-3e3665bc52d4}"}
+{"level":"INFO","time":"2025-02-10T04:28:50.810Z","pid":12208,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {32dafe02-044b-407a-a99a-3e3665bc52d4}"}
+{"level":"INFO","time":"2025-02-10T04:29:11.026Z","pid":12208,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Logout: User logged out"}
+{"level":"INFO","time":"2025-02-10T04:31:52.855Z","pid":12208,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"loginWithGoogleCallback: User with email {shirefmo012345@gmail.com} logged in via Google"}
+{"level":"INFO","time":"2025-02-10T04:31:53.209Z","pid":12208,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T04:31:53.713Z","pid":12208,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T04:32:15.417Z","pid":12208,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Logout: User logged out"}
+{"level":"INFO","time":"2025-02-10T04:32:31.083Z","pid":12208,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"loginWithFacebookCallback: User with provider_user_id {1323374239019700} logged in via Facebook"}
+{"level":"INFO","time":"2025-02-10T04:32:31.504Z","pid":12208,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {32dafe02-044b-407a-a99a-3e3665bc52d4}"}
+{"level":"INFO","time":"2025-02-10T04:32:31.701Z","pid":12208,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {32dafe02-044b-407a-a99a-3e3665bc52d4}"}
+{"level":"INFO","time":"2025-02-10T04:35:27.344Z","pid":7696,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Logout: User logged out"}
+{"level":"INFO","time":"2025-02-10T04:36:07.830Z","pid":7696,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"loginWithGoogleCallback: User with email {shirefmo012345@gmail.com} logged in via Google"}
+{"level":"INFO","time":"2025-02-10T04:36:17.315Z","pid":7696,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T04:36:17.800Z","pid":7696,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T04:36:17.819Z","pid":7696,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T04:36:34.977Z","pid":7696,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T04:36:34.997Z","pid":7696,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T04:36:57.592Z","pid":7696,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T04:36:57.608Z","pid":7696,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T04:37:58.216Z","pid":7696,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T04:38:04.344Z","pid":7696,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T04:38:11.302Z","pid":7696,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T04:38:14.091Z","pid":7696,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T04:38:15.123Z","pid":7696,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T04:38:19.812Z","pid":7696,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T04:38:25.042Z","pid":7696,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T04:38:25.051Z","pid":7696,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T04:38:39.969Z","pid":7696,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T04:38:39.980Z","pid":7696,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T04:38:41.734Z","pid":7696,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T04:38:45.735Z","pid":7696,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T04:38:45.752Z","pid":7696,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T04:39:24.959Z","pid":11316,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T04:40:21.835Z","pid":11316,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T04:43:22.249Z","pid":11316,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T04:44:20.209Z","pid":6972,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T04:44:42.091Z","pid":6972,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T04:44:42.116Z","pid":6972,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T04:44:48.991Z","pid":6972,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T04:44:53.430Z","pid":6972,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T04:44:53.454Z","pid":6972,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T04:45:15.273Z","pid":6972,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T04:45:41.950Z","pid":6972,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T04:46:01.020Z","pid":6972,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T04:46:01.045Z","pid":6972,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T04:53:11.784Z","pid":13356,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T04:56:49.393Z","pid":13356,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T04:57:36.398Z","pid":13356,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T04:57:41.639Z","pid":13356,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T04:57:47.768Z","pid":13356,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T04:58:11.565Z","pid":13356,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T04:58:20.761Z","pid":13356,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T04:58:25.335Z","pid":13356,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T04:58:29.519Z","pid":13356,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T04:58:47.378Z","pid":13356,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T04:59:24.499Z","pid":13356,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T05:05:58.929Z","pid":13356,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T05:06:21.765Z","pid":13356,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T05:06:25.952Z","pid":13356,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T05:06:40.108Z","pid":13356,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T05:06:44.074Z","pid":13356,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T05:06:51.587Z","pid":13356,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T05:07:30.402Z","pid":13356,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T05:07:34.319Z","pid":13356,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T05:08:05.969Z","pid":13356,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T05:08:07.044Z","pid":13356,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T05:08:14.570Z","pid":13356,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T05:08:18.611Z","pid":13356,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T05:08:44.494Z","pid":13356,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T05:10:20.214Z","pid":13356,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Logout: User logged out"}
+{"level":"INFO","time":"2025-02-10T05:10:30.003Z","pid":13356,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"loginWithGoogleCallback: User with email {shirefmo012345@gmail.com} logged in via Google"}
+{"level":"INFO","time":"2025-02-10T05:10:32.085Z","pid":13356,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T05:10:32.320Z","pid":13356,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T05:11:02.201Z","pid":13356,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T05:11:12.742Z","pid":13356,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T05:11:19.303Z","pid":13356,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T05:11:27.199Z","pid":13356,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T05:11:33.334Z","pid":13356,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T05:11:38.308Z","pid":13356,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T05:14:29.632Z","pid":11000,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T05:15:18.598Z","pid":11000,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T05:18:30.672Z","pid":11000,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T05:20:26.743Z","pid":11000,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T05:20:29.700Z","pid":11000,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T05:20:32.661Z","pid":11000,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T05:20:36.879Z","pid":11000,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T05:20:43.702Z","pid":11000,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T05:20:47.440Z","pid":11000,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T05:21:03.863Z","pid":11000,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T05:21:13.882Z","pid":11000,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T05:21:31.424Z","pid":11000,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Logout: User logged out"}
+{"level":"INFO","time":"2025-02-10T05:21:58.733Z","pid":11000,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"loginWithFacebookCallback: User with provider_user_id {1323374239019700} logged in via Facebook"}
+{"level":"INFO","time":"2025-02-10T05:22:00.810Z","pid":11000,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {32dafe02-044b-407a-a99a-3e3665bc52d4}"}
+{"level":"INFO","time":"2025-02-10T05:22:01.052Z","pid":11000,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {32dafe02-044b-407a-a99a-3e3665bc52d4}"}
+{"level":"INFO","time":"2025-02-10T05:22:05.136Z","pid":11000,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {32dafe02-044b-407a-a99a-3e3665bc52d4}"}
+{"level":"INFO","time":"2025-02-10T05:22:12.750Z","pid":11000,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Logout: User logged out"}
+{"level":"INFO","time":"2025-02-10T05:22:44.668Z","pid":11000,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Login: User with email {shirefmohammed@std.mans.edu.eg} logged in"}
+{"level":"INFO","time":"2025-02-10T05:22:55.199Z","pid":11000,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {364afeb3-44ae-479f-9d9c-edc8424b3759}"}
+{"level":"INFO","time":"2025-02-10T05:23:01.357Z","pid":11000,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {364afeb3-44ae-479f-9d9c-edc8424b3759}"}
+{"level":"INFO","time":"2025-02-10T05:23:34.277Z","pid":11000,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {364afeb3-44ae-479f-9d9c-edc8424b3759}"}
+{"level":"INFO","time":"2025-02-10T05:23:40.660Z","pid":11000,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {364afeb3-44ae-479f-9d9c-edc8424b3759}"}
+{"level":"INFO","time":"2025-02-10T05:24:16.488Z","pid":11000,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {364afeb3-44ae-479f-9d9c-edc8424b3759}"}
+{"level":"INFO","time":"2025-02-10T05:24:46.719Z","pid":11000,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {364afeb3-44ae-479f-9d9c-edc8424b3759}"}
+{"level":"INFO","time":"2025-02-10T05:25:00.101Z","pid":11000,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {364afeb3-44ae-479f-9d9c-edc8424b3759}"}
+{"level":"INFO","time":"2025-02-10T05:42:55.367Z","pid":6272,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {364afeb3-44ae-479f-9d9c-edc8424b3759}"}
+{"level":"INFO","time":"2025-02-10T05:43:08.865Z","pid":6272,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {364afeb3-44ae-479f-9d9c-edc8424b3759}"}
+{"level":"INFO","time":"2025-02-10T05:44:01.148Z","pid":6272,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {364afeb3-44ae-479f-9d9c-edc8424b3759}"}
+{"level":"INFO","time":"2025-02-10T05:44:46.900Z","pid":6272,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Logout: User logged out"}
+{"level":"INFO","time":"2025-02-10T05:45:18.788Z","pid":6272,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Login: User with email {shirefmohammed@std.mans.edu.eg} logged in"}
+{"level":"INFO","time":"2025-02-10T05:45:30.964Z","pid":6272,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Logout: User logged out"}
+{"level":"INFO","time":"2025-02-10T05:50:33.894Z","pid":6272,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"loginWithFacebookCallback: User with provider_user_id {1323374239019700} logged in via Facebook"}
+{"level":"INFO","time":"2025-02-10T05:50:35.521Z","pid":6272,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {32dafe02-044b-407a-a99a-3e3665bc52d4}"}
+{"level":"INFO","time":"2025-02-10T05:50:35.751Z","pid":6272,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {32dafe02-044b-407a-a99a-3e3665bc52d4}"}
+{"level":"INFO","time":"2025-02-10T05:50:49.313Z","pid":6272,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {32dafe02-044b-407a-a99a-3e3665bc52d4}"}
+{"level":"INFO","time":"2025-02-10T05:50:54.088Z","pid":6272,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {32dafe02-044b-407a-a99a-3e3665bc52d4}"}
+{"level":"INFO","time":"2025-02-10T05:51:03.449Z","pid":6272,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {32dafe02-044b-407a-a99a-3e3665bc52d4}"}
+{"level":"INFO","time":"2025-02-10T05:51:56.917Z","pid":6272,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {32dafe02-044b-407a-a99a-3e3665bc52d4}"}
+{"level":"INFO","time":"2025-02-10T05:52:15.604Z","pid":6272,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {32dafe02-044b-407a-a99a-3e3665bc52d4}"}
+{"level":"INFO","time":"2025-02-10T05:52:17.773Z","pid":6272,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {32dafe02-044b-407a-a99a-3e3665bc52d4}"}
+{"level":"INFO","time":"2025-02-10T05:52:47.525Z","pid":6272,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {32dafe02-044b-407a-a99a-3e3665bc52d4}"}
+{"level":"INFO","time":"2025-02-10T05:52:50.710Z","pid":6272,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {32dafe02-044b-407a-a99a-3e3665bc52d4}"}
+{"level":"INFO","time":"2025-02-10T05:52:55.918Z","pid":6272,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {32dafe02-044b-407a-a99a-3e3665bc52d4}"}
+{"level":"INFO","time":"2025-02-10T05:53:45.853Z","pid":6272,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {32dafe02-044b-407a-a99a-3e3665bc52d4}"}
+{"level":"INFO","time":"2025-02-10T05:53:47.897Z","pid":6272,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Logout: User logged out"}
+{"level":"INFO","time":"2025-02-10T05:55:23.896Z","pid":6272,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"loginWithFacebookCallback: User with provider_user_id {1323374239019700} logged in via Facebook"}
+{"level":"INFO","time":"2025-02-10T05:55:24.807Z","pid":6272,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {32dafe02-044b-407a-a99a-3e3665bc52d4}"}
+{"level":"INFO","time":"2025-02-10T05:55:25.039Z","pid":6272,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {32dafe02-044b-407a-a99a-3e3665bc52d4}"}
+{"level":"INFO","time":"2025-02-10T05:55:36.528Z","pid":6272,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Logout: User logged out"}
+{"level":"INFO","time":"2025-02-10T05:58:28.853Z","pid":6272,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"loginWithFacebookCallback: User with provider_user_id {1323374239019700} logged in via Facebook"}
+{"level":"INFO","time":"2025-02-10T05:58:29.993Z","pid":6272,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {32dafe02-044b-407a-a99a-3e3665bc52d4}"}
+{"level":"INFO","time":"2025-02-10T05:58:30.471Z","pid":6272,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {32dafe02-044b-407a-a99a-3e3665bc52d4}"}
+{"level":"INFO","time":"2025-02-10T05:58:43.422Z","pid":6272,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Logout: User logged out"}
+{"level":"INFO","time":"2025-02-10T06:02:22.167Z","pid":6272,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"loginWithFacebookCallback: User with provider_user_id {1323374239019700} logged in via Facebook"}
+{"level":"INFO","time":"2025-02-10T06:02:22.989Z","pid":6272,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {32dafe02-044b-407a-a99a-3e3665bc52d4}"}
+{"level":"INFO","time":"2025-02-10T06:02:23.215Z","pid":6272,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {32dafe02-044b-407a-a99a-3e3665bc52d4}"}
+{"level":"INFO","time":"2025-02-10T06:02:44.205Z","pid":6272,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {32dafe02-044b-407a-a99a-3e3665bc52d4}"}
+{"level":"INFO","time":"2025-02-10T06:02:50.096Z","pid":6272,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {32dafe02-044b-407a-a99a-3e3665bc52d4}"}
+{"level":"INFO","time":"2025-02-10T06:02:58.763Z","pid":6272,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {32dafe02-044b-407a-a99a-3e3665bc52d4}"}
+{"level":"INFO","time":"2025-02-10T06:03:28.682Z","pid":6272,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {32dafe02-044b-407a-a99a-3e3665bc52d4}"}
+{"level":"INFO","time":"2025-02-10T06:03:34.304Z","pid":6272,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {32dafe02-044b-407a-a99a-3e3665bc52d4}"}
+{"level":"INFO","time":"2025-02-10T06:03:36.548Z","pid":6272,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Logout: User logged out"}
+{"level":"INFO","time":"2025-02-10T06:04:09.990Z","pid":6272,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"loginWithFacebookCallback: User with provider_user_id {1323374239019700} logged in via Facebook"}
+{"level":"INFO","time":"2025-02-10T06:04:10.783Z","pid":6272,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {32dafe02-044b-407a-a99a-3e3665bc52d4}"}
+{"level":"INFO","time":"2025-02-10T06:04:11.015Z","pid":6272,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {32dafe02-044b-407a-a99a-3e3665bc52d4}"}
+{"level":"INFO","time":"2025-02-10T06:04:20.639Z","pid":6272,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Logout: User logged out"}
+{"level":"INFO","time":"2025-02-10T06:04:46.669Z","pid":6272,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"loginWithFacebookCallback: User with provider_user_id {1323374239019700} logged in via Facebook"}
+{"level":"INFO","time":"2025-02-10T06:04:47.486Z","pid":6272,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {32dafe02-044b-407a-a99a-3e3665bc52d4}"}
+{"level":"INFO","time":"2025-02-10T06:04:47.716Z","pid":6272,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {32dafe02-044b-407a-a99a-3e3665bc52d4}"}
+{"level":"INFO","time":"2025-02-10T06:05:23.070Z","pid":6272,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Logout: User logged out"}
+{"level":"INFO","time":"2025-02-10T06:12:12.752Z","pid":4520,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"loginWithFacebookCallback: New user with provider_user_id {1323374239019700} created successfully"}
+{"level":"INFO","time":"2025-02-10T06:12:12.758Z","pid":4520,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"loginWithFacebookCallback: User with provider_user_id {1323374239019700} logged in via Facebook"}
+{"level":"INFO","time":"2025-02-10T06:12:19.831Z","pid":4520,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {35e1f9f7-be65-426c-8502-46dcfd577ec5}"}
+{"level":"INFO","time":"2025-02-10T06:12:20.055Z","pid":4520,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {35e1f9f7-be65-426c-8502-46dcfd577ec5}"}
+{"level":"INFO","time":"2025-02-10T06:13:27.021Z","pid":4520,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {35e1f9f7-be65-426c-8502-46dcfd577ec5}"}
+{"level":"INFO","time":"2025-02-10T06:15:09.987Z","pid":4520,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Logout: User logged out"}
+{"level":"INFO","time":"2025-02-10T06:17:25.018Z","pid":9528,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"loginWithFacebookCallback: New user with provider_user_id {1323374239019700} created successfully"}
+{"level":"INFO","time":"2025-02-10T06:17:25.024Z","pid":9528,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"loginWithFacebookCallback: User with provider_user_id {1323374239019700} logged in via Facebook"}
+{"level":"INFO","time":"2025-02-10T06:17:44.006Z","pid":9528,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {88968a30-27ae-478b-a882-8181a9015a5e}"}
+{"level":"INFO","time":"2025-02-10T06:17:44.120Z","pid":9528,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {88968a30-27ae-478b-a882-8181a9015a5e}"}
+{"level":"INFO","time":"2025-02-10T06:17:48.778Z","pid":9528,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Logout: User logged out"}
+{"level":"INFO","time":"2025-02-10T06:17:55.730Z","pid":9528,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"loginWithGoogleCallback: User with email {shirefmo012345@gmail.com} logged in via Google"}
+{"level":"INFO","time":"2025-02-10T06:17:56.649Z","pid":9528,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T06:17:57.166Z","pid":9528,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T06:18:33.192Z","pid":9528,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-10T06:19:24.394Z","pid":9528,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Logout: User logged out"}
+{"level":"INFO","time":"2025-02-10T06:19:46.908Z","pid":9528,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Login: User with email {shirefmohammed@std.mans.edu.eg} logged in"}
+{"level":"INFO","time":"2025-02-10T06:21:32.824Z","pid":9528,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {364afeb3-44ae-479f-9d9c-edc8424b3759}"}
+{"level":"INFO","time":"2025-02-10T06:23:26.345Z","pid":9528,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {364afeb3-44ae-479f-9d9c-edc8424b3759}"}
+{"level":"INFO","time":"2025-02-10T06:23:28.842Z","pid":9528,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {364afeb3-44ae-479f-9d9c-edc8424b3759}"}

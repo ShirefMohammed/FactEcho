@@ -12,7 +12,6 @@ import {
   updateUserPassword,
   updateUserRole,
 } from "../../controllers/v1/usersController";
-import { checkCache } from "../../middleware/checkCache";
 import { verifyJWT } from "../../middleware/verifyJWT";
 import { verifyRole } from "../../middleware/verifyRole";
 import { ROLES_LIST } from "../../utils/rolesList";
@@ -92,9 +91,7 @@ const router = express.Router();
  *                   type: string
  *                   example: "Internal server error."
  */
-router
-  .route("/")
-  .get(verifyJWT, verifyRole(ROLES_LIST.Admin), checkCache, getUsers);
+router.route("/").get(verifyJWT, verifyRole(ROLES_LIST.Admin), getUsers);
 
 /**
  * @swagger
@@ -178,7 +175,7 @@ router
  */
 router
   .route("/search")
-  .get(verifyJWT, verifyRole(ROLES_LIST.Admin), checkCache, searchUsers);
+  .get(verifyJWT, verifyRole(ROLES_LIST.Admin), searchUsers);
 
 /**
  * @swagger
@@ -225,7 +222,7 @@ router
  */
 router
   .route("/count")
-  .get(verifyJWT, verifyRole(ROLES_LIST.Admin), checkCache, getTotalUsersCount);
+  .get(verifyJWT, verifyRole(ROLES_LIST.Admin), getTotalUsersCount);
 
 /**
  * @swagger
@@ -429,7 +426,7 @@ router
  *                   type: string
  *                   example: "Internal server error."
  */
-router.route("/:userId").get(verifyJWT, checkCache, getUser).delete(verifyJWT, deleteUser);
+router.route("/:userId").get(verifyJWT, getUser).delete(verifyJWT, deleteUser);
 
 /**
  * @swagger

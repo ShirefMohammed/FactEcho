@@ -177,7 +177,7 @@ const router = express.Router();
  */
 router
   .route("/")
-  .get(checkCache, getCategories)
+  .get(getCategories)
   .post(verifyJWT, verifyRole(ROLES_LIST.Admin), createCategory);
 
 /**
@@ -265,7 +265,7 @@ router
  *                   type: string
  *                   example: "Internal server error."
  */
-router.route("/search").get(checkCache, searchCategories);
+router.route("/search").get(searchCategories);
 
 /**
  * @swagger
@@ -308,7 +308,7 @@ router.route("/search").get(checkCache, searchCategories);
  *                   type: string
  *                   example: "Internal server error."
  */
-router.route("/count").get(checkCache, getTotalCategoriesCount);
+router.route("/count").get(getTotalCategoriesCount);
 
 /**
  * @swagger
@@ -496,7 +496,7 @@ router.route("/count").get(checkCache, getTotalCategoriesCount);
  */
 router
   .route("/:categoryId")
-  .get(checkCache, getCategory)
+  .get(getCategory)
   .patch(verifyJWT, verifyRole(ROLES_LIST.Admin), updateCategory)
   .delete(verifyJWT, verifyRole(ROLES_LIST.Admin), deleteCategory);
 

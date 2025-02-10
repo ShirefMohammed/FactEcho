@@ -37,3 +37,4 @@
 {"level":"INFO","time":"2025-01-23T18:46:03.601Z","pid":2712,"hostname":"DESKTOP-21V6PGQ","service":"articles","msg":"createArticle: New Article with title {test} created successfully"}
 {"level":"INFO","time":"2025-01-23T18:47:47.781Z","pid":2712,"hostname":"DESKTOP-21V6PGQ","service":"articles","msg":"updateArticle: Article {ebb71a72-7613-4483-9c4c-0e7e16748411} updated successfully by {5151}."}
 {"level":"INFO","time":"2025-01-23T18:48:06.628Z","pid":2712,"hostname":"DESKTOP-21V6PGQ","service":"articles","msg":"deleteArticle: Article {ebb71a72-7613-4483-9c4c-0e7e16748411} deleted successfully by {5151}."}
+{"level":"INFO","time":"2025-02-10T06:22:46.943Z","pid":9528,"hostname":"DESKTOP-21V6PGQ","service":"articles","msg":"createArticle: New Article with title {test Article my shiref mohammed college account} created successfully"}

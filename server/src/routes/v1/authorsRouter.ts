@@ -1,6 +1,5 @@
 import express from "express";
 
-import { checkCache } from "../../middleware/checkCache";
 import {
   getAuthor,
   getAuthorArticles,
@@ -88,9 +87,7 @@ const router = express.Router();
  *                   type: string
  *                   example: "Internal server error."
  */
-router
-  .route("/")
-  .get(verifyJWT, verifyRole(ROLES_LIST.Admin), checkCache, getAuthors);
+router.route("/").get(verifyJWT, verifyRole(ROLES_LIST.Admin), getAuthors);
 
 /**
  * @swagger
@@ -174,7 +171,7 @@ router
  */
 router
   .route("/search")
-  .get(verifyJWT, verifyRole(ROLES_LIST.Admin), checkCache, searchAuthors);
+  .get(verifyJWT, verifyRole(ROLES_LIST.Admin), searchAuthors);
 
 /**
  * @swagger
@@ -221,12 +218,7 @@ router
  */
 router
   .route("/count")
-  .get(
-    verifyJWT,
-    verifyRole(ROLES_LIST.Admin),
-    checkCache,
-    getTotalAuthorsCount,
-  );
+  .get(verifyJWT, verifyRole(ROLES_LIST.Admin), getTotalAuthorsCount);
 
 /**
  * @swagger
@@ -290,7 +282,7 @@ router
  *                   type: string
  *                   example: "Internal server error."
  */
-router.route("/:authorId").get(checkCache, getAuthor);
+router.route("/:authorId").get(getAuthor);
 
 /**
  * @swagger
@@ -479,6 +471,6 @@ router
  *                   type: string
  *                   example: "Internal server error."
  */
-router.route("/:authorId/articles").get(checkCache, getAuthorArticles);
+router.route("/:authorId/articles").get(getAuthorArticles);
 
 export default router;

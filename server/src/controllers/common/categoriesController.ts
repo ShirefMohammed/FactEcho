@@ -23,7 +23,6 @@ import { getServiceLogger } from "../../config/logger";
 import { articlesModel, categoriesModel } from "../../database";
 import { ExtendedRequestHandler } from "../../types/requestHandlerTypes";
 import { cacheResponse } from "../../utils/cacheResponse";
-import { deleteRelatedCachedItemsForRequest } from "../../utils/deleteRelatedCachedItemsForRequest";
 import { httpStatusText } from "../../utils/httpStatusText";
 
 // Logger for categories service
@@ -65,9 +64,6 @@ export const getCategories: ExtendedRequestHandler<
       limit,
       skip,
     );
-
-    // Cache response data
-    cacheResponse(req, { categories });
 
     // Send response with categories
     res.status(200).send({
@@ -119,9 +115,6 @@ export const searchCategories: ExtendedRequestHandler<
       skip,
     );
 
-    // Cache response data
-    cacheResponse(req, { categories });
-
     // Send response with categories and pagination metadata
     res.status(200).send({
       statusText: httpStatusText.SUCCESS,
@@ -144,13 +137,10 @@ export const searchCategories: ExtendedRequestHandler<
 export const getTotalCategoriesCount: ExtendedRequestHandler<
   GetTotalCategoriesCountRequest,
   GetTotalCategoriesCountResponse
-> = async (req, res, next) => {
+> = async (_req, res, next) => {
   try {
     const totalCategoriesCount: number =
       await categoriesModel.getCategoriesCount();
-
-    // Cache response data
-    cacheResponse(req, { totalCategoriesCount });
 
     res.status(200).send({
       statusText: httpStatusText.SUCCESS,
@@ -187,9 +177,6 @@ export const getCategory: ExtendedRequestHandler<
         message: "Category not found.",
       });
     }
-
-    // Cache response data
-    cacheResponse(req, { category });
 
     // Send response with the category details
     res.status(200).send({
@@ -247,9 +234,6 @@ export const createCategory: ExtendedRequestHandler<
     categoriesLogger.info(
       `createCategory: New Category with title {${title}} created successfully`,
     );
-
-    // Delete related cached item for this request
-    deleteRelatedCachedItemsForRequest(req);
 
     // Send success response with the new category
     res.status(201).send({
@@ -319,9 +303,6 @@ export const updateCategory: ExtendedRequestHandler<
       `updateCategory: Category with id {${categoryId}} updated successfully`,
     );
 
-    // Delete related cached item for this request
-    deleteRelatedCachedItemsForRequest(req);
-
     // Send success response with updated category
     res.status(200).send({
       statusText: httpStatusText.SUCCESS,
@@ -367,9 +348,6 @@ export const deleteCategory: ExtendedRequestHandler<
     categoriesLogger.info(
       `deleteCategory: Category with id {${categoryId}} deleted successfully`,
     );
-
-    // Delete related cached item for this request
-    deleteRelatedCachedItemsForRequest(req);
 
     // Send a success response with no content
     res.sendStatus(204);
