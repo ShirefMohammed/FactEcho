@@ -38,3 +38,8 @@
 {"level":"INFO","time":"2025-01-23T18:47:47.781Z","pid":2712,"hostname":"DESKTOP-21V6PGQ","service":"articles","msg":"updateArticle: Article {ebb71a72-7613-4483-9c4c-0e7e16748411} updated successfully by {5151}."}
 {"level":"INFO","time":"2025-01-23T18:48:06.628Z","pid":2712,"hostname":"DESKTOP-21V6PGQ","service":"articles","msg":"deleteArticle: Article {ebb71a72-7613-4483-9c4c-0e7e16748411} deleted successfully by {5151}."}
 {"level":"INFO","time":"2025-02-10T06:22:46.943Z","pid":9528,"hostname":"DESKTOP-21V6PGQ","service":"articles","msg":"createArticle: New Article with title {test Article my shiref mohammed college account} created successfully"}
+{"level":"INFO","time":"2025-02-10T14:34:22.538Z","pid":14064,"hostname":"DESKTOP-21V6PGQ","service":"articles","msg":"deleteArticle: Article {882fa277-fa12-4798-8a45-c4d886b470e0} deleted successfully by {5151}."}
+{"level":"INFO","time":"2025-02-10T14:50:34.022Z","pid":14064,"hostname":"DESKTOP-21V6PGQ","service":"articles","msg":"createArticle: New Article with title {test article from Shiref_Mohammed_Author} created successfully"}
+{"level":"INFO","time":"2025-02-10T14:51:47.909Z","pid":14064,"hostname":"DESKTOP-21V6PGQ","service":"articles","msg":"updateArticle: Article {d2ad28f5-c766-4217-a85f-0866c2788f52} updated successfully by {5150}."}
+{"level":"INFO","time":"2025-02-10T19:26:21.249Z","pid":14788,"hostname":"DESKTOP-21V6PGQ","service":"articles","msg":"createArticle: New Article with title {رسلاءراش} created successfully"}
+{"level":"INFO","time":"2025-02-10T19:27:01.972Z","pid":14788,"hostname":"DESKTOP-21V6PGQ","service":"articles","msg":"deleteArticle: Article {1efa46f0-398d-4f63-a5fc-48f41c5465bd} deleted successfully by {5151}."}

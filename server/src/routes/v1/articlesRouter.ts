@@ -857,7 +857,7 @@ router.route("/saved").get(verifyJWT, getSavedArticles);
  */
 router
   .route("/:articleId")
-  .get(checkCache, getArticle)
+  .get(getArticle)
   .patch(
     verifyJWT,
     verifyRole(ROLES_LIST.Admin, ROLES_LIST.Author),

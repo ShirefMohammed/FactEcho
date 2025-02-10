@@ -324,9 +324,6 @@ export const getArticle: ExtendedRequestHandler<
       views: article.views + 1,
     });
 
-    // Cache response data
-    cacheResponse(req, { article });
-
     // Send response with the article details
     res.status(200).send({
       statusText: httpStatusText.SUCCESS,
