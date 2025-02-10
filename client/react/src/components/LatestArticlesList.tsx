@@ -8,6 +8,8 @@ import { useArticlesAPIs } from "../api/hooks/useArticlesAPIs";
 import { useHandleErrors } from "../hooks";
 
 const LatestArticlesList = memo(() => {
+  const limit = 5;
+
   // State to store the fetched articles
   const [articles, setArticles] = useState<IArticle[]>([]);
   // State to track the loading status of the API call
@@ -25,7 +27,8 @@ const LatestArticlesList = memo(() => {
   const fetchLatestArticles = async () => {
     try {
       setIsLoading(true); // Indicate loading state
-      const resBody: ApiBodyResponse<GetArticlesResponse> = await articlesAPIs.getLatestArticles(5);
+      const resBody: ApiBodyResponse<GetArticlesResponse> =
+        await articlesAPIs.getLatestArticles(limit);
       setArticles(resBody.data?.articles || []); // Safely set the articles
     } catch (err) {
       handleErrors(err); // Handle any errors using the custom hook

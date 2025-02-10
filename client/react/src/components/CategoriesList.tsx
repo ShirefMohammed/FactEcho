@@ -8,6 +8,8 @@ import { useCategoriesAPIs } from "../api/hooks/useCategoriesAPIs";
 import { useHandleErrors } from "../hooks";
 
 const CategoriesList = memo(() => {
+  const limit = 5;
+
   // State to store the fetched categories
   const [categories, setCategories] = useState<ICategory[]>([]);
   // State to track the loading status of the API call
@@ -27,7 +29,7 @@ const CategoriesList = memo(() => {
       setIsLoading(true); // Indicate loading state
       const resBody: ApiBodyResponse<GetCategoriesResponse> = await categoriesAPIs.getCategories(
         1, // Page number
-        5, // Number of categories per page
+        limit, // Number of categories per page
         "new", // Sort order
       );
       setCategories(resBody.data?.categories || []); // Safely set the categories

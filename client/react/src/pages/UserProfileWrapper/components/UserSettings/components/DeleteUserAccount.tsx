@@ -15,6 +15,9 @@ const DeleteUserAccount = ({ fullUserData }: { fullUserData: IUser }) => {
   const logout = useLogout(); // Hook for logging out the user
   const usersAPIs = useUsersAPIs(); // Hook for calling user-related APIs
 
+  const isCurrentUserAdmin = fullUserData.role !== ROLES_LIST.Admin;
+  const isCurrentUserOAuth = !fullUserData.provider || !fullUserData.provider_user_id;
+
   /**
    * Function to handle account deletion
    */
@@ -22,7 +25,7 @@ const DeleteUserAccount = ({ fullUserData }: { fullUserData: IUser }) => {
     try {
       setDeleteAccountLoad(true);
 
-      if (fullUserData.role !== ROLES_LIST.Admin && !password) {
+      if (!isCurrentUserAdmin && !isCurrentUserOAuth && !password) {
         return notify("info", "كلمة المرور مطلوبة لحذف الحساب.");
       }
 
@@ -65,7 +68,7 @@ const DeleteUserAccount = ({ fullUserData }: { fullUserData: IUser }) => {
           }}
         >
           {/* Show password input for non-admin users */}
-          {fullUserData.role !== ROLES_LIST.Admin ? (
+          {!isCurrentUserAdmin && !isCurrentUserOAuth ? (
             <div className="mb-5.5 flex flex-col gap-5.5 sm:flex-row">
               <div className="w-full">
                 <label className="mb-3 block text-sm font-medium text-black" htmlFor="Password">

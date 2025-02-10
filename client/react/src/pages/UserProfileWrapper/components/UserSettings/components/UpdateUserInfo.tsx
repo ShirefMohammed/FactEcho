@@ -131,7 +131,7 @@ const UpdateUserInfo = ({ fullUserData }: { fullUserData: IUser }) => {
                 type="email"
                 id="emailAddress"
                 placeholder="أدخل بريدك الإلكتروني"
-                value={fullUserData.email}
+                value={fullUserData.email || "لا يوجد"}
                 disabled // Email field is disabled as it is not editable
               />
             </div>

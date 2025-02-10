@@ -1,6 +1,6 @@
 import { FormEvent, useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { MoonLoader } from "react-spinners";
 
 import { ApiBodyResponse, LoginRequest, LoginResponse } from "@shared/types/apiTypes";
@@ -30,8 +30,6 @@ const Login = () => {
   const notify = useNotify();
 
   const navigate = useNavigate();
-  const location = useLocation();
-  const from = location.state?.from?.pathname || "/";
 
   const authAPIs = useAuthAPIs();
 
@@ -69,7 +67,7 @@ const Login = () => {
       dispatch(setAccessToken(resData.accessToken));
 
       notify("success", "تم تسجيل الدخول بنجاح");
-      navigate(from, { replace: true });
+      navigate("/", { replace: true });
     } catch (error) {
       // Handle error response from server
       if (!error?.response) {

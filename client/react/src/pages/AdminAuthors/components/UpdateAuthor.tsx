@@ -34,6 +34,10 @@ const UpdateAuthor = ({
     try {
       setUpdateAuthorPermissionsLoad(true);
 
+      // Confirm
+      const confirmResult = confirm("Are you sure?");
+      if (!confirmResult) return;
+
       // Call API to update the author permissions
       await authorsAPIs.updateAuthorPermissions(author.user_id, {
         permissions: author.permissions,
@@ -67,6 +71,10 @@ const UpdateAuthor = ({
   const setAuthorToUser = async () => {
     try {
       setUpdateAuthorRoleLoad(true);
+
+      // Confirm
+      const confirmResult = confirm("Are you sure?");
+      if (!confirmResult) return;
 
       // Define the new role to set for the user
       const newRole = ROLES_LIST.User;

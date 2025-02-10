@@ -9,14 +9,13 @@ import { ArticlesGrid } from "../../components";
 import { useHandleErrors } from "../../hooks";
 
 const CategoryArticles = () => {
-  const limit = 15; // Number of articles to fetch per page
+  const limit = 15;
 
   const { categoryId } = useParams(); // Extract categoryId parameter
 
   const [category, setCategory] = useState<ICategory | null>(null); // State to hold the category object
   const [articles, setArticles] = useState<IArticle[]>([]); // Holds the list of articles fetched from the API
-  const [fetchCategoryArticlesLoad, setFetchCategoryArticlesLoad] = useState<boolean>(false); // Tracks the loading state of the API call
-  const [articlesPage, setArticlesPage] = useState<number>(1); // Article page for loading more articles
+  const [isLoading, setIsLoading] = useState<boolean>(false); // Tracks the loading state of the API call
 
   const handleErrors = useHandleErrors(); // Hook to manage API error handling
   const categoriesAPIs = useCategoriesAPIs(); // Provides API methods related to articles
@@ -40,40 +39,29 @@ const CategoryArticles = () => {
    */
   const fetchCategoryArticles = async () => {
     try {
-      setFetchCategoryArticlesLoad(true);
+      setIsLoading(true);
       const resBody: ApiBodyResponse<GetCategoryArticlesResponse> =
-        await categoriesAPIs.getCategoryArticles(categoryId!, articlesPage, limit, "new");
+        await categoriesAPIs.getCategoryArticles(categoryId!, 1, limit, "new");
       setArticles(resBody.data?.articles || []);
     } catch (err) {
       handleErrors(err);
     } finally {
-      setFetchCategoryArticlesLoad(false);
+      setIsLoading(false);
     }
   };
 
-  // Fetches category whenever the categoryId changes.
+  // Fetches category and its articles whenever the categoryId changes.
   useEffect(() => {
     fetchCategory();
-  }, [categoryId]);
-
-  // Fetches category articles whenever the categoryId or articlesPage changes.
-  useEffect(() => {
     fetchCategoryArticles();
-  }, [categoryId, articlesPage]);
+  }, [categoryId]);
 
   return (
     <ArticlesGrid
       title={`مقالات عن ${category?.title || ""}`}
-      isLoading={fetchCategoryArticlesLoad}
-      setIsLoading={setFetchCategoryArticlesLoad}
+      isLoading={isLoading}
       articles={articles}
       displayFields={["title", "image", "views", "created_at", "creator_id"]}
-      btn={{
-        articlesLength: articles.length,
-        limit: limit,
-        page: articlesPage,
-        setPage: setArticlesPage,
-      }}
     />
   );
 };

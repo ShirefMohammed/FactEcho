@@ -1,12 +1,14 @@
-Todo:
+✅ To-Do
+  
 
-In Progress:
+⏳ In Progress
+  
 
-Finished:
-  - Optimize pages and components.
-  - Implement PublicUserProfile.
-  - handle admin dashboard statistics cards.
-  - Add delete and update controllers to article page.
-  - Add categories list at main header.
-  - handle general pages grid layout && card layout && controllers (handle delete, update, save, unsave).
-  - Implement Home.
+🎯 Finished
+  - Optimize pages and components
+  - Implement PublicUserProfile
+  - handle admin dashboard statistics cards
+  - Add delete and update controllers to article page
+  - Add categories list at main header
+  - handle general pages grid layout && card layout && controllers (handle delete, update, save, unsave)
+  - Implement Home

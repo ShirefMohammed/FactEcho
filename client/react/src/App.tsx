@@ -34,7 +34,12 @@ import { ROLES_LIST } from "./utils/rolesList";
 function App() {
   return (
     <>
-      <BrowserRouter>
+      <BrowserRouter
+        future={{
+          v7_startTransition: true,
+          v7_relativeSplatPath: true,
+        }}
+      >
         <Routes>
           <Route element={<PersistLogin />}>
             <Route path="/*" element={<MainWrapper />}>
@@ -56,7 +61,7 @@ function App() {
 
               {/* Articles Routes */}
               <Route path="articles/:articleId" element={<Article />} />
-              <Route element={<RequireAuth allowedRoles={[ROLES_LIST.Admin]} />}>
+              <Route element={<RequireAuth allowedRoles={[ROLES_LIST.Admin, ROLES_LIST.Author]} />}>
                 <Route path="articles/create" element={<CreateArticle />} />
               </Route>
               <Route element={<RequireAuth allowedRoles={[ROLES_LIST.Admin, ROLES_LIST.Author]} />}>

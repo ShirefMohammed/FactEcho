@@ -1,0 +1,44 @@
+✅ Authentication Tests
+🔹 Test Auth:
+    🔸 Test Register
+    🔸 Test Login
+    🔸 Test Forget Password
+    🔸 Test OAuth
+    🔸 Test OAuth Success
+    🔸 Test Not Valid Page
+    🔸 Test JWT Rotation
+
+🏠 Main Components Tests
+🔹 Test MainWrapper, Header, and Footer
+
+👤 User Pages Tests
+🔹 Test User Profile Pages
+🔹 Test User Overview Page (Admin View)
+
+✍️ Author & Articles Tests
+🔹 Test Author Page
+🔹 Test Create Article Page
+🔹 Test Update Article Page
+🔹 Test Individual Article Page
+
+📰 Homepage & Articles Tests
+🔹 Test Home Page
+🔹 Test Articles Pages:
+    🔸 Test Categories Articles Page
+    🔸 Test Search Page
+    🔸 Test Explore Page
+    🔸 Test Latest Articles Page
+    🔸 Test Trending Articles Page
+    🔸 Test Article Card Component
+
+⚠️ Error Handling Tests
+🔹 Test Error Pages
+
+🛠️ Admin Panel Tests
+🔹 Test Admin Pages:
+    🔸 Test Header & Sidebar
+    🔸 Test Dashboard Page
+    🔸 Test Users Page
+    🔸 Test Authors Page
+    🔸 Test Categories Page
+    🔸 Test Articles Page

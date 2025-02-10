@@ -107,6 +107,7 @@ const DropdownCardControllers = memo(({ article_id, creator_id }: DropdownCardCo
       notify("success", "تم حفظ المقال");
     } catch (err) {
       console.log(err);
+      notify("success", "تم حفظ المقال");
     } finally {
       setSaveLoad(false);
     }
@@ -183,6 +184,7 @@ const DropdownCardControllers = memo(({ article_id, creator_id }: DropdownCardCo
           className={`absolute left-0 z-1 mt-4 flex w-62.5 flex-col rounded-sm border border-stroke bg-white shadow-zinc-800`}
         >
           <ul className="flex flex-col gap-4 border-b border-stroke p-4">
+            {/* Logged users can save and unsave the article */}
             {accessToken && (
               <>
                 {/* Save */}
@@ -252,56 +254,59 @@ const DropdownCardControllers = memo(({ article_id, creator_id }: DropdownCardCo
                     )}
                   </button>
                 </li>
-
-                {/* Update */}
-                {currentUser.user_id === creator_id && (
-                  <li>
-                    <Link
-                      to={`/articles/${article_id}/update`}
-                      className="flex items-center gap-3.5 text-sm font-medium duration-300 ease-in-out hover:text-primaryColor lg:text-base"
-                    >
-                      <FontAwesomeIcon icon={faPen} />
-                      تحديث المقال
-                    </Link>
-                  </li>
-                )}
-
-                {/* Delete */}
-                {(currentUser.role === ROLES_LIST.Admin || currentUser.user_id === creator_id) && (
-                  <li>
-                    <button
-                      type="button"
-                      className="flex items-center gap-3.5 text-sm font-medium duration-300 ease-in-out hover:text-danger lg:text-base"
-                      onClick={() => deleteArticle(article_id)}
-                    >
-                      <FontAwesomeIcon icon={faTrash} />
-                      حذف المقال
-                      {deleteArticleLoad && (
-                        <svg
-                          className="animate-spin h-5 w-5"
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                        >
-                          <circle
-                            className="opacity-25"
-                            cx="12"
-                            cy="12"
-                            r="10"
-                            stroke="currentColor"
-                            strokeWidth="4"
-                          />
-                          <path
-                            className="opacity-75"
-                            fill="currentColor"
-                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                          />
-                        </svg>
-                      )}
-                    </button>
-                  </li>
-                )}
               </>
+            )}
+
+            {/* Article author owner can update the article */}
+            {currentUser?.user_id === creator_id && (
+              <>
+                {/* Update */}
+                <li>
+                  <Link
+                    to={`/articles/${article_id}/update`}
+                    className="flex items-center gap-3.5 text-sm font-medium duration-300 ease-in-out hover:text-primaryColor lg:text-base"
+                  >
+                    <FontAwesomeIcon icon={faPen} />
+                    تعديل المقال
+                  </Link>
+                </li>
+              </>
+            )}
+
+            {/* Admins and article author owner can delete articles */}
+            {(currentUser?.role === ROLES_LIST.Admin || currentUser?.user_id === creator_id) && (
+              <li>
+                <button
+                  type="button"
+                  className="flex items-center gap-3.5 text-sm font-medium duration-300 ease-in-out hover:text-danger lg:text-base"
+                  onClick={() => deleteArticle(article_id)}
+                >
+                  <FontAwesomeIcon icon={faTrash} />
+                  حذف المقال
+                  {deleteArticleLoad && (
+                    <svg
+                      className="animate-spin h-5 w-5"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                    >
+                      <circle
+                        className="opacity-25"
+                        cx="12"
+                        cy="12"
+                        r="10"
+                        stroke="currentColor"
+                        strokeWidth="4"
+                      />
+                      <path
+                        className="opacity-75"
+                        fill="currentColor"
+                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                      />
+                    </svg>
+                  )}
+                </button>
+              </li>
             )}
           </ul>
         </div>
