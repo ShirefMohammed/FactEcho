@@ -16,7 +16,9 @@ export const handleCors = (req: Request, res: Response, next: NextFunction) => {
     req.url.startsWith("/api/v1/auth/verify-account") ||
     req.url.startsWith("/api/v1/auth/reset-password") ||
     req.url.startsWith("/api/v1/auth/login/google") ||
-    req.url.startsWith("/api/v1/auth/login/facebook")
+    req.url.startsWith("/api/v1/auth/login/facebook") ||
+    req.url.startsWith("/api/v1/auth/login/google/callback") ||
+    req.url.startsWith("/api/v1/auth/login/facebook/callback")
   ) {
     next();
   } else {

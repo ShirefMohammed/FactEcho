@@ -2613,3 +2613,9 @@
 {"level":"INFO","time":"2025-02-10T19:45:57.395Z","pid":4376,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
 {"level":"INFO","time":"2025-02-10T19:46:04.010Z","pid":4376,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
 {"level":"INFO","time":"2025-02-10T19:46:20.114Z","pid":4376,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Logout: User logged out"}
+{"level":"INFO","time":"2025-02-11T12:27:20.973Z","pid":4220,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"forgetPassword: Reset password email sent successfully to {shirefmohammed@std.mans.edu.eg}"}
+{"level":"INFO","time":"2025-02-11T12:27:37.279Z","pid":4220,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"sendResetPasswordForm: Serving reset password form to user {ad00614c-5073-439c-94ec-4296ff02502d}"}
+{"level":"INFO","time":"2025-02-11T12:27:49.739Z","pid":4220,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"forgetPassword: Reset password email sent successfully to {shirefmohammed@std.mans.edu.eg}"}
+{"level":"INFO","time":"2025-02-11T12:27:58.683Z","pid":4220,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"sendResetPasswordForm: Serving reset password form to user {ad00614c-5073-439c-94ec-4296ff02502d}"}
+{"level":"INFO","time":"2025-02-11T12:28:06.142Z","pid":4220,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"sendResetPasswordForm: Serving reset password form to user {ad00614c-5073-439c-94ec-4296ff02502d}"}
+{"level":"INFO","time":"2025-02-11T12:28:18.920Z","pid":4220,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"resetPassword: Password reset successfully for user {ad00614c-5073-439c-94ec-4296ff02502d}"}
