@@ -14,7 +14,9 @@ export const handleCors = (req: Request, res: Response, next: NextFunction) => {
     process.env.NODE_ENV?.trim() === "development" ||
     req.url === "/" ||
     req.url.startsWith("/api/v1/auth/verify-account") ||
-    req.url.startsWith("/api/v1/auth/reset-password")
+    req.url.startsWith("/api/v1/auth/reset-password") ||
+    req.url.startsWith("/api/v1/auth/login/google") ||
+    req.url.startsWith("/api/v1/auth/login/facebook")
   ) {
     next();
   } else {
