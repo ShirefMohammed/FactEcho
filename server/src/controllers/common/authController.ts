@@ -500,7 +500,7 @@ export const forgetPassword: ExtendedRequestHandler<
     await usersModel.setResetPasswordToken(user.user_id, resetPasswordToken);
 
     // Send the reset password email
-    sendResetPasswordEmail(email, resetPasswordToken);
+    await sendResetPasswordEmail(email, resetPasswordToken);
 
     // Respond with a success message
     authLogger.info(
