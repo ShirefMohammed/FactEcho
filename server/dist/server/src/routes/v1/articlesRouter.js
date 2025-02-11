@@ -5,10 +5,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var express_1 = __importDefault(require("express"));
 var articlesController_1 = require("../../controllers/v1/articlesController");
+var checkCache_1 = require("../../middleware/checkCache");
 var verifyJWT_1 = require("../../middleware/verifyJWT");
 var verifyRole_1 = require("../../middleware/verifyRole");
 var rolesList_1 = require("../../utils/rolesList");
-var checkCache_1 = require("../../middleware/checkCache");
 var router = express_1.default.Router();
 /**
  * @swagger
@@ -200,7 +200,7 @@ var router = express_1.default.Router();
  */
 router
     .route("/")
-    .get(checkCache_1.checkCache, articlesController_1.getArticles)
+    .get(articlesController_1.getArticles)
     .post(verifyJWT_1.verifyJWT, (0, verifyRole_1.verifyRole)(rolesList_1.ROLES_LIST.Admin, rolesList_1.ROLES_LIST.Author), articlesController_1.createArticle);
 /**
  * @swagger
@@ -287,7 +287,7 @@ router
  *                   type: string
  *                   example: "Internal server error."
  */
-router.route("/search").get(checkCache_1.checkCache, articlesController_1.searchArticles);
+router.route("/search").get(articlesController_1.searchArticles);
 /**
  * @swagger
  * /articles/count:
@@ -329,7 +329,7 @@ router.route("/search").get(checkCache_1.checkCache, articlesController_1.search
  *                   type: string
  *                   example: "Internal server error."
  */
-router.route("/count").get(checkCache_1.checkCache, articlesController_1.getTotalArticlesCount);
+router.route("/count").get(articlesController_1.getTotalArticlesCount);
 /**
  * @swagger
  * /articles/explore:
@@ -833,7 +833,7 @@ router.route("/saved").get(verifyJWT_1.verifyJWT, articlesController_1.getSavedA
  */
 router
     .route("/:articleId")
-    .get(checkCache_1.checkCache, articlesController_1.getArticle)
+    .get(articlesController_1.getArticle)
     .patch(verifyJWT_1.verifyJWT, (0, verifyRole_1.verifyRole)(rolesList_1.ROLES_LIST.Admin, rolesList_1.ROLES_LIST.Author), articlesController_1.updateArticle)
     .delete(verifyJWT_1.verifyJWT, (0, verifyRole_1.verifyRole)(rolesList_1.ROLES_LIST.Admin, rolesList_1.ROLES_LIST.Author), articlesController_1.deleteArticle);
 /**

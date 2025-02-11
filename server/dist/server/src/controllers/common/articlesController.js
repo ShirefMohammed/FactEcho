@@ -77,8 +77,6 @@ var getArticles = function (req, res, next) { return __awaiter(void 0, void 0, v
                 return [4 /*yield*/, database_1.articlesModel.getArticles(order, limit, skip)];
             case 1:
                 articles = _c.sent();
-                // Cache response data
-                (0, cacheResponse_1.cacheResponse)(req, { articles: articles });
                 // Send response with articles and pagination metadata
                 res.status(200).send({
                     statusText: httpStatusText_1.httpStatusText.SUCCESS,
@@ -126,8 +124,6 @@ var searchArticles = function (req, res, next) { return __awaiter(void 0, void 0
                 return [4 /*yield*/, database_1.articlesModel.searchArticles(searchKey, order, limit, skip)];
             case 1:
                 articles = _c.sent();
-                // Cache response data
-                (0, cacheResponse_1.cacheResponse)(req, { articles: articles });
                 // Send response with articles and pagination metadata
                 res.status(200).send({
                     statusText: httpStatusText_1.httpStatusText.SUCCESS,
@@ -152,7 +148,7 @@ exports.searchArticles = searchArticles;
  * @param res - Express response object used to send statusText, message, and data.
  * @param next - Express next function to handle errors.
  */
-var getTotalArticlesCount = function (req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
+var getTotalArticlesCount = function (_req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
     var totalArticlesCount, err_3;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -161,8 +157,6 @@ var getTotalArticlesCount = function (req, res, next) { return __awaiter(void 0,
                 return [4 /*yield*/, database_1.articlesModel.getArticlesCount()];
             case 1:
                 totalArticlesCount = _a.sent();
-                // Cache response data
-                (0, cacheResponse_1.cacheResponse)(req, { totalArticlesCount: totalArticlesCount });
                 res.status(200).send({
                     statusText: httpStatusText_1.httpStatusText.SUCCESS,
                     message: "Total articles count retrieved successfully.",
@@ -341,8 +335,6 @@ var getArticle = function (req, res, next) { return __awaiter(void 0, void 0, vo
                 database_1.articlesModel.updateArticle(article.article_id, {
                     views: article.views + 1,
                 });
-                // Cache response data
-                (0, cacheResponse_1.cacheResponse)(req, { article: article });
                 // Send response with the article details
                 res.status(200).send({
                     statusText: httpStatusText_1.httpStatusText.SUCCESS,
@@ -443,8 +435,6 @@ var createArticle = function (req, res, next) { return __awaiter(void 0, void 0,
             case 6:
                 newArticle = _b.sent();
                 articlesLogger.info("createArticle: New Article with title {".concat(title, "} created successfully"));
-                // Delete related cached item for this request
-                (0, deleteRelatedCachedItemsForRequest_1.deleteRelatedCachedItemsForRequest)(req);
                 // Send a success response with the new article data
                 res.status(201).send({
                     statusText: httpStatusText_1.httpStatusText.SUCCESS,
@@ -598,8 +588,6 @@ var updateArticle = function (req, res, next) { return __awaiter(void 0, void 0,
                 _b.label = 12;
             case 12:
                 articlesLogger.info("updateArticle: Article {".concat(articleId, "} updated successfully by {").concat(requesterRole, "}."));
-                // Delete related cached item for this request
-                (0, deleteRelatedCachedItemsForRequest_1.deleteRelatedCachedItemsForRequest)(req);
                 // Send success response with the updated article
                 res.status(200).send({
                     statusText: httpStatusText_1.httpStatusText.SUCCESS,

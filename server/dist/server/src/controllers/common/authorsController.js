@@ -39,8 +39,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.getAuthorArticles = exports.updateAuthorPermissions = exports.getAuthor = exports.getTotalAuthorsCount = exports.searchAuthors = exports.getAuthors = void 0;
 var logger_1 = require("../../config/logger");
 var database_1 = require("../../database");
-var cacheResponse_1 = require("../../utils/cacheResponse");
-var deleteRelatedCachedItemsForRequest_1 = require("../../utils/deleteRelatedCachedItemsForRequest");
 var httpStatusText_1 = require("../../utils/httpStatusText");
 // Logger for authors service
 var authorsLogger = (0, logger_1.getServiceLogger)("authors");
@@ -73,8 +71,6 @@ var getAuthors = function (req, res, next) { return __awaiter(void 0, void 0, vo
                 return [4 /*yield*/, database_1.authorsModel.getAuthors(-1, limit, skip)];
             case 1:
                 authors = _c.sent();
-                // Cache response data
-                (0, cacheResponse_1.cacheResponse)(req, { authors: authors });
                 // Send response with authors
                 res.status(200).send({
                     statusText: httpStatusText_1.httpStatusText.SUCCESS,
@@ -126,8 +122,6 @@ var searchAuthors = function (req, res, next) { return __awaiter(void 0, void 0,
                 return [4 /*yield*/, database_1.authorsModel.searchAuthors(searchKey, -1, limit, skip)];
             case 1:
                 authors = _d.sent();
-                // Cache response data
-                (0, cacheResponse_1.cacheResponse)(req, { authors: authors });
                 // Send response with authors
                 res.status(200).send({
                     statusText: httpStatusText_1.httpStatusText.SUCCESS,
@@ -152,7 +146,7 @@ exports.searchAuthors = searchAuthors;
  * @param res - Express response object used to send statusText, message, and data.
  * @param next - Express next function to handle errors.
  */
-var getTotalAuthorsCount = function (req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
+var getTotalAuthorsCount = function (_req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
     var totalAuthorsCount, err_3;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -161,8 +155,6 @@ var getTotalAuthorsCount = function (req, res, next) { return __awaiter(void 0, 
                 return [4 /*yield*/, database_1.authorsModel.getAuthorsCount()];
             case 1:
                 totalAuthorsCount = _a.sent();
-                // Cache response data
-                (0, cacheResponse_1.cacheResponse)(req, { totalAuthorsCount: totalAuthorsCount });
                 res.status(200).send({
                     statusText: httpStatusText_1.httpStatusText.SUCCESS,
                     message: "Total authors count retrieved successfully.",
@@ -207,8 +199,6 @@ var getAuthor = function (req, res, next) { return __awaiter(void 0, void 0, voi
                 }
                 // Delete the permissions field from the author object
                 delete author.permissions;
-                // Cache response data
-                (0, cacheResponse_1.cacheResponse)(req, { author: author });
                 // Return the author details with a success message
                 res.status(200).send({
                     statusText: httpStatusText_1.httpStatusText.SUCCESS,
@@ -255,8 +245,6 @@ var updateAuthorPermissions = function (req, res, next) { return __awaiter(void 
                 // Update the author's permissions in the database
                 _a.sent();
                 authorsLogger.info("Author permissions updated for author {".concat(req.params.authorId, "}"));
-                // Delete related cached item for this request
-                (0, deleteRelatedCachedItemsForRequest_1.deleteRelatedCachedItemsForRequest)(req);
                 // Send success response
                 res.status(200).send({
                     statusText: httpStatusText_1.httpStatusText.SUCCESS,
@@ -302,8 +290,6 @@ var getAuthorArticles = function (req, res, next) { return __awaiter(void 0, voi
                 return [4 /*yield*/, database_1.articlesModel.getCreatedArticles(req.params.authorId, order, limit, skip)];
             case 1:
                 articles = _c.sent();
-                // Cache response data
-                (0, cacheResponse_1.cacheResponse)(req, { articles: articles });
                 // Send response with articles
                 res.status(200).send({
                     statusText: httpStatusText_1.httpStatusText.SUCCESS,

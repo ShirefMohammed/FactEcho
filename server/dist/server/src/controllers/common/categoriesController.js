@@ -40,7 +40,6 @@ exports.getCategoryArticles = exports.deleteCategory = exports.updateCategory = 
 var logger_1 = require("../../config/logger");
 var database_1 = require("../../database");
 var cacheResponse_1 = require("../../utils/cacheResponse");
-var deleteRelatedCachedItemsForRequest_1 = require("../../utils/deleteRelatedCachedItemsForRequest");
 var httpStatusText_1 = require("../../utils/httpStatusText");
 // Logger for categories service
 var categoriesLogger = (0, logger_1.getServiceLogger)("categories");
@@ -74,8 +73,6 @@ var getCategories = function (req, res, next) { return __awaiter(void 0, void 0,
                 return [4 /*yield*/, database_1.categoriesModel.getCategories(order, limit, skip)];
             case 1:
                 categories = _c.sent();
-                // Cache response data
-                (0, cacheResponse_1.cacheResponse)(req, { categories: categories });
                 // Send response with categories
                 res.status(200).send({
                     statusText: httpStatusText_1.httpStatusText.SUCCESS,
@@ -123,8 +120,6 @@ var searchCategories = function (req, res, next) { return __awaiter(void 0, void
                 return [4 /*yield*/, database_1.categoriesModel.searchCategories(searchKey, order, limit, skip)];
             case 1:
                 categories = _c.sent();
-                // Cache response data
-                (0, cacheResponse_1.cacheResponse)(req, { categories: categories });
                 // Send response with categories and pagination metadata
                 res.status(200).send({
                     statusText: httpStatusText_1.httpStatusText.SUCCESS,
@@ -149,7 +144,7 @@ exports.searchCategories = searchCategories;
  * @param res - Express response object used to send statusText, message, and data.
  * @param next - Express next function to handle errors.
  */
-var getTotalCategoriesCount = function (req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
+var getTotalCategoriesCount = function (_req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
     var totalCategoriesCount, err_3;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -158,8 +153,6 @@ var getTotalCategoriesCount = function (req, res, next) { return __awaiter(void 
                 return [4 /*yield*/, database_1.categoriesModel.getCategoriesCount()];
             case 1:
                 totalCategoriesCount = _a.sent();
-                // Cache response data
-                (0, cacheResponse_1.cacheResponse)(req, { totalCategoriesCount: totalCategoriesCount });
                 res.status(200).send({
                     statusText: httpStatusText_1.httpStatusText.SUCCESS,
                     message: "Total categories count retrieved successfully.",
@@ -199,8 +192,6 @@ var getCategory = function (req, res, next) { return __awaiter(void 0, void 0, v
                             message: "Category not found.",
                         })];
                 }
-                // Cache response data
-                (0, cacheResponse_1.cacheResponse)(req, { category: category });
                 // Send response with the category details
                 res.status(200).send({
                     statusText: httpStatusText_1.httpStatusText.SUCCESS,
@@ -258,8 +249,6 @@ var createCategory = function (req, res, next) { return __awaiter(void 0, void 0
             case 2:
                 newCategory = _a.sent();
                 categoriesLogger.info("createCategory: New Category with title {".concat(title, "} created successfully"));
-                // Delete related cached item for this request
-                (0, deleteRelatedCachedItemsForRequest_1.deleteRelatedCachedItemsForRequest)(req);
                 // Send success response with the new category
                 res.status(201).send({
                     statusText: httpStatusText_1.httpStatusText.SUCCESS,
@@ -325,8 +314,6 @@ var updateCategory = function (req, res, next) { return __awaiter(void 0, void 0
                 _a.label = 5;
             case 5:
                 categoriesLogger.info("updateCategory: Category with id {".concat(categoryId, "} updated successfully"));
-                // Delete related cached item for this request
-                (0, deleteRelatedCachedItemsForRequest_1.deleteRelatedCachedItemsForRequest)(req);
                 // Send success response with updated category
                 res.status(200).send({
                     statusText: httpStatusText_1.httpStatusText.SUCCESS,
@@ -374,8 +361,6 @@ var deleteCategory = function (req, res, next) { return __awaiter(void 0, void 0
                 // Perform the deletion
                 _a.sent();
                 categoriesLogger.info("deleteCategory: Category with id {".concat(categoryId, "} deleted successfully"));
-                // Delete related cached item for this request
-                (0, deleteRelatedCachedItemsForRequest_1.deleteRelatedCachedItemsForRequest)(req);
                 // Send a success response with no content
                 res.sendStatus(204);
                 return [3 /*break*/, 4];

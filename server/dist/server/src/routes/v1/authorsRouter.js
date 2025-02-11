@@ -4,7 +4,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var express_1 = __importDefault(require("express"));
-var checkCache_1 = require("../../middleware/checkCache");
 var authorsController_1 = require("../../controllers/v1/authorsController");
 var verifyJWT_1 = require("../../middleware/verifyJWT");
 var verifyRole_1 = require("../../middleware/verifyRole");
@@ -83,9 +82,7 @@ var router = express_1.default.Router();
  *                   type: string
  *                   example: "Internal server error."
  */
-router
-    .route("/")
-    .get(verifyJWT_1.verifyJWT, (0, verifyRole_1.verifyRole)(rolesList_1.ROLES_LIST.Admin), checkCache_1.checkCache, authorsController_1.getAuthors);
+router.route("/").get(verifyJWT_1.verifyJWT, (0, verifyRole_1.verifyRole)(rolesList_1.ROLES_LIST.Admin), authorsController_1.getAuthors);
 /**
  * @swagger
  * /authors/search:
@@ -168,7 +165,7 @@ router
  */
 router
     .route("/search")
-    .get(verifyJWT_1.verifyJWT, (0, verifyRole_1.verifyRole)(rolesList_1.ROLES_LIST.Admin), checkCache_1.checkCache, authorsController_1.searchAuthors);
+    .get(verifyJWT_1.verifyJWT, (0, verifyRole_1.verifyRole)(rolesList_1.ROLES_LIST.Admin), authorsController_1.searchAuthors);
 /**
  * @swagger
  * /authors/count:
@@ -214,7 +211,7 @@ router
  */
 router
     .route("/count")
-    .get(verifyJWT_1.verifyJWT, (0, verifyRole_1.verifyRole)(rolesList_1.ROLES_LIST.Admin), checkCache_1.checkCache, authorsController_1.getTotalAuthorsCount);
+    .get(verifyJWT_1.verifyJWT, (0, verifyRole_1.verifyRole)(rolesList_1.ROLES_LIST.Admin), authorsController_1.getTotalAuthorsCount);
 /**
  * @swagger
  * /authors/{authorId}:
@@ -277,7 +274,7 @@ router
  *                   type: string
  *                   example: "Internal server error."
  */
-router.route("/:authorId").get(checkCache_1.checkCache, authorsController_1.getAuthor);
+router.route("/:authorId").get(authorsController_1.getAuthor);
 /**
  * @swagger
  * /authors/{authorId}/permissions:
@@ -464,5 +461,5 @@ router
  *                   type: string
  *                   example: "Internal server error."
  */
-router.route("/:authorId/articles").get(checkCache_1.checkCache, authorsController_1.getAuthorArticles);
+router.route("/:authorId/articles").get(authorsController_1.getAuthorArticles);
 exports.default = router;

@@ -1,26 +1,23 @@
 # Use Node.js as the base image
 FROM node:20.12.2
 
-# Set the working directory
-WORKDIR /app
+# Set the working directory to /app/server
+WORKDIR /app/server
 
-# Copy package.json and package-lock.json
+# Copy server package.json and package-lock.json
 COPY server/package*.json ./
 
-# Copy the root-level tsconfig.json
-COPY tsconfig.json ./
+# Copy root tsconfig.json to /app/tsconfig.json
+COPY tsconfig.json ../
 
-# Copy the server-specific tsconfig.json
-COPY server/tsconfig.json ./tsconfig.server.json
+# Copy shared directory to /app/shared
+COPY shared/ ../shared/
 
-# Copy the shared directory
-COPY shared/ ./shared/
-
-# Install dependencies
+# Install server dependencies
 RUN npm install
 
-# Copy the rest of the server application code
-COPY server/ ./server/
+# Copy the server source code into the container
+COPY server/ ./
 
 # Expose the server port
 EXPOSE 3000

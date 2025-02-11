@@ -170,7 +170,7 @@ var router = express_1.default.Router();
  */
 router
     .route("/")
-    .get(checkCache_1.checkCache, categoriesController_1.getCategories)
+    .get(categoriesController_1.getCategories)
     .post(verifyJWT_1.verifyJWT, (0, verifyRole_1.verifyRole)(rolesList_1.ROLES_LIST.Admin), categoriesController_1.createCategory);
 /**
  * @swagger
@@ -257,7 +257,7 @@ router
  *                   type: string
  *                   example: "Internal server error."
  */
-router.route("/search").get(checkCache_1.checkCache, categoriesController_1.searchCategories);
+router.route("/search").get(categoriesController_1.searchCategories);
 /**
  * @swagger
  * /categories/count:
@@ -299,7 +299,7 @@ router.route("/search").get(checkCache_1.checkCache, categoriesController_1.sear
  *                   type: string
  *                   example: "Internal server error."
  */
-router.route("/count").get(checkCache_1.checkCache, categoriesController_1.getTotalCategoriesCount);
+router.route("/count").get(categoriesController_1.getTotalCategoriesCount);
 /**
  * @swagger
  * /categories/{categoryId}:
@@ -486,7 +486,7 @@ router.route("/count").get(checkCache_1.checkCache, categoriesController_1.getTo
  */
 router
     .route("/:categoryId")
-    .get(checkCache_1.checkCache, categoriesController_1.getCategory)
+    .get(categoriesController_1.getCategory)
     .patch(verifyJWT_1.verifyJWT, (0, verifyRole_1.verifyRole)(rolesList_1.ROLES_LIST.Admin), categoriesController_1.updateCategory)
     .delete(verifyJWT_1.verifyJWT, (0, verifyRole_1.verifyRole)(rolesList_1.ROLES_LIST.Admin), categoriesController_1.deleteCategory);
 /**

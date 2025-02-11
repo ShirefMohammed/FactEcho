@@ -5,7 +5,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var express_1 = __importDefault(require("express"));
 var usersController_1 = require("../../controllers/v1/usersController");
-var checkCache_1 = require("../../middleware/checkCache");
 var verifyJWT_1 = require("../../middleware/verifyJWT");
 var verifyRole_1 = require("../../middleware/verifyRole");
 var rolesList_1 = require("../../utils/rolesList");
@@ -83,9 +82,7 @@ var router = express_1.default.Router();
  *                   type: string
  *                   example: "Internal server error."
  */
-router
-    .route("/")
-    .get(verifyJWT_1.verifyJWT, (0, verifyRole_1.verifyRole)(rolesList_1.ROLES_LIST.Admin), checkCache_1.checkCache, usersController_1.getUsers);
+router.route("/").get(verifyJWT_1.verifyJWT, (0, verifyRole_1.verifyRole)(rolesList_1.ROLES_LIST.Admin), usersController_1.getUsers);
 /**
  * @swagger
  * /users/search:
@@ -168,7 +165,7 @@ router
  */
 router
     .route("/search")
-    .get(verifyJWT_1.verifyJWT, (0, verifyRole_1.verifyRole)(rolesList_1.ROLES_LIST.Admin), checkCache_1.checkCache, usersController_1.searchUsers);
+    .get(verifyJWT_1.verifyJWT, (0, verifyRole_1.verifyRole)(rolesList_1.ROLES_LIST.Admin), usersController_1.searchUsers);
 /**
  * @swagger
  * /users/count:
@@ -214,7 +211,7 @@ router
  */
 router
     .route("/count")
-    .get(verifyJWT_1.verifyJWT, (0, verifyRole_1.verifyRole)(rolesList_1.ROLES_LIST.Admin), checkCache_1.checkCache, usersController_1.getTotalUsersCount);
+    .get(verifyJWT_1.verifyJWT, (0, verifyRole_1.verifyRole)(rolesList_1.ROLES_LIST.Admin), usersController_1.getTotalUsersCount);
 /**
  * @swagger
  * /users/unverified-cleanup:
@@ -416,7 +413,7 @@ router
  *                   type: string
  *                   example: "Internal server error."
  */
-router.route("/:userId").get(verifyJWT_1.verifyJWT, checkCache_1.checkCache, usersController_1.getUser).delete(verifyJWT_1.verifyJWT, usersController_1.deleteUser);
+router.route("/:userId").get(verifyJWT_1.verifyJWT, usersController_1.getUser).delete(verifyJWT_1.verifyJWT, usersController_1.deleteUser);
 /**
  * @swagger
  * /users/{userId}/details:

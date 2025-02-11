@@ -44,9 +44,7 @@ var bcrypt_1 = __importDefault(require("bcrypt"));
 var logger_1 = require("../../config/logger");
 var database_1 = require("../../database");
 var RgxList_1 = require("../../utils/RgxList");
-var cacheResponse_1 = require("../../utils/cacheResponse");
 var deleteFileFromCloudinary_1 = require("../../utils/deleteFileFromCloudinary");
-var deleteRelatedCachedItemsForRequest_1 = require("../../utils/deleteRelatedCachedItemsForRequest");
 var httpStatusText_1 = require("../../utils/httpStatusText");
 var isFileExistsInCloudinary_1 = require("../../utils/isFileExistsInCloudinary");
 var rolesList_1 = require("../../utils/rolesList");
@@ -81,8 +79,6 @@ var getUsers = function (req, res, next) { return __awaiter(void 0, void 0, void
                 return [4 /*yield*/, database_1.usersModel.getUsers(-1, limit, skip)];
             case 1:
                 users = _c.sent();
-                // Cache response data
-                (0, cacheResponse_1.cacheResponse)(req, { users: users });
                 // Send response with users and pagination metadata
                 res.status(200).send({
                     statusText: httpStatusText_1.httpStatusText.SUCCESS,
@@ -134,8 +130,6 @@ var searchUsers = function (req, res, next) { return __awaiter(void 0, void 0, v
                 return [4 /*yield*/, database_1.usersModel.searchUsers(searchKey, -1, limit, skip)];
             case 1:
                 users = _d.sent();
-                // Cache response data
-                (0, cacheResponse_1.cacheResponse)(req, { users: users });
                 // Respond with search results and pagination metadata
                 res.status(200).send({
                     statusText: httpStatusText_1.httpStatusText.SUCCESS,
@@ -160,7 +154,7 @@ exports.searchUsers = searchUsers;
  * @param res - Express response object used to send statusText, message, and data.
  * @param next - Express next function to handle errors.
  */
-var getTotalUsersCount = function (req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
+var getTotalUsersCount = function (_req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
     var totalUsersCount, err_3;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -169,8 +163,6 @@ var getTotalUsersCount = function (req, res, next) { return __awaiter(void 0, vo
                 return [4 /*yield*/, database_1.usersModel.getUsersCount()];
             case 1:
                 totalUsersCount = _a.sent();
-                // Cache response data
-                (0, cacheResponse_1.cacheResponse)(req, { totalUsersCount: totalUsersCount });
                 res.status(200).send({
                     statusText: httpStatusText_1.httpStatusText.SUCCESS,
                     message: "Total users count retrieved successfully.",
@@ -218,8 +210,6 @@ var cleanupUnverifiedUsers = function (req, res, next) { return __awaiter(void 0
             case 1:
                 count = _a.sent();
                 usersLogger.info("cleanupUnverifiedUsers: ".concat(count, " unverified users older than ").concat(interval, " deleted successfully."));
-                // Delete related cached item for this request
-                (0, deleteRelatedCachedItemsForRequest_1.deleteRelatedCachedItemsForRequest)(req);
                 res.status(204).send({
                     statusText: httpStatusText_1.httpStatusText.SUCCESS,
                     message: "".concat(count, " unverified users older than ").concat(interval, " deleted successfully."),
@@ -281,8 +271,6 @@ var getUser = function (req, res, next) { return __awaiter(void 0, void 0, void 
                             message: "Account not found.",
                         })];
                 }
-                // Cache response data
-                (0, cacheResponse_1.cacheResponse)(req, { user: user });
                 res.status(200).send({
                     statusText: httpStatusText_1.httpStatusText.SUCCESS,
                     message: "User retrieved successfully.",
@@ -341,8 +329,6 @@ var updateUserDetails = function (req, res, next) { return __awaiter(void 0, voi
                 // Perform the update in the database
                 _a.sent();
                 usersLogger.info("updateUserDetails: User with ID {".concat(userId, "} updated successfully"));
-                // Delete related cached item for this request
-                (0, deleteRelatedCachedItemsForRequest_1.deleteRelatedCachedItemsForRequest)(req);
                 // Send a success response with a message confirming the update
                 res.status(200).send({
                     statusText: httpStatusText_1.httpStatusText.SUCCESS,
@@ -444,8 +430,6 @@ var updateUserRole = function (req, res, next) { return __awaiter(void 0, void 0
                 usersLogger.info("updateUserRole: Author {".concat(userId, "} downgraded to user"));
                 _a.label = 11;
             case 11:
-                // Delete related cached item for this request
-                (0, deleteRelatedCachedItemsForRequest_1.deleteRelatedCachedItemsForRequest)(req);
                 // Send a success response confirming the role update
                 res.status(200).send({
                     statusText: httpStatusText_1.httpStatusText.SUCCESS,
@@ -523,8 +507,6 @@ var updateUserPassword = function (req, res, next) { return __awaiter(void 0, vo
                 // Update the user's password in the database
                 _b.sent();
                 usersLogger.info("updateUserPassword: Password updated successfully for {".concat(userId, "}"));
-                // Delete related cached item for this request
-                (0, deleteRelatedCachedItemsForRequest_1.deleteRelatedCachedItemsForRequest)(req);
                 // Send a success response confirming the password update
                 res.status(200).send({
                     statusText: httpStatusText_1.httpStatusText.SUCCESS,
@@ -600,8 +582,6 @@ var updateUserAvatar = function (req, res, next) { return __awaiter(void 0, void
             case 5:
                 // Log successful avatar update
                 usersLogger.info("updateUserAvatar: Avatar updated successfully for user {".concat(userId, "}"));
-                // Delete related cached item for this request
-                (0, deleteRelatedCachedItemsForRequest_1.deleteRelatedCachedItemsForRequest)(req);
                 // Send a success response confirming the avatar update
                 res.status(200).send({
                     statusText: httpStatusText_1.httpStatusText.SUCCESS,
@@ -713,8 +693,6 @@ var deleteUser = function (req, res, next) { return __awaiter(void 0, void 0, vo
                 // Delete the user
                 _b.sent();
                 usersLogger.info("deleteUser: User with ID {".concat(userId, "} deleted successfully"));
-                // Delete related cached item for this request
-                (0, deleteRelatedCachedItemsForRequest_1.deleteRelatedCachedItemsForRequest)(req);
                 res.status(204).send({
                     statusText: httpStatusText_1.httpStatusText.SUCCESS,
                     message: "User deleted successfully.",
