@@ -14,7 +14,7 @@ import { ArticlesGrid } from "../../../../../components";
 import { useHandleErrors } from "../../../../../hooks";
 
 const CategoriesArticles = () => {
-  const limit = 3;
+  const limit = 5;
 
   const [categories, setCategories] = useState<ICategory[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);

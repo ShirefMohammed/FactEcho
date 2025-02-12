@@ -12,6 +12,8 @@ import { ArticlesGrid } from "../../../components";
 import { useHandleErrors } from "../../../hooks";
 
 const CategoriesArticles = () => {
+  const limit = 5;
+  
   const [categories, setCategories] = useState<ICategory[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
@@ -27,7 +29,7 @@ const CategoriesArticles = () => {
       setIsLoading(true); // Indicate loading state
       const resBody: ApiBodyResponse<GetCategoriesResponse> = await categoriesAPIs.getCategories(
         1,
-        3,
+        5,
         "new",
       );
       setCategories(resBody.data?.categories || []);
