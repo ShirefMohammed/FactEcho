@@ -15,8 +15,8 @@ const DeleteUserAccount = ({ fullUserData }: { fullUserData: IUser }) => {
   const logout = useLogout(); // Hook for logging out the user
   const usersAPIs = useUsersAPIs(); // Hook for calling user-related APIs
 
-  const isCurrentUserAdmin = fullUserData.role !== ROLES_LIST.Admin;
-  const isCurrentUserOAuth = !fullUserData.provider || !fullUserData.provider_user_id;
+  const isCurrentUserAdmin = fullUserData.role === ROLES_LIST.Admin;
+  const isCurrentUserOAuth = fullUserData.provider || fullUserData.provider_user_id;
 
   /**
    * Function to handle account deletion
