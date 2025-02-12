@@ -89,7 +89,6 @@ const CreateArticle = () => {
   const resetForm = (): void => {
     setArticleTitle("");
     setArticleImage(null);
-    setArticleCategoryId("");
     setArticleContent("");
   };
 
