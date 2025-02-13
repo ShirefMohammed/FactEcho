@@ -66,8 +66,8 @@ const PublicAuthorProfile = () => {
 
     // Render the author's profile with their avatar and name
     return (
-      <div className="flex items-center gap-6 mb-8">
-        <div className="w-32 h-32 rounded-full overflow-hidden">
+      <div className="flex flex-col items-center sm:flex-row gap-x-6 gap-y-4 mb-8">
+        <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-full overflow-hidden">
           <Image
             src={author.avatar && author.avatar !== "" ? author.avatar : defaultAvatar}
             alt={author.name}
@@ -77,7 +77,7 @@ const PublicAuthorProfile = () => {
           />
         </div>
         <div>
-          <h1 className="text-4xl font-bold text-gray-900">{author.name}</h1>
+          <h1 className="text-lg sm:text-4xl font-bold text-gray-900">{author.name}</h1>
         </div>
       </div>
     );

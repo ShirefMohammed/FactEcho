@@ -29,7 +29,7 @@ const CategoriesArticles = () => {
       setIsLoading(true); // Indicate loading state
       const resBody: ApiBodyResponse<GetCategoriesResponse> = await categoriesAPIs.getCategories(
         1,
-        5,
+        limit,
         "new",
       );
       setCategories(resBody.data?.categories || []);
