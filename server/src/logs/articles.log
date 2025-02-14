@@ -43,3 +43,4 @@
 {"level":"INFO","time":"2025-02-10T14:51:47.909Z","pid":14064,"hostname":"DESKTOP-21V6PGQ","service":"articles","msg":"updateArticle: Article {d2ad28f5-c766-4217-a85f-0866c2788f52} updated successfully by {5150}."}
 {"level":"INFO","time":"2025-02-10T19:26:21.249Z","pid":14788,"hostname":"DESKTOP-21V6PGQ","service":"articles","msg":"createArticle: New Article with title {رسلاءراش} created successfully"}
 {"level":"INFO","time":"2025-02-10T19:27:01.972Z","pid":14788,"hostname":"DESKTOP-21V6PGQ","service":"articles","msg":"deleteArticle: Article {1efa46f0-398d-4f63-a5fc-48f41c5465bd} deleted successfully by {5151}."}
+{"level":"INFO","time":"2025-02-12T11:55:55.645Z","pid":6400,"hostname":"DESKTOP-21V6PGQ","service":"articles","msg":"createArticle: New Article with title {test} created successfully"}

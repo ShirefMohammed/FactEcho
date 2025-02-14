@@ -1,16 +1,14 @@
-Todo:
-  Finish next client.
-  Containerize the app.
-  Add app video demo.
-  Add current app ui snapshots.
-  Add app README.md.
-  Publish the app and get feedback.
+✅ To-Do
 
-In Progress:
-  
+⏳ In Progress
+  - Add app video demo
+  - Publish the app and get feedback
 
-Finished:
-  Finish docs.
-  Finish node server.
-  Finish react client.
-  
+🎯 Finished
+  - Finish documentation
+  - Finish Node.js server
+  - Finish React client
+  - Finish Next.js client
+  - Containerize the app X
+  - Add current app UI snapshots
+  - Write the app README.md

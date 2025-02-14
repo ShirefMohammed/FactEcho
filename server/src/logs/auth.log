@@ -2619,3 +2619,15 @@
 {"level":"INFO","time":"2025-02-11T12:27:58.683Z","pid":4220,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"sendResetPasswordForm: Serving reset password form to user {ad00614c-5073-439c-94ec-4296ff02502d}"}
 {"level":"INFO","time":"2025-02-11T12:28:06.142Z","pid":4220,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"sendResetPasswordForm: Serving reset password form to user {ad00614c-5073-439c-94ec-4296ff02502d}"}
 {"level":"INFO","time":"2025-02-11T12:28:18.920Z","pid":4220,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"resetPassword: Password reset successfully for user {ad00614c-5073-439c-94ec-4296ff02502d}"}
+{"level":"INFO","time":"2025-02-11T14:16:16.806Z","pid":14888,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"loginWithFacebookCallback: User with provider_user_id {1323374239019700} logged in via Facebook"}
+{"level":"INFO","time":"2025-02-11T14:16:17.557Z","pid":14888,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {3ab5d7fa-bbf0-46fc-bd99-69f13ec7966b}"}
+{"level":"INFO","time":"2025-02-11T14:16:17.800Z","pid":14888,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {3ab5d7fa-bbf0-46fc-bd99-69f13ec7966b}"}
+{"level":"INFO","time":"2025-02-11T14:16:21.331Z","pid":14888,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Logout: User logged out"}
+{"level":"INFO","time":"2025-02-11T14:16:44.831Z","pid":14888,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"loginWithGoogleCallback: User with email {shirefmo012345@gmail.com} logged in via Google"}
+{"level":"INFO","time":"2025-02-11T14:16:45.519Z","pid":14888,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-11T14:16:45.781Z","pid":14888,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-11T14:16:47.940Z","pid":14888,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Logout: User logged out"}
+{"level":"INFO","time":"2025-02-12T11:55:18.276Z","pid":6400,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"loginWithGoogleCallback: User with email {shirefmo012345@gmail.com} logged in via Google"}
+{"level":"INFO","time":"2025-02-12T11:55:20.097Z","pid":6400,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-12T11:55:20.429Z","pid":6400,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
+{"level":"INFO","time":"2025-02-13T19:11:53.168Z","pid":11916,"hostname":"DESKTOP-21V6PGQ","service":"auth","msg":"Refresh: Tokens rotated successfully to {30b101d3-d6f9-4077-8439-c78da261a30d}"}
