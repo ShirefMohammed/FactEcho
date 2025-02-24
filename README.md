@@ -32,13 +32,13 @@ The app is currently available as a **web application**, with plans to expand to
 ## Key Features
 
 ### 🛠 **Core Functionalities**
-- **User Authentication**: Secure registration, login, and password reset with **JWT** and **OAuth** (Google and Facebook).
-- **User Profile**: Nice profile sections such as account, reading-list, news-letters and settings.
-- **News Categories**: Organized news sections for easy browsing (e.g., politics, sports, technology).
-- **Article Management**: Create, read, update, and delete articles with rich media support.
-- **Search Functionality**: Users can search for articles by keywords or categories.
-- **Admin Dashboard**: Manage users, authors, categories, and articles with granular permissions.
-- **Author Dashboard**: Authors can create and manage their articles.
+- **Authentication and Authorization**: Sign Up, Email Verification, Login, Forgot Password, Google & Facebook Login.
+- **User Account Management**: Profile Details, Reading List, Email News Subscriptions, Account Settings.
+- **Roles and Permissions**: Admin, Authors, Users with Role-based Access Control.
+- **Article Management**: Rich-text Editor for Creating, Updating, and Deleting Articles with Proper Permissions.
+- **Main Pages**: Homepage, Suggested Articles, Trending, Latest, Search Results, Category-based Articles.
+- **Error Handling Pages**: Customized Error Pages for Various Scenarios.
+- **Admin Dashboard**: Manage Users, Authors, Roles, Categories, and Articles with Full Control.
 
 ### 🚀 **Future Features**
 - **Mobile App**: Cross-platform mobile application for iOS and Android.
