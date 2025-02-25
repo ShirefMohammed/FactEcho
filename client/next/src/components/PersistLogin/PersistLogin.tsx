@@ -3,10 +3,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import Logo from "../../assets/Logo.svg";
 import { useRefreshToken } from "../../hooks";
+import { setAuthReady } from "../../store/slices/authStateSlice";
 import { StoreState } from "../../store/store";
 import style from "./PersistLogin.module.css";
 
@@ -19,6 +20,7 @@ const PersistLogin = ({
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const accessToken = useSelector((state: StoreState) => state.accessToken);
   const refresh = useRefreshToken();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     setPersist(localStorage.getItem("persist") === "true");
@@ -33,10 +35,15 @@ const PersistLogin = ({
         console.error("Error refreshing token: ", err);
       } finally {
         setIsLoading(false);
+        // Signal that auth checking is complete through Redux
+        dispatch(setAuthReady(true));
       }
     };
 
-    verifyRefreshToken();
+    // If we already know persistence state
+    if (persist !== null) {
+      verifyRefreshToken();
+    }
   }, [persist]);
 
   if (persist === null) {
@@ -55,7 +62,7 @@ const PersistLogin = ({
             <Image src={Logo} alt="FactEcho Logo" />
             <div className={style.creator}>
               <span>Created by</span>
-              <Link href="https://shiref-mohammed.onrender.com/">Shiref Mohammed</Link>
+              <Link href="https://shiref-mohammed.vercel.app/">Shiref Mohammed</Link>
             </div>
           </div>
         ) : (

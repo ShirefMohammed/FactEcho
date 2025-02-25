@@ -1,7 +1,6 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
 import { JSX } from "react";
 import { useSelector } from "react-redux";
 
@@ -16,21 +15,11 @@ const RequireAuth = ({
 }): JSX.Element | null => {
   const currentUser = useSelector((state: StoreState) => state.currentUser);
   const accessToken = useSelector((state: StoreState) => state.accessToken);
+  const isAuthReady = useSelector((state: StoreState) => state.authState.isAuthReady);
   const router = useRouter();
-  const [isCheckingAuth, setIsCheckingAuth] = useState(true);
 
-  useEffect(() => {
-    // Short delay to allow PersistLogin to complete its token refresh
-    // This ensures we don't redirect prematurely
-    const timeoutId = setTimeout(() => {
-      setIsCheckingAuth(false);
-    }, 1000);
-
-    return () => clearTimeout(timeoutId);
-  }, []);
-
-  // Don't do anything while we're checking auth status
-  if (isCheckingAuth) {
+  // Only proceed with auth checks when PersistLogin has completed its work
+  if (!isAuthReady) {
     return null;
   }
 
