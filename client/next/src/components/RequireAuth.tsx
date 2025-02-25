@@ -24,7 +24,7 @@ const RequireAuth = ({
     // This ensures we don't redirect prematurely
     const timeoutId = setTimeout(() => {
       setIsCheckingAuth(false);
-    }, 500);
+    }, 1000);
 
     return () => clearTimeout(timeoutId);
   }, []);
