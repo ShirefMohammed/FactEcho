@@ -1,9 +1,14 @@
-"use client";
+import { Metadata } from "next";
 
-import dynamic from "next/dynamic";
+import CategoryArticles from "./_components/CategoryArticles";
+import { metadata as categoriesMetadata } from "./metadata";
 
-const CategoryArticles = dynamic(() => import("./_components/CategoryArticles"), {
-  ssr: false,
-});
+// Revalidate the page every 300 seconds (5 minutes) ISR
+export const revalidate = 300;
 
-export default CategoryArticles;
+// Export the imported metadata for SEO
+export const metadata: Metadata = categoriesMetadata;
+
+export default function CategoriesPage() {
+  return <CategoryArticles />;
+}

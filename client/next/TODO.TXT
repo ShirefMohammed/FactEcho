@@ -1,13 +1,12 @@
 ✅ To-Do
   - Improve app SEO
-  - Convert to ssr (article, author, categoriesArticle, explore, latest, trend, home) pages
   - Test all pages performance and behavior
-  - Test JWT Rotation
 
 ⏳ In Progress
-  
 
 🎯 Finished
   - Add metadata to enhance seo
   - Solve Editor problem
   - deploy the app to vercel
+  - Test JWT Rotation
+  - Convert to ssr (-article, -author, -categoriesArticle, +explore, +latest, +trend, -home) pages

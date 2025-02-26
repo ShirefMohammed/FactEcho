@@ -23,7 +23,7 @@ export default function RootLayout({
       <body>
         <Provider store={store}>
           <PersistLogin>{children}</PersistLogin>
-          <ToastContainerWithProps /> {/* Toast Container with its props */}
+          <ToastContainerWithProps />
         </Provider>
       </body>
     </html>

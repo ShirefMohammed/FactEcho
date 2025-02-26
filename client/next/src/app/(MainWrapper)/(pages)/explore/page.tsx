@@ -1,12 +1,34 @@
-"use client";
+import { Metadata } from "next";
 
-import dynamic from "next/dynamic";
+import { IArticle } from "@shared/types/entitiesTypes";
 
-// import { metadata as exploreArticlesMetadata } from "./metadata";
-// export const metadata: Metadata = exploreArticlesMetadata;
+import { ArticlesAPI } from "../../../../api/server/articlesAPIs";
+import { ArticlesGrid } from "../../../../components";
+import { exploreMetadata } from "./metadata";
 
-const ExploreArticles = dynamic(() => import("./_components/ExploreArticles"), {
-  ssr: false,
-});
+// Revalidate the page every 300 seconds (5 minutes) ISR
+export const revalidate = 300;
 
-export default ExploreArticles;
+// Export the imported metadata for SEO
+export const metadata: Metadata = exploreMetadata;
+
+export default async function ExplorePage() {
+  const limit = 15;
+  let articles: IArticle[] = [];
+
+  try {
+    const response = await ArticlesAPI.getExploredArticles(limit);
+    articles = response.data?.articles || [];
+  } catch (error) {
+    console.error("Error fetching explored articles:", error);
+  }
+
+  return (
+    <ArticlesGrid
+      title="المقالات المقترحة"
+      isLoading={false}
+      articles={articles}
+      displayFields={["title", "image", "views", "created_at", "creator_id"]}
+    />
+  );
+}

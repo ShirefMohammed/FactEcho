@@ -1,20 +1,25 @@
 import { Metadata } from "next";
 
-const CLIENT_URL = process.env.NEXT_PUBLIC_CLIENT_URL || "https://factecho.com";
-
-export const metadata: Metadata = {
+export const exploreMetadata: Metadata = {
   title: "استكشف المقالات | FactEcho",
-  description:
-    "استمتع بقراءة أحدث المقالات المقترحة على FactEcho، حيث المحتوى الغني والمفيد بين يديك.",
-  keywords: "مقالات, أخبار, مقالات مقترحة, محتوى متنوع, FactEcho",
-  alternates: {
-    canonical: `${CLIENT_URL}/explore`,
-  },
+  description: "تصفح المقالات المقترحة واكتشف محتوى جديد مثير للاهتمام",
+  keywords: ["articles", "explore", "content", "factecho", "مقالات", "استكشاف"],
   openGraph: {
     title: "استكشف المقالات | FactEcho",
-    description: "اكتشف أحدث المقالات المقترحة لك في FactEcho، واستمتع بمحتوى متنوع وغني.",
-    url: `${CLIENT_URL}/explore`,
-    siteName: "FactEcho",
+    description: "تصفح المقالات المقترحة واكتشف محتوى جديد مثير للاهتمام",
     type: "website",
+    images: [
+      {
+        url: "/Logo.svg", // Add your actual OG image path
+        width: 1200,
+        height: 630,
+        alt: "FactEcho Explore Articles",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "استكشف المقالات | FactEcho",
+    description: "تصفح المقالات المقترحة واكتشف محتوى جديد مثير للاهتمام",
   },
 };
