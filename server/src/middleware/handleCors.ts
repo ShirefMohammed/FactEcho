@@ -8,6 +8,12 @@ import { httpStatusText } from "../utils/httpStatusText";
 export const handleCors = (req: Request, res: Response, next: NextFunction) => {
   const allowedOrigins: string[] = getAllowedOrigins();
 
+  // Allow requests without an Origin header (server-to-server requests)
+  if (!req.headers.origin) {
+    return next();
+  }
+
+  // Allow requests from allowed origins or specific routes
   if (
     allowedOrigins.includes(req.headers.origin as string) ||
     process.env.NODE_ENV?.trim() === "testing" ||
