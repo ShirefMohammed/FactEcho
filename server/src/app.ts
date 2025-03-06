@@ -1,7 +1,9 @@
+import compression from "compression";
 import cookieParser from "cookie-parser";
 import cors from "cors";
 import dotenv from "dotenv";
 import express, { Express, Response } from "express";
+import helmet from "helmet";
 import path from "node:path";
 import passport from "passport";
 import swaggerUi from "swagger-ui-express";
@@ -13,6 +15,7 @@ import swaggerSpecs from "./config/swaggerConfig";
 import { connectDB } from "./database";
 import { handleCors } from "./middleware/handleCors";
 import { handleErrors } from "./middleware/handleErrors";
+import { rateLimiter, speedLimiter } from "./middleware/limiter";
 import articlesRouterV1 from "./routes/v1/articlesRouter";
 import authRouterV1 from "./routes/v1/authRouter";
 import authorsRouterV1 from "./routes/v1/authorsRouter";
@@ -31,17 +34,27 @@ export const initializeApp = async () => {
   // Initialize cache
   await initializeCache();
 
-  // Cross Origin Resource Sharing
-  app.use(handleCors, cors(corsOptions));
+  // Security middleware
+  app.use(helmet()); // Sets various HTTP headers to secure the app (e.g., XSS protection, no sniff, etc.)
+  app.use(compression()); // Compresses response bodies to reduce size and improve performance
+
+  // Rate limiting
+  app.use(rateLimiter); // Limits the number of requests from a single IP to prevent abuse
+
+  // Slow down repeated requests
+  app.use(speedLimiter); // Slows down repeated requests from a single IP to mitigate DoS attacks
+
+  // CORS
+  app.use(handleCors, cors(corsOptions)); // Handles Cross-Origin Resource Sharing (CORS) to allow only trusted origins
 
   // Built-in middleware to handle urlencoded form data
-  app.use(express.urlencoded({ extended: false }));
+  app.use(express.urlencoded({ extended: false, limit: "100kb" })); // Parses URL-encoded data with a 100kb limit
 
-  // Built-in middleware for json
-  app.use(express.json());
+  // Built-in middleware for JSON
+  app.use(express.json({ limit: "100kb" })); // Parses JSON data with a 100kb limit
 
   // Middleware for cookies
-  app.use(cookieParser());
+  app.use(cookieParser()); // Parses cookies attached to the client request
 
   // Initialize passport to handle OAuth
   app.use(passport.initialize());

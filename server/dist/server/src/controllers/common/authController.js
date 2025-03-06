@@ -445,7 +445,7 @@ var forgetPassword = function (req, res, next) { return __awaiter(void 0, void 0
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
-                _a.trys.push([0, 3, , 4]);
+                _a.trys.push([0, 4, , 5]);
                 email = req.body.email;
                 // Check if the email field is provided
                 if (!email) {
@@ -482,19 +482,22 @@ var forgetPassword = function (req, res, next) { return __awaiter(void 0, void 0
             case 2:
                 _a.sent();
                 // Send the reset password email
-                (0, sendResetPasswordEmail_1.sendResetPasswordEmail)(email, resetPasswordToken);
+                return [4 /*yield*/, (0, sendResetPasswordEmail_1.sendResetPasswordEmail)(email, resetPasswordToken)];
+            case 3:
+                // Send the reset password email
+                _a.sent();
                 // Respond with a success message
                 authLogger.info("forgetPassword: Reset password email sent successfully to {".concat(email, "}"));
                 res.status(200).send({
                     statusText: httpStatusText_1.httpStatusText.SUCCESS,
                     message: "Check your email for the reset password link",
                 });
-                return [3 /*break*/, 4];
-            case 3:
+                return [3 /*break*/, 5];
+            case 4:
                 err_4 = _a.sent();
                 next(err_4);
-                return [3 /*break*/, 4];
-            case 4: return [2 /*return*/];
+                return [3 /*break*/, 5];
+            case 5: return [2 /*return*/];
         }
     });
 }); };

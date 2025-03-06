@@ -40,10 +40,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.initializeApp = void 0;
+var compression_1 = __importDefault(require("compression"));
 var cookie_parser_1 = __importDefault(require("cookie-parser"));
 var cors_1 = __importDefault(require("cors"));
 var dotenv_1 = __importDefault(require("dotenv"));
 var express_1 = __importDefault(require("express"));
+var helmet_1 = __importDefault(require("helmet"));
 var node_path_1 = __importDefault(require("node:path"));
 var passport_1 = __importDefault(require("passport"));
 var swagger_ui_express_1 = __importDefault(require("swagger-ui-express"));
@@ -54,6 +56,7 @@ var swaggerConfig_1 = __importDefault(require("./config/swaggerConfig"));
 var database_1 = require("./database");
 var handleCors_1 = require("./middleware/handleCors");
 var handleErrors_1 = require("./middleware/handleErrors");
+var limiter_1 = require("./middleware/limiter");
 var articlesRouter_1 = __importDefault(require("./routes/v1/articlesRouter"));
 var authRouter_1 = __importDefault(require("./routes/v1/authRouter"));
 var authorsRouter_1 = __importDefault(require("./routes/v1/authorsRouter"));
@@ -76,14 +79,21 @@ var initializeApp = function () { return __awaiter(void 0, void 0, void 0, funct
             case 2:
                 // Initialize cache
                 _a.sent();
-                // Cross Origin Resource Sharing
-                app.use(handleCors_1.handleCors, (0, cors_1.default)(corsOptions_1.corsOptions));
+                // Security middleware
+                app.use((0, helmet_1.default)()); // Sets various HTTP headers to secure the app (e.g., XSS protection, no sniff, etc.)
+                app.use((0, compression_1.default)()); // Compresses response bodies to reduce size and improve performance
+                // Rate limiting
+                app.use(limiter_1.rateLimiter); // Limits the number of requests from a single IP to prevent abuse
+                // Slow down repeated requests
+                app.use(limiter_1.speedLimiter); // Slows down repeated requests from a single IP to mitigate DoS attacks
+                // CORS
+                app.use(handleCors_1.handleCors, (0, cors_1.default)(corsOptions_1.corsOptions)); // Handles Cross-Origin Resource Sharing (CORS) to allow only trusted origins
                 // Built-in middleware to handle urlencoded form data
-                app.use(express_1.default.urlencoded({ extended: false }));
-                // Built-in middleware for json
-                app.use(express_1.default.json());
+                app.use(express_1.default.urlencoded({ extended: false, limit: "100kb" })); // Parses URL-encoded data with a 100kb limit
+                // Built-in middleware for JSON
+                app.use(express_1.default.json({ limit: "100kb" })); // Parses JSON data with a 100kb limit
                 // Middleware for cookies
-                app.use((0, cookie_parser_1.default)());
+                app.use((0, cookie_parser_1.default)()); // Parses cookies attached to the client request
                 // Initialize passport to handle OAuth
                 app.use(passport_1.default.initialize());
                 // Routes - HealthZ

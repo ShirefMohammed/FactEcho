@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node dist/server/src/server.js",
     "build-server": "tsc && npm run copy-files",
-    "copy-files": "copyfiles -u 1 src/logs/**/* src/database/postgreSQL/migrations/**/* dist/server/src",
+    "copy-files": "copyfiles -u 1 src/logs/**/* src/views/* src/database/postgreSQL/migrations/**/* dist/server/src",
     "dev": "nodemon ./src/server.ts",
     "test": "set NODE_ENV=testing && jest --runInBand"
   },
@@ -17,10 +17,14 @@
     "@types/passport": "^1.0.17",
     "bcrypt": "^5.1.1",
     "cloudinary": "^2.5.1",
+    "compression": "^1.8.0",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.18.2",
+    "express-rate-limit": "^7.5.0",
+    "express-slow-down": "^2.0.3",
+    "helmet": "^8.0.0",
     "jsonwebtoken": "^9.0.1",
     "node-cache": "^5.1.2",
     "nodemailer": "^6.9.13",
@@ -39,6 +43,7 @@
   "devDependencies": {
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",
     "@types/bcrypt": "^5.0.2",
+    "@types/compression": "^1.7.5",
     "@types/cookie-parser": "^1.4.7",
     "@types/cors": "^2.8.17",
     "@types/express": "^4.17.21",
