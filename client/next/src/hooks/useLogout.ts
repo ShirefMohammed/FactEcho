@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 
 import { useAuthAPIs } from "../api/client/useAuthAPIs";
 import { setAccessToken } from "../store/slices/accessTokenSlice";
+import { setAuthReady } from "../store/slices/authStateSlice";
 import { setUserAvatar } from "../store/slices/userAvatarSlice";
 import { setUser } from "../store/slices/userSlice";
 
@@ -39,6 +40,7 @@ const useLogout = (): (() => Promise<void>) => {
       dispatch(setUser({}));
       dispatch(setUserAvatar(""));
       dispatch(setAccessToken(""));
+      dispatch(setAuthReady(false));
 
       // Navigate to the auth page after logging out
       router.push("/auth");

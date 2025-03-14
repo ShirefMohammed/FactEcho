@@ -1,9 +1,3 @@
-"use client";
-
-import dynamic from "next/dynamic";
-
-const PersonalInfo = dynamic(() => import("../_components/PersonalInfo"), {
-  ssr: false,
-});
+import PersonalInfo from "../_components/PersonalInfo";
 
 export default PersonalInfo;

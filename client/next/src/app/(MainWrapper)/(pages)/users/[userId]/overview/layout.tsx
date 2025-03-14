@@ -1,9 +1,12 @@
-"use client";
+import { RequireAuth } from "../../../../../../components";
+import { ROLES_LIST } from "../../../../../../utils/constants";
 
-import dynamic from "next/dynamic";
-
-const UserProfileOverviewLayout = dynamic(() => import("./_components/UserProfileOverviewLayout"), {
-  ssr: false,
-});
+const UserProfileOverviewLayout = ({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) => {
+  return <RequireAuth allowedRoles={[ROLES_LIST.Admin]}>{children}</RequireAuth>;
+};
 
 export default UserProfileOverviewLayout;

@@ -2,7 +2,7 @@ import { Metadata } from "next";
 
 import { IArticle } from "@shared/types/entitiesTypes";
 
-import { ArticlesAPI } from "../../../../api/server/articlesAPIs";
+import { articlesAPIs } from "../../../../api/server/articlesAPIs";
 import { ArticlesGrid } from "../../../../components";
 import { metadata as latestMetadata } from "./metadata";
 
@@ -17,7 +17,7 @@ export default async function LatestPage() {
   let articles: IArticle[] = [];
 
   try {
-    const response = await ArticlesAPI.getLatestArticles(limit);
+    const response = await articlesAPIs.getLatestArticles(limit);
     articles = response.data?.articles || [];
   } catch (error) {
     console.error("Error fetching latest articles:", error);

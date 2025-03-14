@@ -1,5 +1,4 @@
 export { default as AdminBreadcrumb } from "./Breadcrumbs/AdminBreadcrumb";
-export { default as FirstReqLoadingMsg } from "./FirstReqLoadingMsg/FirstReqLoadingMsg";
 export { default as PersistLogin } from "./PersistLogin/PersistLogin";
 export { default as ArticleCard } from "./ArticleCard";
 export { default as ArticlesGrid } from "./ArticlesGrid";

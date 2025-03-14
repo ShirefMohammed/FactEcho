@@ -9,7 +9,7 @@ import { IAuthor } from "@shared/types/entitiesTypes";
 import { useAuthorsAPIs } from "../../../../../api/client/useAuthorsAPIs";
 import { useUsersAPIs } from "../../../../../api/client/useUsersAPIs";
 import { useNotify } from "../../../../../hooks";
-import { ROLES_LIST } from "../../../../../utils/rolesList";
+import { ROLES_LIST } from "../../../../../utils/constants";
 
 const UpdateAuthor = ({
   setAuthors,

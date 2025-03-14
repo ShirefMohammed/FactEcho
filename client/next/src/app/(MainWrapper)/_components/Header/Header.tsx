@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
@@ -148,13 +149,14 @@ const Header: React.FC = () => {
 // SearchForm component to handle search functionality
 const SearchForm: React.FC = () => {
   const [searchKey, setSearchKey] = useState<string>(""); // Managing the search input state
+  const router = useRouter();
 
   return (
     <form
       className="relative"
       onSubmit={(e) => {
         e.preventDefault();
-        if (searchKey) window.location.href = `/articles/search?searchKey=${searchKey}`; // Navigate to the search results page
+        if (searchKey) router.push(`/articles/search?searchKey=${searchKey}`);
       }}
     >
       <button

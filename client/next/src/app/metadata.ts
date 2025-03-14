@@ -2,7 +2,7 @@ import { Metadata } from "next";
 
 const SITE_URL = process.env.NEXT_PUBLIC_CLIENT_URL || "https://factecho.com";
 
-export const metadata: Metadata = {
+export const rootMetadata: Metadata = {
   title: {
     default: "FactEcho - News App",
     template: "%s | FactEcho",
@@ -24,4 +24,4 @@ export const metadata: Metadata = {
 };
 
 
-export default metadata;
+export default rootMetadata;

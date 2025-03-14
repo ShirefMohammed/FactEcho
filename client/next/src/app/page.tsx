@@ -1,14 +1,16 @@
-"use client";
+import { Metadata } from "next";
 
-import dynamic from "next/dynamic";
+import { homeMetadata } from "./(MainWrapper)/(pages)/home/metadata";
+import HomePage from "./(MainWrapper)/(pages)/home/page";
+import DefaultLayout from "./(MainWrapper)/_components/Layout/DefaultLayout";
 
-const MainWrapper = dynamic(() => import("./(MainWrapper)/layout"), { ssr: false });
-const Home = dynamic(() => import("./(MainWrapper)/(pages)/home/page"), { ssr: false });
+// Export the imported metadata for SEO
+export const metadata: Metadata = homeMetadata;
 
 export default function Root() {
   return (
-    <MainWrapper>
-      <Home />
-    </MainWrapper>
+    <DefaultLayout>
+      <HomePage />
+    </DefaultLayout>
   );
 }

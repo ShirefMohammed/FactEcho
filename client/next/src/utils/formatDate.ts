@@ -1,4 +1,21 @@
 /**
+ * Format a date string (e.g., publication date of an article) to a localized, human-readable format.
+ * The format uses the Arabic locale and includes the year, month, day, hour, and minute.
+ * @param {string} dateString - The date string to format (e.g., from the database).
+ * @returns {string} A formatted date string in Arabic locale.
+ */
+export const formatArticleDate = (dateString: string): string => {
+  const date = new Date(dateString);
+  return new Intl.DateTimeFormat("ar", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+  }).format(date);
+};
+
+/**
  * Formats the time elapsed since the provided timestamp into a human-readable string.
  *
  * @param {string} createdAt - The ISO 8601 timestamp string (e.g., "2024-12-23T18:13:08.017Z").
@@ -41,4 +58,14 @@ export const formatCreatedSince = (createdAt: string): string => {
   } else {
     return `just now`;
   }
+};
+
+/**
+ * Format a timestamp (e.g., created_at, updated_at) to a human-readable date and time.
+ * @param {string} timestamp - Timestamp string from the database.
+ * @returns {string} Formatted date and time.
+ */
+export const formatTimestamp = (timestamp: string): string => {
+  const date = new Date(timestamp); // Parses the database timestamp
+  return date.toLocaleString(); // Returns a local human-readable format
 };

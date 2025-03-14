@@ -1,7 +1,3 @@
-"use client";
-
-import dynamic from "next/dynamic";
-
-const AdminLayout = dynamic(() => import("./_components/AdminLayout"), { ssr: false });
+import AdminLayout from "./_components/AdminLayout";
 
 export default AdminLayout;

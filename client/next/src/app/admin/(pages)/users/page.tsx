@@ -14,8 +14,8 @@ import { IUser } from "@shared/types/entitiesTypes";
 import { useUsersAPIs } from "../../../../api/client/useUsersAPIs";
 import { AdminBreadcrumb, GlassWrapper } from "../../../../components";
 import { useHandleErrors, useNotify, useQuery } from "../../../../hooks";
-import { formatTimestamp } from "../../../../utils/formatTimestamp";
-import { ROLES_LIST } from "../../../../utils/rolesList";
+import { ROLES_LIST } from "../../../../utils/constants";
+import { formatTimestamp } from "../../../../utils/formatDate";
 import UpdateUser from "./_components/UpdateUser";
 
 const AdminUsers = () => {

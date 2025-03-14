@@ -1,96 +1,61 @@
-"use client";
-
-import { useEffect, useState } from "react";
-
-import {
-  ApiBodyResponse,
-  GetCategoriesResponse,
-  GetCategoryArticlesResponse,
-} from "@shared/types/apiTypes";
+import { ApiBodyResponse, GetCategoriesResponse } from "@shared/types/apiTypes";
 import { IArticle, ICategory } from "@shared/types/entitiesTypes";
 
-import { useCategoriesAPIs } from "../../../../../api/client/useCategoriesAPIs";
-import { ArticlesGrid } from "../../../../../components";
-import { useHandleErrors } from "../../../../../hooks";
+import { categoriesAPIs } from "../../../../../api/server/categoriesAPIs";
+import ArticlesGrid from "../../../../../components/ArticlesGrid";
 
-const CategoriesArticles = () => {
-  const limit = 5;
+const CategoriesArticles = async () => {
+  // Fetch categories on the server
+  let categories: ICategory[] = [];
+  try {
+    const resBody: ApiBodyResponse<GetCategoriesResponse> = await categoriesAPIs.getCategories(
+      1,
+      5,
+      "new",
+    );
+    categories = resBody.data?.categories || [];
+  } catch (error) {
+    console.error("Error fetching categories:", error);
+  }
 
-  const [categories, setCategories] = useState<ICategory[]>([]);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+  // Fetch articles for each category in parallel
+  const categoryArticlesPromises = categories.map((category) =>
+    categoriesAPIs.getCategoryArticles(category.category_id, 1, 3, "new"),
+  );
+  const categoryArticlesResponses = await Promise.allSettled(categoryArticlesPromises);
 
-  const handleErrors = useHandleErrors();
-  const categoriesAPIs = useCategoriesAPIs();
-
-  /**
-   * Fetches categories from the API with a specific page, limit, and sort order.
-   * Updates the state with the fetched categories or handles errors on failure.
-   */
-  const fetchCategories = async () => {
-    try {
-      setIsLoading(true); // Indicate loading state
-      const resBody: ApiBodyResponse<GetCategoriesResponse> = await categoriesAPIs.getCategories(
-        1,
-        limit,
-        "new",
+  const categoryArticles: { [key: string]: IArticle[] } = {};
+  categoryArticlesResponses.forEach((response, index) => {
+    if (response.status === "fulfilled") {
+      const category = categories[index];
+      categoryArticles[category.category_id] = response.value.data?.articles || [];
+    } else {
+      console.error(
+        `Error fetching articles for category ${categories[index]?.category_id}:`,
+        response.reason,
       );
-      setCategories(resBody.data?.categories || []);
-    } catch (err) {
-      handleErrors(err as Error);
-    } finally {
-      setIsLoading(false);
     }
-  };
-
-  useEffect(() => {
-    fetchCategories();
-  }, []);
+  });
 
   return (
     <div className="w-full flex flex-col gap-8">
-      {!isLoading ? (
-        <>
-          {categories.map((category) => (
-            <CategoryArticles key={category.category_id} category={category} />
-          ))}
-        </>
-      ) : (
-        <div className="text-gray-500">جاري التحميل...</div>
-      )}
+      {categories.map((category) => (
+        <CategoryArticles
+          key={category.category_id}
+          category={category}
+          articles={categoryArticles[category.category_id]}
+        />
+      ))}
     </div>
   );
 };
 
-const CategoryArticles = ({ category }: { category: ICategory }) => {
-  const limit = 3;
+interface CategoryArticlesProps {
+  category: ICategory;
+  articles: IArticle[];
+}
 
-  const [articles, setArticles] = useState<IArticle[]>([]);
-  const [fetchCategoryArticlesLoad, setFetchCategoryArticlesLoad] = useState<boolean>(false);
-
-  const handleErrors = useHandleErrors();
-  const categoriesAPIs = useCategoriesAPIs();
-
-  /**
-   * Fetches articles based on the categoryId, current page, and limit.
-   * Updates the articles state on successful fetch or handles errors when the API call fails.
-   */
-  const fetchCategoryArticles = async () => {
-    try {
-      setFetchCategoryArticlesLoad(true);
-      const resBody: ApiBodyResponse<GetCategoryArticlesResponse> =
-        await categoriesAPIs.getCategoryArticles(category.category_id, 1, limit, "new");
-      setArticles(resBody.data?.articles || []);
-    } catch (err) {
-      handleErrors(err as Error);
-    } finally {
-      setFetchCategoryArticlesLoad(false);
-    }
-  };
-
-  useEffect(() => {
-    fetchCategoryArticles();
-  }, [category.category_id]);
-
+const CategoryArticles = ({ category, articles }: CategoryArticlesProps) => {
   if (articles.length < 3) {
     return null;
   }
@@ -98,8 +63,7 @@ const CategoryArticles = ({ category }: { category: ICategory }) => {
   return (
     <ArticlesGrid
       title={`${category?.title || ""}`}
-      isLoading={fetchCategoryArticlesLoad}
-      setIsLoading={setFetchCategoryArticlesLoad}
+      isLoading={false}
       articles={articles}
       displayFields={["title", "image", "views", "created_at", "creator_id"]}
     />

@@ -19,7 +19,7 @@ import { IArticle } from "@shared/types/entitiesTypes";
 import { useArticlesAPIs } from "../../../../api/client/useArticlesAPIs";
 import { AdminBreadcrumb } from "../../../../components";
 import { useHandleErrors, useNotify, useQuery } from "../../../../hooks";
-import { formatTimestamp } from "../../../../utils/formatTimestamp";
+import { formatTimestamp } from "../../../../utils/formatDate";
 
 const AdminArticles = () => {
   // Extract query parameters for default states

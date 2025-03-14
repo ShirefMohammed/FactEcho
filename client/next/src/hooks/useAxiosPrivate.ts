@@ -8,7 +8,7 @@ import { ApiBodyResponse } from "@shared/types/apiTypes";
 
 import { axiosPrivate } from "../api/axios";
 import { StoreState } from "../store/store";
-import { httpStatusText } from "../utils/httpStatusText";
+import { httpStatusText } from "../utils/constants";
 import { useLogout, useRefreshToken } from "./";
 
 /**

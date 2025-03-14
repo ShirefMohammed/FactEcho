@@ -15,8 +15,8 @@ import { useArticlesAPIs } from "../api/client/useArticlesAPIs";
 import { ClickOutside } from "../components";
 import { useNotify } from "../hooks";
 import { StoreState } from "../store/store";
-import { formatCreatedSince } from "../utils/formateCreatedSince";
-import { ROLES_LIST } from "../utils/rolesList";
+import { ROLES_LIST } from "../utils/constants";
+import { formatCreatedSince } from "../utils/formatDate";
 
 interface ArticleCardProps {
   article_id: IArticle["article_id"];

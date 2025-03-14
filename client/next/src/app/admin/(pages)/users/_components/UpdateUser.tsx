@@ -8,7 +8,7 @@ import { IUser } from "@shared/types/entitiesTypes";
 
 import { useUsersAPIs } from "../../../../../api/client/useUsersAPIs";
 import { useNotify } from "../../../../../hooks";
-import { ROLES_LIST } from "../../../../../utils/rolesList";
+import { ROLES_LIST } from "../../../../../utils/constants";
 
 const UpdateUser = ({
   setUsers,

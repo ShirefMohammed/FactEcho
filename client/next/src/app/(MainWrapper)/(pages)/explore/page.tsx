@@ -2,7 +2,7 @@ import { Metadata } from "next";
 
 import { IArticle } from "@shared/types/entitiesTypes";
 
-import { ArticlesAPI } from "../../../../api/server/articlesAPIs";
+import { articlesAPIs } from "../../../../api/server/articlesAPIs";
 import { ArticlesGrid } from "../../../../components";
 import { exploreMetadata } from "./metadata";
 
@@ -15,14 +15,13 @@ export const metadata: Metadata = exploreMetadata;
 export default async function ExplorePage() {
   const limit = 15;
   let articles: IArticle[] = [];
-
+  
   try {
-    const response = await ArticlesAPI.getExploredArticles(limit);
+    const response = await articlesAPIs.getExploredArticles(limit);
     articles = response.data?.articles || [];
   } catch (error) {
     console.error("Error fetching explored articles:", error);
   }
-
   return (
     <ArticlesGrid
       title="المقالات المقترحة"

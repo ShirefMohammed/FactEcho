@@ -10,7 +10,7 @@ import { MoonLoader } from "react-spinners";
 import { RegisterRequest } from "@shared/types/apiTypes";
 
 import { useAuthAPIs } from "../../../../../../api/client/useAuthAPIs";
-import { RgxList } from "../../../../../../utils/RgxList";
+import { RgxList } from "../../../../../../utils/constants";
 import style from "./Register.module.css";
 
 const Register = () => {

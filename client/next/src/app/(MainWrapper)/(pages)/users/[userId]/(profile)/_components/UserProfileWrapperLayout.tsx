@@ -14,7 +14,7 @@ import { useSelector } from "react-redux";
 
 import { RequireAuth } from "../../../../../../../components";
 import { StoreState } from "../../../../../../../store/store";
-import { ROLES_LIST } from "../../../../../../../utils/rolesList";
+import { ROLES_LIST } from "../../../../../../../utils/constants";
 import Sidebar from "./Sidebar";
 
 export interface UserRouteType {

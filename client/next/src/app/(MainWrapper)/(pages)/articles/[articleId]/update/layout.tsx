@@ -1,9 +1,18 @@
-"use client";
+import { Metadata } from "next";
 
-import dynamic from "next/dynamic";
+import { RequireAuth } from "../../../../../../components";
+import { ROLES_LIST } from "../../../../../../utils/constants";
+import { updateArticleMetadata } from "./metadata";
 
-const UpdateArticleLayout = dynamic(() => import("./_components/UpdateArticleLayout"), {
-  ssr: false,
-});
+// Export the metadata
+export const metadata: Metadata = updateArticleMetadata;
+
+const UpdateArticleLayout = ({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) => {
+  return <RequireAuth allowedRoles={[ROLES_LIST.Admin, ROLES_LIST.Author]}>{children}</RequireAuth>;
+};
 
 export default UpdateArticleLayout;

@@ -17,8 +17,8 @@ import { useUsersAPIs } from "../../../../api/client/useUsersAPIs";
 import defaultAvatar from "../../../../assets/defaultAvatar.png";
 import { AdminBreadcrumb, GlassWrapper } from "../../../../components";
 import { useHandleErrors, useNotify, useQuery } from "../../../../hooks";
-import { formatTimestamp } from "../../../../utils/formatTimestamp";
-import { ROLES_LIST } from "../../../../utils/rolesList";
+import { ROLES_LIST } from "../../../../utils/constants";
+import { formatTimestamp } from "../../../../utils/formatDate";
 import UpdateAuthor from "./_components/UpdateAuthor";
 
 const AdminAuthors = () => {

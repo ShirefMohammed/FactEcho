@@ -1,5 +1,3 @@
-"use client";
-
 import StatisticsCards from "./_components/Cards/StatisticsCards";
 import ChartOne from "./_components/Charts/ChartOne";
 import ChartThree from "./_components/Charts/ChartThree";

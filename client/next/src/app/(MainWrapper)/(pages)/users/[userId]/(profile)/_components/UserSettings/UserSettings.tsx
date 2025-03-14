@@ -8,7 +8,7 @@ import { IUser } from "@shared/types/entitiesTypes";
 import { useUsersAPIs } from "../../../../../../../../api/client/useUsersAPIs";
 import { useHandleErrors } from "../../../../../../../../hooks";
 import { StoreState } from "../../../../../../../../store/store";
-import { ROLES_LIST } from "../../../../../../../../utils/rolesList";
+import { ROLES_LIST } from "../../../../../../../../utils/constants";
 import DeleteUserAccount from "./_components/DeleteUserAccount";
 import UpdateUserAvatar from "./_components/UpdateUserAvatar";
 import UpdateUserInfo from "./_components/UpdateUserInfo";
@@ -51,43 +51,43 @@ const UserSettings = () => {
     if (currentUser.user_id) fetchFullUserData();
   }, [currentUser]);
 
+  if (fetchFullUserDataLoad) {
+    return <div className="text-gray-500">جاري التحميل...</div>;
+  }
+
+  if (!fullUserData) {
+    return <div className="text-red-500">لا توجد بيانات مستخدم للعرض.</div>; // Fallback for no data
+  }
+
   return (
-    <div>
-      {fetchFullUserDataLoad ? (
-        <div className="text-gray-500">جاري التحميل...</div>
-      ) : fullUserData ? (
-        <div className="grid grid-cols-5 gap-8">
-          {/* Update User Info */}
-          <div className="col-span-5 xl:col-span-5">
-            <UpdateUserInfo fullUserData={fullUserData} />
-          </div>
+    <div className="grid grid-cols-5 gap-8">
+      {/* Update User Info */}
+      <div className="col-span-5 xl:col-span-5">
+        <UpdateUserInfo fullUserData={fullUserData} />
+      </div>
 
-          {/* Update User Avatar */}
-          {fullUserData.role === ROLES_LIST.Admin || fullUserData.role === ROLES_LIST.Author ? (
-            <div className="col-span-5 xl:col-span-5">
-              <UpdateUserAvatar fullUserData={fullUserData} />
-            </div>
-          ) : (
-            ""
-          )}
-
-          {/* Update User Password */}
-          {!fullUserData.provider && !fullUserData.provider_user_id ? (
-            <div className="col-span-5 xl:col-span-5">
-              <UpdateUserPassword fullUserData={fullUserData} />
-            </div>
-          ) : (
-            ""
-          )}
-
-          {/* Delete User Account */}
-          <div className="col-span-5 xl:col-span-5">
-            <DeleteUserAccount fullUserData={fullUserData} />
-          </div>
+      {/* Update User Avatar */}
+      {fullUserData.role === ROLES_LIST.Admin || fullUserData.role === ROLES_LIST.Author ? (
+        <div className="col-span-5 xl:col-span-5">
+          <UpdateUserAvatar fullUserData={fullUserData} />
         </div>
       ) : (
-        <div className="text-red-500">لا توجد بيانات مستخدم للعرض.</div> // Fallback for no data
+        ""
       )}
+
+      {/* Update User Password */}
+      {!fullUserData.provider && !fullUserData.provider_user_id ? (
+        <div className="col-span-5 xl:col-span-5">
+          <UpdateUserPassword fullUserData={fullUserData} />
+        </div>
+      ) : (
+        ""
+      )}
+
+      {/* Delete User Account */}
+      <div className="col-span-5 xl:col-span-5">
+        <DeleteUserAccount fullUserData={fullUserData} />
+      </div>
     </div>
   );
 };

@@ -1,7 +1,3 @@
-"use client";
-
-const UserProfilePage = () => {
-  return null;
-};
+const UserProfilePage = () => null;
 
 export default UserProfilePage;

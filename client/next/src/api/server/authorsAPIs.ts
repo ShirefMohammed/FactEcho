@@ -8,15 +8,16 @@ import { axiosPrivate } from "../axios";
 import { endPoints } from "../endPoints";
 
 /**
- * Class for handling author-related API requests.
+ * Server-side utility class for handling API requests related to authors.
+ * Designed for use in Next.js server components and server actions.
  */
-export class AuthorsAPI {
+class AuthorsAPIs {
   /**
    * Get detailed information about a specific author by their ID.
    * @param {string} authorId - The ID of the author to retrieve.
    * @returns {Promise<ApiBodyResponse<GetAuthorResponse>>} A promise that resolves with the response data.
    */
-  static async getAuthorById(authorId: string): Promise<ApiBodyResponse<GetAuthorResponse>> {
+  async getAuthorById(authorId: string): Promise<ApiBodyResponse<GetAuthorResponse>> {
     const response = await axiosPrivate.get(endPoints.authors.getById(authorId));
     return response.data;
   }
@@ -29,7 +30,7 @@ export class AuthorsAPI {
    * @param {"old" | "new"} [order="new"] - The order to retrieve articles by (default is "new").
    * @returns {Promise<ApiBodyResponse<GetAuthorArticlesResponse>>} A promise that resolves with the response data.
    */
-  static async getAuthorArticles(
+  async getAuthorArticles(
     authorId: string,
     page: number = 1,
     limit: number = 10,
@@ -41,3 +42,6 @@ export class AuthorsAPI {
     return response.data;
   }
 }
+
+// Create and export a singleton instance
+export const authorsAPIs = new AuthorsAPIs();

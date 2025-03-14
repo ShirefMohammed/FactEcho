@@ -14,8 +14,8 @@ import { useArticlesAPIs } from "../../../../../../api/client/useArticlesAPIs";
 import defaultAvatar from "../../../../../../assets/defaultAvatar.png";
 import { useHandleErrors, useNotify } from "../../../../../../hooks";
 import { StoreState } from "../../../../../../store/store";
-import { formatArticleDate } from "../../../../../../utils/formatArticleDate";
-import { ROLES_LIST } from "../../../../../../utils/rolesList";
+import { ROLES_LIST } from "../../../../../../utils/constants";
+import { formatArticleDate } from "../../../../../../utils/formatDate";
 
 interface ArticleViewerProps {
   article: IArticle | null;

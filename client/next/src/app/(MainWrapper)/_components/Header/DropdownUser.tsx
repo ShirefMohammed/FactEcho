@@ -12,7 +12,7 @@ import defaultAvatar from "../../../../assets/defaultAvatar.png";
 import { ClickOutside } from "../../../../components";
 import { useLogout } from "../../../../hooks";
 import { StoreState } from "../../../../store/store";
-import { ROLES_LIST } from "../../../../utils/rolesList";
+import { ROLES_LIST } from "../../../../utils/constants";
 
 const DropdownUser = () => {
   const pathname = usePathname();

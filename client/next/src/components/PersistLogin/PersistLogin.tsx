@@ -35,8 +35,7 @@ const PersistLogin = ({
         console.error("Error refreshing token: ", err);
       } finally {
         setIsLoading(false);
-        // Signal that auth checking is complete through Redux
-        dispatch(setAuthReady(true));
+        dispatch(setAuthReady(true)); // Signal that auth checking is complete through Redux
       }
     };
 

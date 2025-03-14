@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { JSX } from "react";
+import { JSX, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
 import { StoreState } from "../store/store";
@@ -13,14 +13,26 @@ const RequireAuth = ({
   allowedRoles: number[];
   children: React.ReactNode;
 }): JSX.Element | null => {
+  const router = useRouter();
   const currentUser = useSelector((state: StoreState) => state.currentUser);
   const accessToken = useSelector((state: StoreState) => state.accessToken);
   const isAuthReady = useSelector((state: StoreState) => state.authState.isAuthReady);
-  const router = useRouter();
+
+  const [isClient, setIsClient] = useState(false);
+
+  // Ensure this component only runs on the client side
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  // If not on the client side, return null to prevent rendering
+  if (!isClient) {
+    return null;
+  }
 
   // Only proceed with auth checks when PersistLogin has completed its work
   if (!isAuthReady) {
-    return null;
+    return null; // Or return a loading spinner
   }
 
   if (!currentUser || !accessToken) {
@@ -35,6 +47,7 @@ const RequireAuth = ({
     return null;
   }
 
+  // Render children if authenticated and authorized
   return <>{children}</>;
 };
 

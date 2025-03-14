@@ -18,7 +18,7 @@ import { ICategory } from "@shared/types/entitiesTypes";
 import { useCategoriesAPIs } from "../../../../api/client/useCategoriesAPIs";
 import { AdminBreadcrumb, GlassWrapper } from "../../../../components";
 import { useHandleErrors, useNotify, useQuery } from "../../../../hooks";
-import { formatTimestamp } from "../../../../utils/formatTimestamp";
+import { formatTimestamp } from "../../../../utils/formatDate";
 import CreateCategory from "./_components/CreateCategory";
 import UpdateCategory from "./_components/UpdateCategory";
 
