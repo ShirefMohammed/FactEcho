@@ -17,6 +17,7 @@ import { IArticle, IAuthor } from "@shared/types/entitiesTypes";
 import { getServiceLogger } from "../../config/logger";
 import { articlesModel, authorsModel } from "../../database";
 import { ExtendedRequestHandler } from "../../types/requestHandlerTypes";
+import { cacheResponse } from "../../utils/cacheResponse";
 import { httpStatusText } from "../../utils/httpStatusText";
 
 // Logger for authors service
@@ -269,6 +270,9 @@ export const getAuthorArticles: ExtendedRequestHandler<
       limit,
       skip,
     );
+
+    // Cache response data
+    cacheResponse(req, { articles });
 
     // Send response with articles
     res.status(200).send({

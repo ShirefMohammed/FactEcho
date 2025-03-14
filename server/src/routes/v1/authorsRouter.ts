@@ -11,6 +11,8 @@ import {
 import { verifyJWT } from "../../middleware/verifyJWT";
 import { verifyRole } from "../../middleware/verifyRole";
 import { ROLES_LIST } from "../../utils/rolesList";
+import { checkCache } from "../../middleware/checkCache";
+// import {checkCache} from "../../"
 
 const router = express.Router();
 
@@ -471,6 +473,6 @@ router
  *                   type: string
  *                   example: "Internal server error."
  */
-router.route("/:authorId/articles").get(getAuthorArticles);
+router.route("/:authorId/articles").get(checkCache, getAuthorArticles);
 
 export default router;
