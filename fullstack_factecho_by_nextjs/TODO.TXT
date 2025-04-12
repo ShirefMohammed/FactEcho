@@ -1,0 +1,14 @@
+✅ To-Do
+  - Add API end point accessed only by the admin to handle unused files in cloudinary "Heavy operation on the DB"
+
+⏳ In Progress
+  - deploy to github and vercel
+  - Handle cors
+  - Secure my APIs form Dos
+  - Test google analytics, google page speed, lighthouse
+  - remove `console.log("pool still connected");`
+
+🎯 Finished
+  - Join express server to next js
+  - handle session update after avatar update
+  - Remove unnecessary logs

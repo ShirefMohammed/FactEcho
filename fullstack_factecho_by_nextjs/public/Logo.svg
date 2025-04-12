@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="60" viewBox="0 0 200 60">
+  <!-- Background (optional, can be removed) -->
+  <rect width="200" height="60" fill="white" />
+
+  <!-- Echo waves (left side of text) -->
+  <circle cx="30" cy="30" r="4" fill="#0066cc" />
+  <circle cx="30" cy="30" r="8" stroke="#0066cc" stroke-width="2" fill="none" />
+  <circle cx="30" cy="30" r="12" stroke="#0066cc" stroke-width="1" fill="none" />
+
+  <!-- Text: FactEcho -->
+  <text x="50" y="37" font-family="Arial, sans-serif" font-size="20" fill="#333" font-weight="bold">
+    Fact
+  </text>
+  <text x="91" y="37" font-family="Arial, sans-serif" font-size="20" fill="#0066cc" font-weight="bold">
+    Echo
+  </text>
+</svg>

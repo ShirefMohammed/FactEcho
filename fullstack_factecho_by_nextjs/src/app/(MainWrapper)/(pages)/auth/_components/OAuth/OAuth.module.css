@@ -1,0 +1,42 @@
+.OAuth {
+  width: 100%;
+}
+
+.OAuth button[type="button"] {
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 10px 45px;
+  margin: auto;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  color: inherit;
+  background-color: transparent;
+  border: 1px solid #bebebe;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-radius: 25px;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  -ms-border-radius: 25px;
+  -o-border-radius: 25px;
+}
+
+.OAuth button[type="button"]:hover {
+  border-color: gray;
+}
+
+.OAuth button[type="button"] img {
+  width: 18px;
+  height: 18px;
+  background: none;
+}
+
+.OAuth button[type="button"] span {
+  font-size: 14px;
+  font-weight: 700;
+}

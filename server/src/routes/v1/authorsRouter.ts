@@ -12,7 +12,6 @@ import { verifyJWT } from "../../middleware/verifyJWT";
 import { verifyRole } from "../../middleware/verifyRole";
 import { ROLES_LIST } from "../../utils/rolesList";
 import { checkCache } from "../../middleware/checkCache";
-// import {checkCache} from "../../"
 
 const router = express.Router();
 
