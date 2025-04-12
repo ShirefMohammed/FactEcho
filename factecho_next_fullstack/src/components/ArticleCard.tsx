@@ -11,10 +11,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
-import { ClickOutside } from "../components";
 import { useNotify } from "../hooks";
 import { ROLES_LIST } from "../utils/constants";
 import { formatCreatedSince } from "../utils/formatDate";
+import ClickOutside from "./ClickOutside";
 
 interface ArticleCardProps {
   article_id: IArticle["article_id"];
