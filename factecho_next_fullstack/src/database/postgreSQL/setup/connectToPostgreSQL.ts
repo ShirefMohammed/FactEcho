@@ -19,7 +19,7 @@ export let pool: Pool;
  */
 export const connectToPostgreSQL = async (): Promise<void> => {
   if (pool) {
-    console.log("pool still connected");
+    // console.log("pool still connected");
     return; // Return the existing pool if already connected
   }
 

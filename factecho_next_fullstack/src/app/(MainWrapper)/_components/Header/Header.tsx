@@ -70,7 +70,7 @@ const Header: React.FC = () => {
               </div>
             ) : (
               <Link
-                href="/auth"
+                href="/auth/login"
                 className="flex items-center bg-primaryColor text-white py-2 px-4 rounded"
               >
                 <svg
